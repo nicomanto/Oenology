@@ -6,4 +6,6 @@ build:
   artifacts:
     paths:
       - "oenology.pdf"
+  except:
+      - Dia
 
