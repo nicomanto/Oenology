@@ -1,0 +1,9 @@
+image: blang/latex
+
+build:
+  script:
+    - latexmk -pdf main.tex
+  artifacts:
+    paths:
+      - "oenology.pdf"
+
