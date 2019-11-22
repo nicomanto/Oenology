@@ -2,7 +2,7 @@ image: blang/latex
 
 build:
   script:
-    - latexmk -pdf main.tex
+    - latexmk -pdf -jobname=./oenology main.tex
   artifacts:
     paths:
       - "oenology.pdf"
