@@ -3,12 +3,12 @@
 - annata
 - classificazione 
 - bottiglia
-- etichetta
+- etichetta ***********
 - vino contenuto
 - n. bottiglie prodotte
 - n. bottiglie vendute
 - ordini pendenti
-- stato produzione
+- stato produzione ***********
 
 
 # Vino
