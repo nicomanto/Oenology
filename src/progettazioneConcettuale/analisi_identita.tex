@@ -1,18 +1,4 @@
-Il grassetto negli attributi indica che quell'attributo è o fa parte di una chiave. \\
-Il simbolo $\gets$ identifica una generalizzazione completa, cioè l'\textbf{entita'} a sinistra è una generalizzazione completa delle identità che stanno a destra.
-
-
-\begin{verse}
-	L'\textbf{entita'} \emph{NegozioInterno} è priva di attributi. 
-\end{verse}
-
-\begin{verse}
-	L'\textbf{entita'} \emph{ProduzioneVino} è una generalizzazione completa delle entita' \emph{IngrMateriePrime, Pigiatura, Fermentazione, Vinificazione, Svinatura} che sono tutte prive di attributi.
-\end{verse}
-\begin{verse}
-	Le \textbf{entita'} \emph{ProduzioneVino, Imbottigliamento, Magazzino} sono prive di attributi.
-\end{verse}
-
+Il grassetto negli attributi indica che quell'attributo è o fa parte di una chiave.
 \vspace{0.5cm}
 \begin{center}
 	\begin{tabular}{P{4cm}P{2cm}P{8cm}}
@@ -92,7 +78,7 @@ Il simbolo $\gets$ identifica una generalizzazione completa, cioè l'\textbf{ent
 	\vspace{0.5cm}
 	
 \begin{tabular}{P{4cm}P{2cm}P{8cm}}
-	\multicolumn{3}{c}{\textbf {\large {Fornitore} $\gets$ (\emph{FornitoreUva, FornitoreTappi, FornitoreBottiglie})}} \\
+	\multicolumn{3}{c}{\textbf {\large {Fornitore} (gen. \emph{FornitoreUva, FornitoreTappi, FornitoreBottiglie})}} \\
 	\toprule
 	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
 	\midrule
@@ -199,9 +185,17 @@ Il simbolo $\gets$ identifica una generalizzazione completa, cioè l'\textbf{ent
 
 	\vspace{0.5cm}
 
+\begin{tabular}{P{4cm}P{2cm}P{8cm}}
+	\multicolumn{3}{P{15cm}}{\textbf {\large {NegozioInterno}}} \\
+	\toprule
+	\multicolumn{3}{P{15cm}}{Nessun attributo}\\
+	\bottomrule
+\end{tabular}
+
+\vspace{0.5cm}
 
 \begin{tabular}{P{4cm}P{2cm}P{8cm}}
-	\multicolumn{3}{c}{\textbf {\large {Azienda} $\gets$ (\emph{NegozioInterno})}} \\
+	\multicolumn{3}{c}{\textbf {\large {Azienda} (gen. \emph{NegozioInterno})}} \\
 	\toprule
 	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
 	\midrule
@@ -223,7 +217,7 @@ Il simbolo $\gets$ identifica una generalizzazione completa, cioè l'\textbf{ent
 \vspace{0.5cm}
 
 \begin{tabular}{P{4cm}P{2cm}P{8cm}}
-	\multicolumn{3}{c}{\textbf {\large {Acquirente} $\gets$ (\emph{Azienda, Privato})}} \\
+	\multicolumn{3}{c}{\textbf {\large {Acquirente} (gen. \emph{Azienda, Privato})}} \\
 	\toprule
 	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
 	\midrule
@@ -269,9 +263,15 @@ Il simbolo $\gets$ identifica una generalizzazione completa, cioè l'\textbf{ent
 
 \vspace{0.5cm}
 
+\begin{verse}
+L'\textbf{entita'} \emph{ProduzioneVino} gen. le entita' \emph{IngrMateriePrime, Pigiatura, Fermentazione, Vinificazione, Svinatura} che sono tutte prive di attributi.
+\end{verse}
+\begin{verse}
+	Le \textbf{entita'} \emph{ProduzioneVino, Imbottigliamento, Magazzino} sono prive di attributi;
+\end{verse}
 
 \begin{tabular}{P{4cm}P{2cm}P{8cm}}
-	\multicolumn{3}{c}{\textbf {\large {LineaProduttiva} $\gets$ (\emph{ProduzioneVino, Imbottigliamento, Magazzino})}} \\
+	\multicolumn{3}{c}{\textbf {\large {LineaProduttiva} (gen. \emph{ProduzioneVino, Imbottigliamento, Magazzino})}} \\
 	\toprule
 	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
 	\midrule
