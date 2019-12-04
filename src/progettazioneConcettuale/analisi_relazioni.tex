@@ -44,7 +44,7 @@
 \end{itemize}
 
 \begin{verse}
-*\emph{Nella relazione sono presenti gli attributi \textbf{DataAcquisto,Prezzo,Quantità} perchè una fornitura d'uva può essere richiesta più volte in data, prezzo e quantità diverse}
+*\emph{Nella relazione sono presenti gli attributi \textbf{DataAcquisto, Prezzo, Quantità} perchè una fornitura d'uva può essere richiesta più volte in data, prezzo e quantità diverse}
 \end{verse}
 
 \begin{itemize}
@@ -59,7 +59,7 @@
 
 
 \begin{verse}
-	*\emph{Nella relazione sono presenti gli attributi \textbf{DataAcquisto,Prezzo,Quantità} perchè una fornitura di tappi può essere richiesta più volte in data, prezzo e quantità diverse}
+	*\emph{Nella relazione sono presenti gli attributi \textbf{DataAcquisto, Prezzo, Quantità} perchè una fornitura di tappi può essere richiesta più volte in data, prezzo e quantità diverse}
 \end{verse}
 
 
@@ -75,11 +75,11 @@
 
 
 \begin{verse}
-	*\emph{Nella relazione sono presenti gli attributi \textbf{DataAcquisto,Prezzo,Quantità} perchè una fornitura di bottiglie può essere richiesta più volte in data, prezzo e quantità diverse}
+	*\emph{Nella relazione sono presenti gli attributi \textbf{DataAcquisto, Prezzo, Quantità} perchè una fornitura di bottiglie può essere richiesta più volte in data, prezzo e quantità diverse}
 \end{verse}
 
 \begin{itemize}
-	\item \underline{BottigliaVino - Vino}: \textbf{TipoVino}
+	\item \underline{BottigliaDiVino - Vino}: \textbf{TipoVino}
 	
 	\begin{itemize}
 		\item La bottiglia di vino contiene una sola tipologia di vino (1,1)
@@ -93,21 +93,21 @@
 \end{verse}
 
 \begin{itemize}
-	\item \underline{BottigliaVino - Tappo}: \textbf{TipoTappo}
+	\item \underline{BottigliaDiVino - Tappo}: \textbf{TipoTappo}
 	
 	\begin{itemize}
-		\item La bottiglia di vino contiene ha una sola tipologia di tappo (1,1)
+		\item La bottiglia di vino ha una sola tipologia di tappo (1,1)
 		\item Un tipo di tappo può appartenere a nessuna o più bottiglie di vino (0,N)*
 	\end{itemize}
 	
 \end{itemize}
 
 \begin{verse}
-	*\emph{(0,N) perchè una tipologia di tappo può essere appena stato acquistato e quindi non è stato ancora asseganto a nessuna bottiglia di vino.}
+	*\emph{(0,N) perchè una tipologia di tappo può essere appena stato acquistato e quindi non è stato ancora assegnato a nessuna bottiglia di vino.}
 \end{verse}
 
 \begin{itemize}
-	\item \underline{BottigliaVino - Bottiglia}: \textbf{TipoBottiglia}
+	\item \underline{BottigliaDiVino - Bottiglia}: \textbf{TipoBottiglia}
 	
 	\begin{itemize}
 		\item La bottiglia di vino è formata da una sola tipologia di bottiglia (1,1)
@@ -121,7 +121,17 @@
 \end{verse}
 
 \begin{itemize}
-	\item \underline{BottigliaVino - Ordine}: \textbf{Contenuto}*
+	\item \underline{BottigliaDiVino - Magazzino}: \textbf{Conservata}
+	
+	\begin{itemize}
+		\item Una tipologia di bottiglia di vino è conservata in un unico magazzino (1,1)
+		\item Un magazzino contiene solo una tipologia di vino (1,1)
+	\end{itemize}
+	
+\end{itemize}
+
+\begin{itemize}
+	\item \underline{BottigliaDiVino - Ordine}: \textbf{Contenuto}*
 	
 	\begin{itemize}
 		\item Un tipo di bottiglia di vino può appartenere a nessuno o pù ordini di vendita (0,N)
@@ -131,7 +141,7 @@
 \end{itemize}
 
 \begin{verse}
-	*\emph{Nella relazione è presente l'attributo \textbf{QuantitàBottiglie} perchè serve sapere il numero di bottiglie di vino per tipologia dell'ordine}
+	*\emph{Nella relazione è presente l'attributo \textbf{QuantitàBottiglie} perchè serve sapere il numero di bottiglie di vino per tipologia vendute nell'ordine}
 \end{verse}
 
 \begin{itemize}
@@ -162,15 +172,15 @@
 	\item \underline{NegozioInterno - Partecipante - Evento}: \textbf{Ospita}*
 	
 	\begin{itemize}
-		\item Un negozio interno può ospitare o non un evento (0,N)
+		\item Un negozio interno può ospitare o nessuno o molteplici eventi (0,N)
 		\item Un partecipante può partecipare ad un solo evento in un solo negozio(1,1)*
-		\item Un evento può essere ospitato in uno a molteplici negozi(1,N)
+		\item Un evento può essere ospitato in uno o in molteplici negozi(1,N)
 	\end{itemize}
 	
 \end{itemize}
 
 \begin{verse}
-	*\emph{Nella relazione è presente l'attributo \textbf{Data} perchè un evento può essere ospitato in un negozio in una sola data. Per questo motivo il partecipante partecipa ad un solo evento in una determinata data}
+	*\emph{Nella relazione è presente l'attributo \textbf{Data} perchè un evento può essere ospitato in un negozio, in una sola data. Per questo motivo il partecipante assiste ad un solo evento in una determinata data}
 \end{verse}
 
 \begin{itemize}
@@ -199,6 +209,65 @@
 	\begin{itemize}
 		\item Una tipologia di bottiglia di vino è conservata in un unico magazzino (1,1)
 		\item Un magazzino contiene solo una tipologia di vino (1,1)
+	\end{itemize}
+	
+\end{itemize}
+
+
+\begin{itemize}
+	\item \underline{LineaProduttiva - Dipendente}: \textbf{Lavora}*
+	
+	\begin{itemize}
+		\item In una linea produttiva possono lavorare da uno a molteplici dipendenti (1,N)
+		\item Un dipendete può lavorare in una sola linea produttiva (1,1)
+	\end{itemize}
+	
+\end{itemize}
+
+\begin{verse}
+	*\emph{Nella relazione sono presenti gli attributi \textbf{InizioTurno, FineTurno} perchè è utile rappresentare il giorno e l'orario in cui un dipendente lavora. Entrambi gli attributi sono rappresentati attraverso il tipo DATETIME}
+\end{verse}
+
+\begin{itemize}
+	\item \underline{LineaProduttiva - Dipendente}: \textbf{Diretto}
+	
+	\begin{itemize}
+		\item Una linea produttiva è diretta da un solo dipendente (1,1)
+		\item Un dipendete può dirigere o nessuna o più linee produttive (0,N)
+	\end{itemize}
+	
+\end{itemize}
+
+\begin{itemize}
+	\item \underline{LineaProduttiva - Macchinario}: \textbf{Utilizzo}
+	
+	\begin{itemize}
+		\item In una linea produttiva possono esserci uno a molteplici macchinari (1,N)
+		\item Un macchinario può appartenere ad una singola linea produttiva (1,1)
+	\end{itemize}
+	
+\end{itemize}
+
+\begin{itemize}
+	\item \underline{Macchinario - AziendaManutenzione}: \textbf{Manutenzione}*
+	
+	\begin{itemize}
+		\item Un macchinario può ricevere o nessuna o molteplici manutenzioni (0,N)
+		\item Un'azienda di manutenzione può revisionare uno o molteplici macchinari (1,N)
+	\end{itemize}
+	
+\end{itemize}
+
+\begin{verse}
+	*\emph{Nella relazione è presente l'attributo \textbf{Costo} che identifica il costo della singola manutenzione su un determinato macchinario fatto da una determinata azienda}
+\end{verse}
+
+\begin{itemize}
+	\item \underline{Dipendente - Dipendente}: \textbf{Referisce}
+	
+	\begin{itemize}
+		\item Un dipendente può essere riferito da uno o molteplici altri dipendenti (1,N)
+		\item Un dipendente può riferire o nessuno o un dipendente (0,1)
 	\end{itemize}
 	
 \end{itemize}

@@ -10,7 +10,7 @@ Il simbolo $\gets$ identifica una generalizzazione completa, cioè l'\textbf{ent
 	L'\textbf{entita'} \emph{ProduzioneVino} è una generalizzazione completa delle entita' \emph{IngrMateriePrime, Pigiatura, Fermentazione, Vinificazione, Svinatura} che sono tutte prive di attributi.
 \end{verse}
 \begin{verse}
-	Le \textbf{entita'} \emph{ProduzioneVino, Imbottigliamento, Magazzino} sono prive di attributi.
+	Le \textbf{entita'} \emph{ProduzioneVino, Imbottigliamento} sono prive di attributi.
 \end{verse}
 
 \vspace{0.5cm}
@@ -271,11 +271,22 @@ Il simbolo $\gets$ identifica una generalizzazione completa, cioè l'\textbf{ent
 
 
 \begin{tabular}{P{4cm}P{2cm}P{8cm}}
-	\multicolumn{3}{c}{\textbf {\large {LineaProduttiva} $\gets$ (\emph{ProduzioneVino, Imbottigliamento, Magazzino})}} \\
+	\multicolumn{3}{c}{\textbf {\large {LineaProduttiva} $\gets$ (\emph{ProduzioneVino, Imbottigliamento})}} \\
 	\toprule
 	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
 	\midrule
 	\textbf{ID} & VARCHAR &  Rappresenta univocamente la linea produttiva\\
+	\bottomrule
+\end{tabular}
+
+\vspace{0.5cm}
+
+\begin{tabular}{P{4cm}P{2cm}P{8cm}}
+	\multicolumn{3}{c}{\textbf {\large {Magazzino}}} \\
+	\toprule
+	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
+	\midrule
+	\textbf{NumBottiglie} & INTEGER &  Rappresenta la quantità delle bottiglie di vino, divise per tipologia, contenute nel magazzino\\
 	\bottomrule
 \end{tabular}
 
