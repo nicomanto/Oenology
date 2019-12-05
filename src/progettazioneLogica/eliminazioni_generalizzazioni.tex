@@ -14,14 +14,14 @@ L'entità \emph{Fornitore} presenta solo un attributo comune a tutte le entità 
 
 \begin{flushleft}
 	\textbf{\large{Azienda}}\\
-	L'entità \emph{Azienda} può essere un negozio interno della cantina. Per ristruttrua questa generalizzazione si è deciso di aggiungere un attributo BOOLEAN all'entità \emph{Azienda} chiamato  \textbf{IsNegozioInterno} (visto che \emph{NegozioInterno} non ha nessun attributo) che va ad identificare se l'azienda è effettivamente un negozio della cantina. Bisogna quindi prestare attenzione all'organizzazione di eventi che possono essere ospitati solo da aziende che sono negozi interni, e che quindi hanno l'attributo  \textbf{IsNegozioInterno} settato a TRUE.
+	L'entità \emph{Azienda} può essere un negozio interno della cantina. Per ristrutturare questa generalizzazione si è deciso di aggiungere una relazione chiamata \emph{IsNegozioInterno} con cardinalità (0,1) da \emph{Azienda a NegozioInterno} perchè un'azienda può o non essere un \emph{NegozioInterno}. La cardinalità da \emph{NegozioInterno a Azienda} è (1,1) perchè un negozio interno è anch'egli un'azienda. L'entità \emph{NegozioInterno} avrà un attributo \textbf{ID} che sarà chiave primaria e chiave referenziale con l'attributo \textbf{ID} di \emph{Azienda}. Si è scelta questa strada perchè il carico di aziende che non sono negozi interni è maggiore rispetto a quelle che sono negozi interni, perciò è stato escluso l'aggiunta di un attributo in \emph{Azienda} che identificava se quest'ultima era anche negozio interno.
 \end{flushleft}
 
 \begin{flushleft}
 	\textbf{\large{LineaProduttiva}}\\
-	L'entità \emph{LineaProduttiva} è una generalizzazione a più livelli, infatti essa generalizza le entità \emph{ProduzioneVino, Imbottigliamento, Magazzino}. A sua volta l'entità \textbf{ProduzioneVino} generalizza \emph{IngrMateriePrime, Pigiatura, Fermentazione, Vinificazione, Svinatura}. Essendo tutte generalizzazione complete e non avendo attributi (a parte l'entità \emph{Magazzino}*) che vanno a particolarizzare le varie entità figlie, si è deciso di aggiungere un attributo \textbf{Tipologia} nell'entità \emph{LineaProduttiva} che identifica queste specializzazioni.
+	L'entità \emph{LineaProduttiva} è una generalizzazione a più livelli, infatti essa generalizza le entità \emph{ProduzioneVino, Imbottigliamento, Magazzino}. A sua volta l'entità \textbf{ProduzioneVino} generalizza \emph{IngrMateriePrime, Pigiatura, Fermentazione, Vinificazione, Svinatura}. Essendo tutte generalizzazioni complete e non avendo attributi (a parte l'entità \emph{Magazzino}*) che vanno a particolarizzare le varie entità figlie, si è deciso di aggiungere un attributo \textbf{Tipologia} nell'entità \emph{LineaProduttiva} che identifica queste specializzazioni.
 \end{flushleft}
 
 \begin{verse}
-	*L'attributo \textbf{NumBottiglie} dell'entità \emph{Magazzino}, essendo di cardinalità (1,1) per l'entità \emph{BottigliaDiVino}, è stato assegnato a quest'ultima perchè viene identificato univocamento per ogni tipologia di bottiglia di vino.
+	*L'attributo \textbf{NumBottiglie} dell'entità \emph{Magazzino}, essendo di cardinalità (1,1) per l'entità \emph{BottigliaDiVino}, è stato assegnato a quest'ultima rinominandolo \textbf{NumBottiglieMagazzino} perchè viene identificato univocamento per ogni tipologia di bottiglia di vino.
 \end{verse}
