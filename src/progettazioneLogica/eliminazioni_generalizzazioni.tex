@@ -1,0 +1,27 @@
+Lo schema concenttuale presenta molte generalizzazioni. Si procede all'analisi di quest'ultime per permettere la traduzione verso lo schema logico.\\
+
+\begin{flushleft}
+\textbf{\large{Fornitore}}\\
+L'entità \emph{Fornitore} presenta solo un attributo comune a tutte le entità figlie, cioè l'identificatore \textbf{ID}. Inoltre l'entità padre \emph{Fornitore} non presenta nessuna relazione con nessun' altra e entità, cose che invece avviene per tutte e tre le entità figlie. Essendo una generalizzazione completa si è deciso di aggiungere l'attributo \textbf{ID} alle entità figlie \emph{FornitoreUva, FornitoreTappi, FornitoreBottiglie} e di eliminare l'entità padre \emph{Fornitore}. 
+\end{flushleft}
+
+
+\begin{flushleft}
+	\textbf{\large{Acquirente}}\\
+	L'entità \emph{Acquirente} presenta molteplici attributi ed una relazione. A loro volta anche le entità figlie \emph{Azienda e Privato} hanno attributi significativi. Per ristrutturare questa generalizzazione si è deciso di creare due relazioni differenti. La prima si chiama \textbf{IsAzienda} dove la cardinalità in entrambi i versi è di (1,1), cioè un' acquirente può essere solo un' azienda, ed un' azienda è identificata come un solo acquirente.
+	La seconda relazione si chiama \textbf{IsPrivato} dove le cardinalità sono rappresentate come fra \emph{Azienda ed Acquirente}. Le entità \emph{Azienda e Privato} avranno sempre gli attributi visti in precedenza ed inoltre l'attributo \textbf{ID} che ha il ruolo di chiave primaria e di chiave referenziale con l'attributo \textbf{ID} di \emph{Acquirente}. 
+\end{flushleft}
+
+\begin{flushleft}
+	\textbf{\large{Azienda}}\\
+	L'entità \emph{Azienda} può essere un negozio interno della cantina. Per ristruttrua questa generalizzazione si è deciso di aggiungere un attributo BOOLEAN all'entità \emph{Azienda} chiamato  \textbf{IsNegozioInterno} (visto che \emph{NegozioInterno} non ha nessun attributo) che va ad identificare se l'azienda è effettivamente un negozio della cantina. Bisogna quindi prestare attenzione all'organizzazione di eventi che possono essere ospitati solo da aziende che sono negozi interni, e che quindi hanno l'attributo  \textbf{IsNegozioInterno} settato a TRUE.
+\end{flushleft}
+
+\begin{flushleft}
+	\textbf{\large{LineaProduttiva}}\\
+	L'entità \emph{LineaProduttiva} è una generalizzazione a più livelli, infatti essa generalizza le entità \emph{ProduzioneVino, Imbottigliamento, Magazzino}. A sua volta l'entità \textbf{ProduzioneVino} generalizza \emph{IngrMateriePrime, Pigiatura, Fermentazione, Vinificazione, Svinatura}. Essendo tutte generalizzazione complete e non avendo attributi (a parte l'entità \emph{Magazzino}*) che vanno a particolarizzare le varie entità figlie, si è deciso di aggiungere un attributo \textbf{Tipologia} nell'entità \emph{LineaProduttiva} che identifica queste specializzazioni.
+\end{flushleft}
+
+\begin{verse}
+	*L'attributo \textbf{NumBottiglie} dell'entità \emph{Magazzino}, essendo di cardinalità (1,1) per l'entità \emph{BottigliaDiVino}, è stato assegnato a quest'ultima perchè viene identificato univocamento per ogni tipologia di bottiglia di vino.
+\end{verse}
