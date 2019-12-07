@@ -1,0 +1,11 @@
+image: blang/latex
+
+build:
+  script:
+    - latexmk -pdf -jobname=./oenology main.tex
+  artifacts:
+    paths:
+      - "oenology.pdf"
+  except:
+      - Dia
+
