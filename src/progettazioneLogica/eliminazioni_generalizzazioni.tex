@@ -2,7 +2,7 @@ Lo schema concenttuale presenta molte generalizzazioni. Si procede all'analisi d
 
 \begin{flushleft}
 	\textbf{\large{Fornitore}}\\
-	L'entità \emph{Fornitore} presenta solo un attributo comune a tutte le entità figlie, cioè l'identificatore \textbf{ID}. Inoltre l'entità padre \emph{Fornitore} non presenta nessuna relazione con nessun' altra e entità, cose che invece avviene per tutte e tre le entità figlie. Essendo una generalizzazione completa si è deciso di eliminare l'entità padre \emph{Fornitore}. 
+	L'entità \emph{Fornitore} presenta solo due attributi comuni a tutte le entità figlie, cioè l'identificatore \textbf{ID} e il \textbf{Nome}. Inoltre l'entità padre \emph{Fornitore} non presenta nessuna relazione con nessun' altra e entità, cose che invece avviene per tutte e tre le entità figlie. Essendo una generalizzazione completa si è deciso di eliminare l'entità padre \emph{Fornitore}. 
 \end{flushleft}
 
 
@@ -19,7 +19,7 @@ Lo schema concenttuale presenta molte generalizzazioni. Si procede all'analisi d
 
 \begin{flushleft}
 	\textbf{\large{LineaProduttiva}}\\
-	L'entità \emph{LineaProduttiva} è una generalizzazione a più livelli, infatti essa generalizza le entità \emph{ProduzioneVino, Imbottigliamento, Magazzino}. A sua volta l'entità \textbf{ProduzioneVino} generalizza \emph{IngrMateriePrime, Pigiatura, Fermentazione, Vinificazione, Svinatura}. Infine l'entità \emph{Magazzino} generalizza le entità \emph{MagTorino, MagNapoli, MagFirenze, MagMilano, MagCagliari}. Essendo tutte generalizzazioni complete e non avendo attributi (a parte l'entità \emph{Magazzino}*) che vanno a particolarizzare le varie entità figlie, si è deciso di aggiungere un attributo \textbf{Tipologia} nell'entità \emph{LineaProduttiva} che identifica queste specializzazioni.
+	L'entità \emph{LineaProduttiva} è una generalizzazione a più livelli, infatti essa generalizza le entità \emph{ProduzioneVino, Imbottigliamento, Magazzino}. A sua volta l'entità \textbf{ProduzioneVino} generalizza \emph{IngrMateriePrime, Pigiatura, Fermentazione, Vinificazione, Svinatura}. Infine l'entità \emph{Magazzino} generalizza le entità \emph{MagBianco, MagSpumante, MagRosato, MagRosso}. Essendo tutte generalizzazioni complete e non avendo attributi (a parte l'entità \emph{Magazzino}*) che vanno a particolarizzare le varie entità figlie, si è deciso di aggiungere un attributo \textbf{Tipologia} nell'entità \emph{LineaProduttiva} che identifica queste specializzazioni.
 \end{flushleft}
 
 \begin{verse}
