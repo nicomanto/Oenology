@@ -1,0 +1,41 @@
+\begin{center}
+	\begin{tabular}{P{2cm}P{8cm}P{4cm}}
+		\toprule
+		\rowcolor[rgb]{.929, .929, .929} Termine & Descrizione & Collegamento \\
+		\midrule
+		Bottiglia di vino & Una bottiglia di vino della cantina in vendita & Vino, Tappo, Bottiglia, Magazzino, Ordine\\
+		\midrule
+		Vino & Il vino prodotto all'interno della cantina & Uva, Linea produttiva (produzione del vino), Evento (tema principale), Bottiglia di vino \\
+		\midrule
+		Uva & Uva da cui si ricava il vino &  Fornitore (fornitore uva), Vigna, Vino\\
+		\midrule
+		Vigna & Vigna dalla quale proviene un tipo di uva della cantina &  Uva, Vigneto\\
+		\midrule
+		Vigneto & Raggruppa un tipo di vigna &  Vigna\\
+		\midrule
+		Fornitore & Fornisce la cantina su alcuni prodotti. Si suddivide in fornitore d'uva, fornitore di tappi, fornitore di bottiglie &  Uva (fornitore d'uva), Tappo (fornitore di tappi), Bottiglia (fornitore di bottiglie)\\
+		\midrule
+		Tappo & Rappresenta una tipologia di tappo che va ad identificare una bottiglia di vino &  Fornitore (fornitore tappi), Bottiglia di vino\\
+		\midrule
+		Bottiglia & Rappresenta una tipologia di bottiglia che va ad identificare una bottiglia di vino &  Fornitore (fornitore bottiglie), Bottiglia di vino\\
+		\midrule
+		Ordine & Rappresenta un ordine di vendita acquistato da un acquirente &  Bottiglia di vino, Corriere, Acquirente\\
+		\midrule
+		Corriere & Colui che si occupa della spedizione dell'ordine &  Ordine\\
+		\midrule
+		Acquirente & Colui che ha acquistato l'ordine. Si divide in azienda o privato. A sua volta l'azienda può essere un negozio interno della cantina &  Ordine, Evento (Negozio interno), Partecipante (Negozio interno)\\
+		\midrule
+		Evento & Rappresenta un evento enoico organizzato all'interno di un nostro negozio. Il tema è un vino della nostra cantina  &  Vino (tema dell'evento), Acquirente(Negozio interno), Partecipante\\
+		\midrule
+		Partecipante & Una persona che partecipa ad un evento di un nostro negozio &  Evento, Acquirente (Negozio interno)\\
+		\midrule
+		Linea produttiva & Rappresenta un reparto di produzione della nostra cantina. Si divide in imbottigliamento, magazzino e produzione del vino. A sua volta produzione del vino si divide in ingresso materie prime, pigiatura, fermentazione, vinificazione e svinatura &  Dipendente(chi dirige la linea produttiva e chi lavora all'interno della linea produttiva), Macchinario, Vino (Produzione del vino), Bottiglia di vino (Magazzino)\\
+		\midrule
+		Dipendente & Colui che lavora all'interno della cantina &  Linea produttiva (Colui che dirige o che lavora all'interno della linea produttiva), Dipendente (Colui che referisce o che viene riferito da un altro dipendente)\\
+		\midrule
+		Macchinario & Una strumentazione che serve all'interno delle linee produttive &  Linea produttiva, Azienda manutenzione\\
+		\midrule
+		Azienda manutenzione & L'azienda che si occupa di revisionare lo stato dei macchinari e definire se sono idonei al carico di lavoro &  Macchinario\\
+		\bottomrule
+	\end{tabular}
+\end{center}
