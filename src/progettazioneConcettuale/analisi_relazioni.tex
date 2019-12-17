@@ -19,11 +19,21 @@
 \end{itemize}
 
 \begin{itemize}
+	\item \underline{Uva - TipoUva}: \textbf{TipologiaUva}
+	
+	\begin{itemize}
+		\item Un tipo d'annata d'uva proviene da un solo tipo d'uva (1,1)
+		\item Un tipo d'uva può rappresentare uva d'annata diversa (1,N)
+	\end{itemize}
+	
+\end{itemize}
+
+\begin{itemize}
 	\item \underline{Uva - Vino}: \textbf{Prodotto}
 	
 	\begin{itemize}
-		\item Da un tipo di uva possono essere prodotti o nessuno o più tipi di vino (0,N)*
-		\item Un vino è prodotto da un solo tipo d'uva (1,1)
+		\item Da un tipo d'annata d'uva possono essere prodotti o nessuno o più tipi di vino (0,N)*
+		\item Un vino è prodotto da un solo tipo d'annata d'uva (1,1)
 	\end{itemize}
 	
 \end{itemize}
@@ -34,49 +44,19 @@
 
 
 \begin{itemize}
-	\item \underline{Uva - FornitoreUva}: \textbf{FornisceUva}*
+	\item \underline{MateriaPrima - Fornitore}: \textbf{Fornitura}*
 	
 	\begin{itemize}
-		\item L'uva viene fornita da uno o più fornitori diversi (1,N)
-		\item Un fornitore di uva fornisce da una o più tipologie d'uva (1,N)
+		\item La Materia prima viene fornita da un solo tipo di fornitore (1,1)
+		\item Un fornitore  fornisce da una o più tipologie di materie prime (1,N)
 	\end{itemize}
 	
 \end{itemize}
 
 \begin{verse}
-*\emph{Nella relazione sono presenti gli attributi \textbf{DataAcquisto, Prezzo, Quantità} perchè una fornitura d'uva può essere richiesta più volte in data, prezzo e quantità diverse}
+*\emph{Nella relazione sono presenti gli attributi \textbf{DataAcquisto, Prezzo, Quantità} perchè una fornitura può essere richiesta più volte in data, prezzo e quantità diverse}
 \end{verse}
 
-\begin{itemize}
-	\item \underline{Tappo - FornitoreTappi}: \textbf{FornisceTappo}*
-	
-	\begin{itemize}
-		\item Il tappo viene fornito da uno o più fornitori diversi (1,N)
-		\item Un fornitore di tappi fornisce da uno o più tipi di tappo (1,N)
-	\end{itemize}
-	
-\end{itemize}
-
-
-\begin{verse}
-	*\emph{Nella relazione sono presenti gli attributi \textbf{DataAcquisto, Prezzo, Quantità} perchè una fornitura di tappi può essere richiesta più volte in data, prezzo e quantità diverse}
-\end{verse}
-
-
-\begin{itemize}
-	\item \underline{Bottiglia - FornitoreBottiglie}: \textbf{FornisceBottiglia}*
-	
-	\begin{itemize}
-		\item La bottiglia viene fornita da uno o più fornitori diversi (1,N)
-		\item Un fornitore di bottiglie fornisce da uno o più tipi di bottiglie (1,N)
-	\end{itemize}
-	
-\end{itemize}
-
-
-\begin{verse}
-	*\emph{Nella relazione sono presenti gli attributi \textbf{DataAcquisto, Prezzo, Quantità} perchè una fornitura di bottiglie può essere richiesta più volte in data, prezzo e quantità diverse}
-\end{verse}
 
 \begin{itemize}
 	\item \underline{BottigliaDiVino - Vino}: \textbf{TipoVino}
