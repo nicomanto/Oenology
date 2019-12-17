@@ -1,17 +1,47 @@
 SET FOREIGN_KEY_CHECKS=0;
-DROP TABLE IF EXISTS Uva, Dipendenti, LineeProduttive, Vini, Aziende, Fornitori,
+DROP TABLE IF EXISTS TipiUva, Uva, Dipendenti, LineeProduttive, Vini, Aziende, Fornitori,
                     Tappi, Bottiglie, BottiglieDiVino, Indirizzi, Vigneti, Vigne,
                     Macchinari, Manutenzione, Turni, Acquirenti, Ordini, Privati,
                     Dettagli, Corrieri, Spedizioni, NegoziInterni, Eventi, Ospita,
                     Partecipanti, TemiVino;
 SET FOREIGN_KEY_CHECKS=1;
 
-CREATE TABLE Uva (
+CREATE TABLE Aziende (
+    PartitaIVA VARCHAR(255) NOT NULL,
+    Nome VARCHAR(255) NOT NULL,
+    NomeReferente VARCHAR(255) NOT NULL,
+    CognomeReferente VARCHAR(255) NOT NULL,
+
+    PRIMARY KEY (PartitaIVA)
+);
+
+CREATE TABLE Fornitori (
     Id INTEGER NOT NULL,
+    Azienda VARCHAR(255) NOT NULL,
+    Tipologia VARCHAR(255) NOT NULL,
+
+    PRIMARY KEY (Id),
+    CHECK (Tipologia = 'Uva' OR Tipologia = 'Tappo' OR Tipologia = 'Bottiglia'),
+    FOREIGN KEY (Azienda) REFERENCES Aziende(PartitaIVA)
+);
+
+CREATE TABLE TipiUva (
+    Id INTEGER NOT NULL AUTO_INCREMENT,
     Nome VARCHAR(255) NOT NULL,
     Colore VARCHAR(255) NOT NULL,
 
     PRIMARY KEY (Id)
+);
+
+CREATE TABLE Uva (
+    Id INTEGER NOT NULL,
+    TipoUva INTEGER NOT NULL,
+    Fornitore INTEGER NOT NULL,
+    Annata INTEGER NOT NULL,
+
+    PRIMARY KEY (Id),
+    FOREIGN KEY (Fornitore) REFERENCES Fornitori(Id),
+    FOREIGN KEY (TipoUva) REFERENCES TipiUva(Id)
 );
 
 CREATE TABLE Dipendenti (
@@ -39,31 +69,12 @@ CREATE TABLE Vini (
     GradazioneAlcolica TINYINT NOT NULL,
     TempoFermentazione TINYINT NOT NULL,
     StatoProduzione BOOLEAN NOT NULL,
-    TipologiaUva INTEGER NOT NULL,
     IdProduzione INTEGER NOT NULL,
+    Uva INTEGER NOT NULL,
 
     PRIMARY KEY (Nome),
-    FOREIGN KEY (TipologiaUva) REFERENCES Uva(Id),
+    FOREIGN KEY (Uva) REFERENCES Uva(Id),
     FOREIGN KEY (IdProduzione) REFERENCES LineeProduttive(Id)
-);
-
-CREATE TABLE Aziende (
-    PartitaIVA VARCHAR(255) NOT NULL,
-    Nome VARCHAR(255) NOT NULL,
-    NomeReferente VARCHAR(255) NOT NULL,
-    CognomeReferente VARCHAR(255) NOT NULL,
-
-    PRIMARY KEY (PartitaIVA)
-);
-
-CREATE TABLE Fornitori (
-    Id INTEGER NOT NULL,
-    Azienda VARCHAR(255) NOT NULL,
-    Tipologia VARCHAR(255) NOT NULL,
-
-    PRIMARY KEY (Id),
-    CHECK (Tipologia = 'Uva' OR Tipologia = 'Tappo' OR Tipologia = 'Bottiglia'),
-    FOREIGN KEY (Azienda) REFERENCES Aziende(PartitaIVA)
 );
 
 CREATE TABLE Tappi (
