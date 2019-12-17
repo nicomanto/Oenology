@@ -5,7 +5,7 @@ Il simbolo $\gets$ identifica una generalizzazione completa, cioè l'\textbf{ent
 	L'\textbf{entita'} \emph{ProduzioneVino} è una generalizzazione completa delle entita' \emph{IngrMateriePrime, Pigiatura, Fermentazione, Vinificazione, Svinatura} che sono tutte prive di attributi.
 \end{verse}
 \begin{verse}
-	Le \textbf{entita'} \emph{ProduzioneVino, Imbottigliamento, NegozioInterno, MagBianco, MagRosso, MagRosato, MagSpumante} sono prive di attributi.
+	Le \textbf{entita'} \emph{ProduzioneVino, Imbottigliamento, NegozioInterno, MagBianco, MagRosso, MagRosato, MagSpumante, FornitoreUva, FornitoreTappi, FornitoreBottiglie} sono prive di attributi.
 \end{verse}
 
 \vspace{0.5cm}
@@ -39,48 +39,36 @@ Il simbolo $\gets$ identifica una generalizzazione completa, cioè l'\textbf{ent
 		\vspace{0.5cm}
 	
 	\begin{tabular}{P{4cm}P{2cm}P{8cm}}
-		\multicolumn{3}{c}{\textbf {\large {Uva}}} \\
+		\multicolumn{3}{c}{\textbf {\large {TipoUva}}} \\
 		\toprule
 		\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
 		\midrule
-		\textbf{Nome} & VARCHAR &  Identifica univocamente il tipo d'uva\\
+		\textbf{Colore} & VARCHAR & Rappresenta il colore dell'uva \\
 		\midrule
-		\textbf{AnnoRaccolta} & INTEGER & Anno in cui viene raccolta l'uva \\
-		\midrule
-		Colore & VARCHAR & Identifica il colore dell'uva \\
-		\bottomrule
-	\end{tabular}
-
-		\vspace{0.5cm}
-	
-	\begin{tabular}{P{4cm}P{2cm}P{8cm}}
-		\multicolumn{3}{c}{\textbf {\large {FornitoreUva}}} \\
-		\toprule
-		\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
-		\midrule
-		PrezzoAlKg & DECIMAL & Identifica il prezzo di vendita dell'uva in kg da parte del fornitore \\
+		\textbf{Nome} & VARCHAR & Rappresenta il nome dell'uva \\
 		\bottomrule
 	\end{tabular}
 	
 	\vspace{0.5cm}
-
 	\begin{tabular}{P{4cm}P{2cm}P{8cm}}
-	\multicolumn{3}{c}{\textbf {\large {FornitoreTappi}}} \\
-	\toprule
-	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
-	\midrule
-	PrezzoAlTappo & DECIMAL & Identifica il prezzo di vendita di un tipo di tappo da parte del fornitore\\
-	\bottomrule
-\end{tabular}
+		\multicolumn{3}{c}{\textbf {\large {Uva}}} \\
+		\toprule
+		\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
+		\midrule
+		Annata & INTEGER & Anno in cui viene raccolta l'uva \\
+		\bottomrule
+	\end{tabular}
 
-\vspace{0.5cm}
+		\vspace{0.5cm}
 
 \begin{tabular}{P{4cm}P{2cm}P{8cm}}
-	\multicolumn{3}{c}{\textbf {\large {FornitoreBottiglie}}} \\
+	\multicolumn{3}{c}{\textbf {\large {MateriaPrima} $\gets$ (\emph{Uva, Tappo, Bottiglia})}} \\
 	\toprule
 	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
 	\midrule
-	PrezzoABottiglia & DECIMAL & Identifica il prezzo di vendita di una particolare bottiglia da parte del fornitore \\
+	\textbf{ID} & INTEGER &  Rappresenta univocamente la materia prima\\
+	\midrule
+	Prezzo & DECIMAL &  Rappresenta il prezzo della materia prima\\
 	\bottomrule
 \end{tabular}
 
@@ -94,6 +82,7 @@ Il simbolo $\gets$ identifica una generalizzazione completa, cioè l'\textbf{ent
 	\textbf{Id} & VARCHAR &  Identifica univocamente il fornitore\\
 	\midrule
 	Nome & VARCHAR &  Identifica il nome commerciale del fornitore\\
+	\midrule
 	PartitaIVA & VARCHAR &  Identifica la partita IVA del fornitore\\
 	\bottomrule
 \end{tabular}
@@ -105,9 +94,9 @@ Il simbolo $\gets$ identifica una generalizzazione completa, cioè l'\textbf{ent
 	\toprule
 	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
 	\midrule
-	\textbf{Forma} & VARCHAR &  Rappresenta il tipo di forma del tappo\\
+	Forma & VARCHAR &  Rappresenta il tipo di forma del tappo\\
 	\midrule
-	\textbf{Materiale} & VARCHAR &  Rappresenta il tipo di materiale del tappo\\
+	Materiale & VARCHAR &  Rappresenta il tipo di materiale del tappo\\
 	\midrule
 	Quantità & INTEGER &  Rappresenta il numero di tappi per forma e colore posseduti dalla cantina\\
 	\bottomrule
@@ -120,9 +109,9 @@ Il simbolo $\gets$ identifica una generalizzazione completa, cioè l'\textbf{ent
 	\toprule
 	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
 	\midrule
-	\textbf{Colore} & VARCHAR &  Rappresenta il colore della bottiglia\\
+	Colore & VARCHAR &  Rappresenta il colore della bottiglia\\
 	\midrule
-	\textbf{Capacità} & VARCHAR &  Rappresenta la capacità della bottiglia\\
+	Capacità & VARCHAR &  Rappresenta la capacità della bottiglia\\
 	\midrule
 	Quantità & INTEGER &  Rappresenta il numero di bottiglie per capacità e colore possedute dalla cantina\\
 	\bottomrule
