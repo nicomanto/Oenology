@@ -1,0 +1,26 @@
+Lo schema concettuale rappresenta 2 attributi ridondanti, il primo è il \textbf{PrezzoTotale} nell'entità \emph{Ordine}. Infatti quest'attributo è derivabile da \textbf{Prezzo $\times$ QuantitàBottiglie $+$ Prezzo}, dove il primo Prezzo è l'attributo dell'entià \emph{Bottiglia di vino}, il secondo Prezzo è l'attributo della relazione \emph{Spedizione} e QuantitàBottiglie è l'attributo della relazione \emph{Dettaglio}. L'operazione coinvolta è la \emph{Vendità di un ordine}, che avviene 1000 volte al giorno. Analizziamo la tavola dei volumi e degli accessi:
+
+\begin{center}
+	\textbf{\large{Tavola dei volumi}}\\
+	\begin{tabular}{P{2cm}P{8cm}P{4cm}}
+		\toprule
+		\rowcolor[rgb]{.929, .929, .929} Concetto & Tipo & Volume \\
+		\midrule
+		BottigliaDiVino & E & 50\\
+		\midrule
+		Ordini & E & 15000\\
+		\midrule
+		Corriere & E & 25\\
+		\midrule
+		Dettaglio & R & 15000\\
+		\midrule
+		Spedizione & R & 15000\\
+		\bottomrule
+	\end{tabular}
+
+
+	\textbf{\large{Tavola delle operazioni}}\\
+	
+
+
+\end{center}
