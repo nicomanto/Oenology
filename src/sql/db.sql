@@ -6,23 +6,59 @@ DROP TABLE IF EXISTS TipiUva, Uva, Dipendenti, LineeProduttive, Vini, Aziende, F
                     Partecipanti, TemiVino;
 SET FOREIGN_KEY_CHECKS=1;
 
+CREATE TABLE Acquirenti (
+    Id INTEGER NOT NULL,
+    
+    PRIMARY KEY (Id)
+);
+
+CREATE TABLE Indirizzi (
+    Id INTEGER NOT NULL AUTO_INCREMENT,
+    Via VARCHAR(255) NOT NULL,
+    NumeroCivico VARCHAR(255) NOT NULL,
+    Stato VARCHAR(255) NOT NULL,
+    Provincia VARCHAR(255) NOT NULL,
+    Citta VARCHAR(255) NOT NULL,
+    CAP VARCHAR(5) NOT NULL,
+
+    PRIMARY KEY (Id)
+);
+
+CREATE TABLE Privati (
+    Id INTEGER NOT NULL,
+    Nome VARCHAR(255) NOT NULL,
+    Cognome VARCHAR(255) NOT NULL,
+    Telefono VARCHAR(8) NOT NULL,
+    Email VARCHAR(255) NOT NULL,
+    Indirizzo INTEGER NOT NULL,
+
+    PRIMARY KEY (Id),
+    FOREIGN KEY (Id) REFERENCES Acquirenti(Id),
+    FOREIGN KEY (Indirizzo) REFERENCES Indirizzi(Id)
+);
+
 CREATE TABLE Aziende (
+    Id INTEGER NOT NULL,
     PartitaIVA VARCHAR(255) NOT NULL,
     Nome VARCHAR(255) NOT NULL,
     NomeReferente VARCHAR(255) NOT NULL,
     CognomeReferente VARCHAR(255) NOT NULL,
+    Telefono VARCHAR(8) NOT NULL,
+    Indirizzo INTEGER NOT NULL,
 
-    PRIMARY KEY (PartitaIVA)
+    PRIMARY KEY (Id),
+    FOREIGN KEY (Id) REFERENCES Acquirenti(Id),
+    FOREIGN KEY (Indirizzo) REFERENCES Indirizzi(Id)
 );
 
 CREATE TABLE Fornitori (
     Id INTEGER NOT NULL,
-    Azienda VARCHAR(255) NOT NULL,
+    Azienda INTEGER NOT NULL,
     Tipologia VARCHAR(255) NOT NULL,
 
     PRIMARY KEY (Id),
     CHECK (Tipologia = 'Uva' OR Tipologia = 'Tappo' OR Tipologia = 'Bottiglia'),
-    FOREIGN KEY (Azienda) REFERENCES Aziende(PartitaIVA)
+    FOREIGN KEY (Azienda) REFERENCES Aziende(Id)
 );
 
 CREATE TABLE TipiUva (
@@ -120,18 +156,6 @@ CREATE TABLE BottiglieDiVino (
     FOREIGN KEY (IdMagazzino) REFERENCES LineeProduttive(Id)
 );
 
-CREATE TABLE Indirizzi (
-    Id INTEGER NOT NULL AUTO_INCREMENT,
-    Via VARCHAR(255) NOT NULL,
-    NumeroCivico VARCHAR(255) NOT NULL,
-    Stato VARCHAR(255) NOT NULL,
-    Provincia VARCHAR(255) NOT NULL,
-    Citta VARCHAR(255) NOT NULL,
-    CAP VARCHAR(5) NOT NULL,
-
-    PRIMARY KEY (Id)
-);
-
 CREATE TABLE Vigneti (
     Id INTEGER NOT NULL AUTO_INCREMENT,
     Indirizzo INTEGER NOT NULL,
@@ -165,13 +189,13 @@ CREATE TABLE Macchinari (
 CREATE TABLE Manutenzione (
     Id INTEGER NOT NULL,
     Macchinario INTEGER NOT NULL,
-    Azienda VARCHAR(255) NOT NULL,
+    Azienda INTEGER NOT NULL,
     Costo INTEGER NOT NULL,
     Data DATE NOT NULL,
 
     PRIMARY KEY (Id),
     FOREIGN KEY (Macchinario) REFERENCES Macchinari(Id),
-    FOREIGN KEY (Azienda) REFERENCES Aziende(PartitaIVA)
+    FOREIGN KEY (Azienda) REFERENCES Aziende(Id)
 );
 
 
@@ -186,18 +210,6 @@ CREATE TABLE Turni (
     FOREIGN KEY (LineaProduttiva) REFERENCES LineeProduttive(Id)
 );
 
-CREATE TABLE Acquirenti (
-    Id INTEGER NOT NULL,
-    Nome VARCHAR(255) NOT NULL,
-    Telefono VARCHAR(11) NOT NULL,
-    Email VARCHAR(255) NOT NULL,
-    IndirizzoSpedizione INTEGER NOT NULL,
-    Tipologia VARCHAR(1), /*P/A*/
-
-    PRIMARY KEY (Id, Tipologia),
-    FOREIGN KEY (IndirizzoSpedizione) REFERENCES Indirizzi(Id)
-);
-
 CREATE TABLE Ordini (
     Id INTEGER NOT NULL AUTO_INCREMENT,
     PrezzoTotale FLOAT NOT NULL,
@@ -206,14 +218,6 @@ CREATE TABLE Ordini (
 
     PRIMARY KEY (Id),
     FOREIGN KEY (Acquirente) REFERENCES Acquirenti(Id)
-);
-
-CREATE TABLE Privati (
-    Id INTEGER NOT NULL AUTO_INCREMENT,
-    Nome VARCHAR(255) NOT NULL,
-    Cognome VARCHAR(255) NOT NULL,
-
-    PRIMARY KEY (Id)
 );
 
 CREATE TABLE Dettagli ( /*cambiare nome!! */
@@ -245,10 +249,10 @@ CREATE TABLE Spedizioni (
 );
 
 CREATE TABLE NegoziInterni (
-    Id VARCHAR(16) NOT NULL,
+    Id INTEGER NOT NULL,
 
     PRIMARY KEY (Id),
-    FOREIGN KEY (Id) REFERENCES Aziende(PartitaIVA)
+    FOREIGN KEY (Id) REFERENCES Aziende(Id)
 );
 
 CREATE TABLE Eventi (
@@ -261,7 +265,7 @@ CREATE TABLE Eventi (
 
 CREATE TABLE Ospita (
     Evento INTEGER NOT NULL,
-    Negozio VARCHAR(16) NOT NULL,
+    Negozio INTEGER NOT NULL,
     Date DATE NOT NULL,
 
     PRIMARY KEY (Evento, Negozio),
@@ -275,7 +279,7 @@ CREATE TABLE Partecipanti (
     Cognome VARCHAR(255) NOT NULL,
     Eta INTEGER NOT NULL,
     Evento INTEGER NOT NULL,
-    Negozio VARCHAR(16) NOT NULL,
+    Negozio INTEGER NOT NULL,
     
     PRIMARY KEY (Id),
     FOREIGN KEY (Evento) REFERENCES Eventi(Id),
