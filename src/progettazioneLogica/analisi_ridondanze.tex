@@ -33,8 +33,6 @@ Lo schema concettuale rappresenta 2 attributi ridondanti, il primo è il \textbf
 				\midrule
 				Ordini & E & 1 & L\\
 				\midrule
-				Corriere & E & 0 & -\\
-				\midrule
 				Dettaglio & R & 0 & -\\
 				\midrule
 				Spedizione & R & 0 & -\\
@@ -54,8 +52,6 @@ Lo schema concettuale rappresenta 2 attributi ridondanti, il primo è il \textbf
 				\midrule
 				Ordini & E & 1 & L\\
 				\midrule
-				Corriere & E & 350 & L\\
-				\midrule
 				Dettaglio & R & 350 & L\\
 				\midrule
 				Spedizione & R & 350 & L\\
@@ -66,5 +62,16 @@ Lo schema concettuale rappresenta 2 attributi ridondanti, il primo è il \textbf
 
 \end{center}
 
-In quest'esempio vediamo che nello schema con l'attributo \textbf{PrezzoTotale} in \emph{Ordine} avviene 1 accesso a settimana alla tabella \emph{Ordine} per stampare il resoconto settimanale (semplice somma di tutti i prezzi totali degli ordini di una specifica settimana).
-Nello schema senza ridondanza, invece, per ogni ordine bisognerà accedere alle relativa tabelle: \emph{BottigliaDiVino} per conoscere il prezzo della singola bottiglia dell'ordine,
+\begin{flushleft}
+In quest'esempio vediamo che nello schema \emph{con ridondanza} in \emph{Ordine} avviene 1 accesso e 350 letture a settimana alla tabella \emph{Ordine} per stampare il resoconto settimanale (semplice somma di tutti i prezzi totali degli ordini di una specifica settimana).\\
+\vspace{0.5cm}
+Nello schema \emph{senza ridondanza}, invece, per ogni ordine bisognerà accedere alle relativa tabelle:
+\begin{itemize}
+	\item \emph{BottigliaDiVino} per conoscere il prezzo della singola bottiglia dell'ordine;
+	\item \emph{Spedizione} per conoscere il prezzo della spedizione;
+	\item \emph{Dettaglio} per conoscere il prezzo totale delle bottiglie acquistate.
+\end{itemize}
+Si avranno (350 $\times$ 3) $\times$ 350 dove (350 $\times$ 3) sono gli accessi totali alle tre tabelle citate prime e 350 sono le letture della tabella \emph{Ordini}. In totale si avranno 367500 letture.\\
+\vspace{0.5cm}
+In conclusione, dopo quest'analisi, si è deciso di mantenere l'attributo \textbf{Prezzo totale} in \emph{Ordine}.
+\end{flushleft}
