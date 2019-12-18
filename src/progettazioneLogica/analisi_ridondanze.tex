@@ -1,26 +1,70 @@
-Lo schema concettuale rappresenta 2 attributi ridondanti, il primo è il \textbf{PrezzoTotale} nell'entità \emph{Ordine}. Infatti quest'attributo è derivabile da \textbf{Prezzo $\times$ QuantitàBottiglie $+$ Prezzo}, dove il primo Prezzo è l'attributo dell'entià \emph{Bottiglia di vino}, il secondo Prezzo è l'attributo della relazione \emph{Spedizione} e QuantitàBottiglie è l'attributo della relazione \emph{Dettaglio}. L'operazione coinvolta è la \emph{Vendità di un ordine}, che avviene 1000 volte al giorno. Analizziamo la tavola dei volumi e degli accessi:
+Lo schema concettuale rappresenta 2 attributi ridondanti, il primo è il \textbf{PrezzoTotale} nell'entità \emph{Ordine}. Infatti quest'attributo è derivabile da \textbf{Prezzo $\times$ QuantitàBottiglie $+$ Prezzo}, dove il primo Prezzo è l'attributo dell'entià \emph{Bottiglia di vino}, il secondo Prezzo è l'attributo della relazione \emph{Spedizione} e QuantitàBottiglie è l'attributo della relazione \emph{Dettaglio}. Da notare che quest'operazione matematica può essere ripetuta molteplici volte in base a quante tipologie diverse di bottiglie vengono acquistate nello stesso ordine. L'operazione coinvolta è la \emph{Stampa resoconto guadagno}, che avviene 1 volta alla settimana. Analizziamo la tavola dei volumi e delle operazioni:
 
 \begin{center}
-	\textbf{\large{Tavola dei volumi}}\\
 	\begin{tabular}{P{2cm}P{8cm}P{4cm}}
+		\multicolumn{3}{c}{\textbf {\large {Tavola dei volumi}}} \\
 		\toprule
-		\rowcolor[rgb]{.929, .929, .929} Concetto & Tipo & Volume \\
+		\rowcolor[rgb]{.929, .929, .929} Concetto & Costrutto & Volume \\
 		\midrule
 		BottigliaDiVino & E & 50\\
 		\midrule
-		Ordini & E & 15000\\
+		Ordini & E & 350\\
 		\midrule
 		Corriere & E & 25\\
 		\midrule
-		Dettaglio & R & 15000\\
+		Dettaglio & R & 350\\
 		\midrule
-		Spedizione & R & 15000\\
+		Spedizione & R & 350\\
 		\bottomrule
 	\end{tabular}
 
+	\vspace{0.5cm}
 
 	\textbf{\large{Tavola delle operazioni}}\\
-	
-
+	\vspace{0.2cm}
+	\begin{minipage}{6cm}
+		\rightline{
+			\begin{tabular}{P{2cm}P{2cm}P{1cm}P{1cm}}
+				\multicolumn{4}{c}{\textbf {Con ridondanza}} \\
+				\toprule
+				\rowcolor[rgb]{.929, .929, .929} Concetto & Costrutto & Accesso & Tipo \\
+				\midrule
+				BottigliaDiVino & E & 0 & -\\
+				\midrule
+				Ordini & E & 1 & L\\
+				\midrule
+				Corriere & E & 0 & -\\
+				\midrule
+				Dettaglio & R & 0 & -\\
+				\midrule
+				Spedizione & R & 0 & -\\
+				\bottomrule
+			\end{tabular}
+		}
+	\end{minipage}
+	\hspace{2mm}
+	\begin{minipage}{6cm}
+		\leftline{
+			\begin{tabular}{P{2cm}P{2cm}P{1cm}P{1cm}}
+				\multicolumn{4}{c}{\textbf {Senza ridondanza}} \\
+				\toprule
+				\rowcolor[rgb]{.929, .929, .929} Concetto & Costrutto & Accesso & Tipo \\
+				\midrule
+				BottigliaDiVino & E & 350 & L\\
+				\midrule
+				Ordini & E & 1 & L\\
+				\midrule
+				Corriere & E & 350 & L\\
+				\midrule
+				Dettaglio & R & 350 & L\\
+				\midrule
+				Spedizione & R & 350 & L\\
+				\bottomrule
+			\end{tabular}
+		}
+	\end{minipage}
 
 \end{center}
+
+In quest'esempio vediamo che nello schema con l'attributo \textbf{PrezzoTotale} in \emph{Ordine} avviene 1 accesso a settimana alla tabella \emph{Ordine} per stampare il resoconto settimanale (semplice somma di tutti i prezzi totali degli ordini di una specifica settimana).
+Nello schema senza ridondanza, invece, per ogni ordine bisognerà accedere alle relativa tabelle: \emph{BottigliaDiVino} per conoscere il prezzo della singola bottiglia dell'ordine,
