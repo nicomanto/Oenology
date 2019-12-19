@@ -1,11 +1,13 @@
 Il grassetto negli attributi indica che quell'attributo è o fa parte di una chiave. \\
 Il simbolo $\gets$ identifica una generalizzazione completa, cioè l'\textbf{entita'} a sinistra è una generalizzazione completa delle identità che stanno a destra.
+Il simbolo $\Leftarrow$ identifica una generalizzazione parziale, cioè l'\textbf{entita'} a sinistra è una generalizzazione parziale delle identità che stanno a destra.
 
 \begin{verse}
 	L'\textbf{entita'} \emph{ProduzioneVino} è una generalizzazione completa delle entita' \emph{IngrMateriePrime, Pigiatura, Fermentazione, Vinificazione, Svinatura} che sono tutte prive di attributi.
+	L'\textbf{entita'} \emph{Fornitore}  è una generalizzazione completa delle entita' \emph{FornitoreTappi, FornitureUva, FornitoreBottiglie} che sono tutte prive di attributi
 \end{verse}
 \begin{verse}
-	Le \textbf{entita'} \emph{ProduzioneVino, Imbottigliamento, NegozioInterno, MagBianco, MagRosso, MagRosato, MagSpumante, FornitoreUva, FornitoreTappi, FornitoreBottiglie} sono prive di attributi.
+	Le \textbf{entita'} \emph{Fornitore, ProduzioneVino, Imbottigliamento, NegozioInterno, MagBianco, MagRosso, MagRosato, MagSpumante, AzManutenzione} sono prive di attributi.
 \end{verse}
 
 \vspace{0.5cm}
@@ -68,7 +70,7 @@ Il simbolo $\gets$ identifica una generalizzazione completa, cioè l'\textbf{ent
 	\midrule
 	\textbf{ID} & INTEGER &  Rappresenta univocamente la materia prima\\
 	\midrule
-	Prezzo & DECIMAL &  Rappresenta il prezzo della materia prima\\
+	Prezzo & DECIMAL &  Rappresenta il prezzo cadauno della materia prima\\
 	\bottomrule
 \end{tabular}
 
@@ -188,13 +190,24 @@ Il simbolo $\gets$ identifica una generalizzazione completa, cioè l'\textbf{ent
 
 
 \begin{tabular}{P{4cm}P{2cm}P{8cm}}
-	\multicolumn{3}{c}{\textbf {\large {Azienda} $\gets$ (\emph{NegozioInterno})}} \\
+	\multicolumn{3}{c}{\textbf {\large {Azienda} $\gets$ (\emph{NegozioInterno, Fornitore, AzManutenzione})}} \\
 	\toprule
 	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
 	\midrule
+	\textbf{ID} & VARCHAR &  Identifica univocamente l'azienda\\
+	\midrule
 	NomeReferente & VARCHAR &  Rappresenta il nome del referente dell'azienda\\
 	\midrule
-	CognomeReferente & VARCHAR &  Rappresenta il cognome del referente dell'azienda\\
+	CognomeReferente & VARCHAR &  Rappresenta il cognome del referente dell'azienda\\	\midrule
+	PartitaIVA & VARCHAR &  Identifica la partita IVA dell'azienda\\
+	\midrule
+	Nome & VARCHAR &  Rappresenta il nome dell'azienda\\
+	\midrule
+	Telefono & VARCHAR &  Rappresenta il numero telefonico dell'azienda\\
+	\midrule
+	Indirzzo & VARCHAR &  Identifica la posizione geografica cui risiede l'azienda.  Attributo composto: stato, città, provincia, cap, via, numero civico\\
+	\midrule
+	Email & VARCHAR & Identifica l'email aziendale\\
 	\bottomrule
 \end{tabular}
 
@@ -205,6 +218,14 @@ Il simbolo $\gets$ identifica una generalizzazione completa, cioè l'\textbf{ent
 	\toprule
 	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
 	\midrule
+	Nome & VARCHAR &  Rappresenta il nome dell'acquirente privato\\
+	\midrule
+	Telefono & VARCHAR &  Rappresenta il numero telefonico dell'acquirente privato\\
+	\midrule
+	Indirzzo & VARCHAR &  Identifica la posizione geografica cui risiede l'acquirente privato.  Attributo composto: stato, città, provincia, cap, via, numero civico\\
+	\midrule
+	Email & VARCHAR & Identifica l'email dell'acquirente privato\\
+	\midrule
 	Cognome & VARCHAR &  Rappresenta il cognome dell'acquirente privato\\
 	\bottomrule
 \end{tabular}
@@ -212,17 +233,11 @@ Il simbolo $\gets$ identifica una generalizzazione completa, cioè l'\textbf{ent
 \vspace{0.5cm}
 
 \begin{tabular}{P{4cm}P{2cm}P{8cm}}
-	\multicolumn{3}{c}{\textbf {\large {Acquirente} $\gets$ (\emph{Azienda, Privato})}} \\
+	\multicolumn{3}{c}{\textbf {\large {Acquirente} $\gets$ (\emph{Privato}), \large {Acquirente} $\Leftarrow$ (\emph{Azienda})}} \\
 	\toprule
 	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
 	\midrule
 	\textbf{ID} & VARCHAR &  Identifica univocamente l'acquirente\\
-	\midrule
-	Nome & VARCHAR &  Rappresenta il nome dell'acquirente\\
-	\midrule
-	Telefono & VARCHAR &  Rappresenta il numero telefonico dell'acquirente\\
-	\midrule
-	Indirzzo & VARCHAR &  Identifica la posizione geografica cui risiede l'acquirente.  Attributo composto: stato, città, provincia, cap, via, numero civico\\
 	\bottomrule
 \end{tabular}
 
@@ -291,8 +306,6 @@ Il simbolo $\gets$ identifica una generalizzazione completa, cioè l'\textbf{ent
 	Nome & VARCHAR & Rappresenta il nome del dipendente \\
 	\midrule
 	Cognome & VARCHAR & Rappresenta il congnome del dipendente \\
-	\midrule
-	Stipendio & INTEGER & Rappresenta lo stipendio mensile del dipendente \\
 	\bottomrule
 \end{tabular}
 
@@ -308,21 +321,6 @@ Il simbolo $\gets$ identifica una generalizzazione completa, cioè l'\textbf{ent
 	Nome & VARCHAR & Rappresenta il nome commerciale del macchinario \\
 	\midrule
 	DataProManute & DATE & Rappresenta la data prossima della manutenzione \\
-	\midrule
-	DataUltManute & DATE & Rappresenta la data dell'ultima manutenzione \\
-	\bottomrule
-\end{tabular}
-
-\vspace{0.5cm}
-
-\begin{tabular}{P{4cm}P{2cm}P{8cm}}
-	\multicolumn{3}{c}{\textbf {\large {AziendaManutenzione}}} \\
-	\toprule
-	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
-	\midrule
-	\textbf{ID} & VARCHAR &  Rappresenta univocamente l'azienda di manutenzione dei macchinari\\
-	\midrule
-	Nome & VARCHAR & Rappresenta il nome commerciale dell'azienda che fa manutenzione ai macchinari\\
 	\bottomrule
 \end{tabular}
 

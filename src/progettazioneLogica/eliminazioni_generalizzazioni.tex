@@ -2,19 +2,19 @@ Lo schema concenttuale presenta molte generalizzazioni. Si procede all'analisi d
 
 \begin{flushleft}
 	\textbf{\large{Fornitore}}\\
-	L'entità \emph{Fornitore} presenta solo due attributi comuni a tutte le entità figlie, cioè l'identificatore \textbf{ID} e il \textbf{Nome}. Inoltre l'entità padre \emph{Fornitore} non presenta nessuna relazione con nessun' altra e entità, cose che invece avviene per tutte e tre le entità figlie. Essendo una generalizzazione completa si è deciso di eliminare l'entità padre \emph{Fornitore}. 
+	L'entità \emph{Fornitore} non ha attributi ed è generalizzata dall'entità \emph{Azienda}. A sua volta \emph{Fornitore} è una generalizzazione di \emph{FornitoreUva, FornitoreTappi, FornitoreBottiglie}. Si è deciso di mantenere l'entità \emph{Fornitore} e di eliminare \emph{FornitoreUva, FornitoreTappi, FornitoreBottiglie}. Inoltre si è stato aggiunto un attributo \textbf{Tipologia} per identificare quale tipo di fornitura offre.
 \end{flushleft}
 
 
 \begin{flushleft}
 	\textbf{\large{Acquirente}}\\
-	L'entità \emph{Acquirente} presenta molteplici attributi ed una relazione. A loro volta anche le entità figlie \emph{Azienda e Privato} hanno attributi significativi. Per ristrutturare questa generalizzazione si è deciso di creare due relazioni differenti. La prima si chiama \textbf{IsAzienda} dove la cardinalità da \emph{Azienda ad Acquirente} è (1,1) perchè un'azienda è sempre un'acquirente, invece da \emph{Acquirente ad Azienda} è (0,1) perchè non sempre un acquirente è un'azienda.
+	L'entità \emph{Acquirente} presenta un attrinuto ed una relazione. A loro volta anche le entità figlie \emph{Azienda e Privato} hanno attributi significativi. Per ristrutturare questa generalizzazione si è deciso di creare due relazioni differenti. La prima si chiama \textbf{IsAzienda} dove la cardinalità da \emph{Azienda ad Acquirente} è (1,1) perchè un'azienda è sempre un'acquirente, invece da \emph{Acquirente ad Azienda} è (0,1) perchè non sempre un acquirente è un'azienda.
 	La seconda relazione si chiama \textbf{IsPrivato} dove le cardinalità sono rappresentate come fra \emph{Azienda ed Acquirente}. Le entità \emph{Azienda e Privato} avranno sempre gli attributi visti in precedenza.
 \end{flushleft}
 
 \begin{flushleft}
 	\textbf{\large{Azienda}}\\
-	L'entità \emph{Azienda} può essere un negozio interno della cantina. Per ristrutturare questa generalizzazione si è deciso di aggiungere una relazione chiamata \emph{IsNegozioInterno} con cardinalità (0,1) da \emph{Azienda a NegozioInterno} perchè un'azienda può o non essere un \emph{NegozioInterno}. La cardinalità da \emph{NegozioInterno a Azienda} è (1,1) perchè un negozio interno è anch'egli un'azienda. Si è scelta questa strada perchè il carico di aziende che non sono negozi interni è maggiore rispetto a quelle che sono negozi interni, perciò è stato escluso l'aggiunta di un attributo in \emph{Azienda} che identificava se quest'ultima era anche negozio interno.
+	L'entità \emph{Azienda} può essere un negozio interno della cantina. Per ristrutturare questa generalizzazione si è deciso di aggiungere una relazione chiamata \emph{IsNegozioInterno} con cardinalità (0,1) da \emph{Azienda a NegozioInterno} perchè un'azienda può o non essere un \emph{NegozioInterno}. La cardinalità da \emph{NegozioInterno a Azienda} è (1,1) perchè un negozio interno è anch'egli un'azienda. Si è scelta questa strada perchè il carico di aziende che non sono negozi interni è maggiore rispetto a quelle che sono negozi interni, perciò è stato escluso l'aggiunta di un attributo in \emph{Azienda} che identificava se quest'ultima era anche negozio interno. La stessa identica cosa è stata fatta per la generalizzazione con \emph{Fornitore}. Invece per la generalizzazione con \emph{AzManutenzione}, si è deciso di togliere \emph{AzManutenzione} e di non specificare se un'azienda è di per se un' azienda di manutenzione, ma di ricavarlo tramite la relazione \emph{Manutenzione}.
 \end{flushleft}
 
 \begin{flushleft}
