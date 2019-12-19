@@ -64,7 +64,7 @@ def populateInformazioni(connection):
             0].findAll("h3")[0].text.split(" ")[1]
         telefono = str(randint(3450000000, 3459999999))
         email = "".join([nome, cognome, "@email.com"]).lower()
-        indirizzo = i
+        indirizzo = i + 1
         informazione = [Field("Nome", nome),
                         Field("Telefono", telefono),
                         Field("Email", email),
@@ -86,7 +86,7 @@ def populatePrivati(connection):
                 break
 
         page = browser.get_current_page()
-        numAcquirente = i
+        numAcquirente = i + 1
         cognome = page.findAll("div", {"class": "address"})[
             0].findAll("h3")[0].text.split(" ")[1]
         infAgg = i
@@ -105,7 +105,7 @@ def populateAziende(connection):
                 break
 
         page = browser.get_current_page()
-        numAcquirente = i
+        numAcquirente = i + 1
         partIVA = randint(10000000000, 99999999999)
         nome = page.findAll("div", {"class": "address"})[
             0].findAll("h3")[0].text.split(" ")[0]
@@ -123,7 +123,7 @@ def populateAziende(connection):
 def populateFornitori(connection):
     for i in range(20):
         fornitore = []
-        azienda = i
+        azienda = i + 1
         tipologia = "Uva" if randint(0, 1) else "Tappo"
         fornitore = [Field("Azienda", azienda),
                      Field("Tipologia", tipologia)]
@@ -143,8 +143,8 @@ def populateTipiUva(connection):
 def populateUva(connection):
     for i in range(20):
         uva = []
-        tipo = i
-        fornitore = i
+        tipo = i + 1
+        fornitore = i + 1
         annata = 2015
         uva = [Field("TipoUva", tipo),
                Field("Fornitore", fornitore),
@@ -176,7 +176,7 @@ def populateLineeProduttive(connection):
     for i in range(5):
         linea = []
         nome = "".join(["Linea", str(i)])
-        direttore = i
+        direttore = i + 1
         linea = [Field("Nome", nome),
                  Field("Direttore", direttore)]
         insert(connection, 'LineeProduttive', linea)
@@ -235,7 +235,7 @@ def populateBottiglie(connection):
 def populateBottilieDiVino(connection):
     for i in range(50):
         bottigliaDiVino = []
-        vino = i
+        vino = i + 1
         annata = 2015
         prezzo = randint(10, 20)
         classificazione = "BOH"
@@ -342,7 +342,7 @@ def populateCorrieri(connection):
 def populateSpedizioni(connection):
     for i in range(200):
         spedizione = []
-        ordine = i
+        ordine = i + 1
         corriere = randint(0, 5)
         dataS = 1  # inserire data
         dataA = 1  # inserire data
