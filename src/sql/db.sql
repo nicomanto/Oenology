@@ -37,18 +37,17 @@ CREATE TABLE Acquirenti (
 
 CREATE TABLE Privati (
     Id INTEGER NOT NULL,
-    NumAcquirente INTEGER,
     Cognome VARCHAR(255) NOT NULL,
     InformazioniAggiuntive INTEGER NOT NULL,
 
     PRIMARY KEY (Id),
-    FOREIGN KEY (NumAcquirente) REFERENCES Acquirenti(Id),
+    FOREIGN KEY (Id) REFERENCES Acquirenti(Id),
     FOREIGN KEY (InformazioniAggiuntive) REFERENCES Informazioni(Id)
 );
 
 CREATE TABLE Aziende (
-    Id INTEGER NOT NULL,
-    NumAcquirente INTEGER,
+    Id INTEGER NOT NULL AUTO_INCREMENT,
+    NumAcquirente INTEGER DEFAULT NULL,
     PartitaIVA VARCHAR(255) NOT NULL,
     NomeReferente VARCHAR(255) NOT NULL,
     CognomeReferente VARCHAR(255) NOT NULL,
@@ -61,12 +60,11 @@ CREATE TABLE Aziende (
 
 CREATE TABLE Fornitori (
     Id INTEGER NOT NULL,
-    Azienda INTEGER NOT NULL,
     Tipologia VARCHAR(255) NOT NULL,
 
     PRIMARY KEY (Id),
-    CHECK (Tipologia = 'Uva' OR Tipologia = 'Tappo' OR Tipologia = 'Bottiglia'),
-    FOREIGN KEY (Azienda) REFERENCES Aziende(Id)
+    FOREIGN KEY (Id) REFERENCES Aziende(Id),
+    CHECK (Tipologia = 'Uva' OR Tipologia = 'Tappo' OR Tipologia = 'Bottiglia')
 );
 
 CREATE TABLE TipiUva (
@@ -78,7 +76,7 @@ CREATE TABLE TipiUva (
 );
 
 CREATE TABLE Uva (
-    Id INTEGER NOT NULL,
+    Id INTEGER NOT NULL AUTO_INCREMENT,
     TipoUva INTEGER NOT NULL,
     Fornitore INTEGER NOT NULL,
     Annata INTEGER NOT NULL,
@@ -172,7 +170,7 @@ CREATE TABLE Vigneti (
 );
 
 CREATE TABLE Vigne (
-    Id INTEGER NOT NULL,
+    Id INTEGER NOT NULL AUTO_INCREMENT,
     Tipologia INTEGER NOT NULL,
     DataPiantagione DATE NOT NULL,
     VignetoDiAppartenenza INTEGER NOT NULL,
@@ -183,7 +181,7 @@ CREATE TABLE Vigne (
 );
 
 CREATE TABLE Macchinari (
-    Id INTEGER NOT NULL,
+    Id INTEGER NOT NULL AUTO_INCREMENT,
     Nome VARCHAR(255) NOT NULL,
     DataProssimaManutenzione DATE NOT NULL,
     DataAcquisto DATE NOT NULL,
@@ -194,7 +192,7 @@ CREATE TABLE Macchinari (
 );
 
 CREATE TABLE Manutenzione (
-    Id INTEGER NOT NULL,
+    Id INTEGER NOT NULL AUTO_INCREMENT,
     Macchinario INTEGER NOT NULL,
     Azienda INTEGER NOT NULL,
     Costo INTEGER NOT NULL,
@@ -212,7 +210,7 @@ CREATE TABLE Turni (
     FineTurno DATETIME NOT NULL,
     LineaProduttiva INTEGER NOT NULL,
 
-    PRIMARY KEY (Dipendente),
+    PRIMARY KEY (Dipendente, InizioTurno),
     FOREIGN KEY (Dipendente) REFERENCES Dipendenti(CodiceFiscale),
     FOREIGN KEY (LineaProduttiva) REFERENCES LineeProduttive(Id)
 );
