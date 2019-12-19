@@ -9,7 +9,7 @@
 \end{itemize}
 
 \begin{itemize}
-	\item \underline{Vigna - Uva}: \textbf{Proviene}
+	\item \underline{Vigna - TipoUva}: \textbf{Proviene}
 	
 	\begin{itemize}
 		\item La vigna contiene solo una tipologia d'uva (1,1)
@@ -105,7 +105,7 @@
 	
 	\begin{itemize}
 		\item Una tipologia di bottiglia di vino è conservata in un unico magazzino (1,1)
-		\item Un magazzino contiene solo una tipologia di vino (1,1)
+		\item Un magazzino contiene da uno a molteplici tipologie di vino, visto che sono divise per colore e non per annata (1,N)
 	\end{itemize}
 	
 \end{itemize}
@@ -184,17 +184,6 @@
 \end{itemize}
 
 \begin{itemize}
-	\item \underline{BottigliaDiVino - Magazzino}: \textbf{Conservata}
-	
-	\begin{itemize}
-		\item Una tipologia di bottiglia di vino è conservata in un unico magazzino (1,1)
-		\item Un magazzino contiene solo una tipologia di vino (1,1)
-	\end{itemize}
-	
-\end{itemize}
-
-
-\begin{itemize}
 	\item \underline{LineaProduttiva - Dipendente}: \textbf{Turno}*
 	
 	\begin{itemize}
@@ -219,10 +208,20 @@
 \end{itemize}
 
 \begin{itemize}
+	\item \underline{Dipendente - Dipendente}: \textbf{Referisce}
+	
+	\begin{itemize}
+		\item Un dipendente può essere riferito da uno o nessun altro dipendente (0,1)
+		\item Un dipendente può riferire o nessuno o molteplici dipendenti (0,N)
+	\end{itemize}
+	
+\end{itemize}
+
+\begin{itemize}
 	\item \underline{LineaProduttiva - Macchinario}: \textbf{Utilizzo}
 	
 	\begin{itemize}
-		\item In una linea produttiva possono esserci uno a molteplici macchinari (1,N)
+		\item In una linea produttiva possono esserci da uno a molteplici macchinari (1,N)
 		\item Un macchinario può appartenere ad una singola linea produttiva (1,1)
 	\end{itemize}
 	
@@ -239,15 +238,6 @@
 \end{itemize}
 
 \begin{verse}
-	*\emph{Nella relazione è presente l'attributo \textbf{Costo} che identifica il costo della singola manutenzione su un determinato macchinario fatto da una determinata azienda}
+	*\emph{Nella relazione sono presenti gli attributi \textbf{Costo e Data} che identifica il costo della singola manutenzione e in quale data e' stata effettuata}
 \end{verse}
 
-\begin{itemize}
-	\item \underline{Dipendente - Dipendente}: \textbf{Referisce}
-	
-	\begin{itemize}
-		\item Un dipendente può essere riferito da uno o molteplici altri dipendenti (1,N)
-		\item Un dipendente può riferire o nessuno o un dipendente (0,1)
-	\end{itemize}
-	
-\end{itemize}
