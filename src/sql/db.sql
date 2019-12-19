@@ -1,54 +1,62 @@
 SET FOREIGN_KEY_CHECKS=0;
-DROP TABLE IF EXISTS TipiUva, Uva, Dipendenti, LineeProduttive, Vini, Aziende, Fornitori,
+DROP TABLE IF EXISTS Informazioni, TipiUva, Uva, Dipendenti, LineeProduttive, Vini, Aziende, Fornitori,
                     Tappi, Bottiglie, BottiglieDiVino, Indirizzi, Vigneti, Vigne,
                     Macchinari, Manutenzione, Turni, Acquirenti, Ordini, Privati,
                     Dettagli, Corrieri, Spedizioni, NegoziInterni, Eventi, Ospita,
                     Partecipanti, TemiVino;
 SET FOREIGN_KEY_CHECKS=1;
 
-CREATE TABLE Acquirenti (
-    Id INTEGER NOT NULL,
-    
-    PRIMARY KEY (Id)
-);
-
 CREATE TABLE Indirizzi (
     Id INTEGER NOT NULL AUTO_INCREMENT,
     Via VARCHAR(255) NOT NULL,
-    NumeroCivico VARCHAR(255) NOT NULL,
+    NumeroCivico INTEGER NOT NULL,
     Stato VARCHAR(255) NOT NULL,
-    Provincia VARCHAR(255) NOT NULL,
-    Citta VARCHAR(255) NOT NULL,
-    CAP VARCHAR(5) NOT NULL,
+    Provincia VARCHAR(255) DEFAULT NULL,
+    Citta VARCHAR(255) DEFAULT NULL,
+    CAP VARCHAR(5) DEFAULT NULL,
 
     PRIMARY KEY (Id)
 );
 
-CREATE TABLE Privati (
-    Id INTEGER NOT NULL,
+CREATE TABLE Informazioni (
+    Id INTEGER NOT NULL AUTO_INCREMENT,
     Nome VARCHAR(255) NOT NULL,
-    Cognome VARCHAR(255) NOT NULL,
     Telefono VARCHAR(8) NOT NULL,
     Email VARCHAR(255) NOT NULL,
     Indirizzo INTEGER NOT NULL,
 
     PRIMARY KEY (Id),
-    FOREIGN KEY (Id) REFERENCES Acquirenti(Id),
     FOREIGN KEY (Indirizzo) REFERENCES Indirizzi(Id)
+);
+
+CREATE TABLE Acquirenti (
+    Id INTEGER NOT NULL AUTO_INCREMENT,
+    
+    PRIMARY KEY (Id)
+);
+
+CREATE TABLE Privati (
+    Id INTEGER NOT NULL,
+    NumAcquirente INTEGER,
+    Cognome VARCHAR(255) NOT NULL,
+    InformazioniAggiuntive INTEGER NOT NULL,
+
+    PRIMARY KEY (Id),
+    FOREIGN KEY (NumAcquirente) REFERENCES Acquirenti(Id),
+    FOREIGN KEY (InformazioniAggiuntive) REFERENCES Informazioni(Id)
 );
 
 CREATE TABLE Aziende (
     Id INTEGER NOT NULL,
+    NumAcquirente INTEGER,
     PartitaIVA VARCHAR(255) NOT NULL,
-    Nome VARCHAR(255) NOT NULL,
     NomeReferente VARCHAR(255) NOT NULL,
     CognomeReferente VARCHAR(255) NOT NULL,
-    Telefono VARCHAR(8) NOT NULL,
-    Indirizzo INTEGER NOT NULL,
+    InformazioniAggiuntive INTEGER NOT NULL,
 
     PRIMARY KEY (Id),
-    FOREIGN KEY (Id) REFERENCES Acquirenti(Id),
-    FOREIGN KEY (Indirizzo) REFERENCES Indirizzi(Id)
+    FOREIGN KEY (NumAcquirente) REFERENCES Acquirenti(Id),
+    FOREIGN KEY (InformazioniAggiuntive) REFERENCES Informazioni(Id)
 );
 
 CREATE TABLE Fornitori (
@@ -84,7 +92,6 @@ CREATE TABLE Dipendenti (
     CodiceFiscale VARCHAR(16) NOT NULL,
     Nome VARCHAR(255) NOT NULL,
     Cognome VARCHAR(255) NOT NULL,
-    Stipendio INTEGER NOT NULL,
     Referente VARCHAR(16),
 
     PRIMARY KEY (CodiceFiscale),
@@ -92,7 +99,7 @@ CREATE TABLE Dipendenti (
 );
 
 CREATE TABLE LineeProduttive (
-    Id INTEGER NOT NULL,
+    Id INTEGER NOT NULL AUTO_INCREMENT,
     Nome VARCHAR (255) NOT NULL,
     Direttore VARCHAR (255) NOT NULL,
 
@@ -114,7 +121,7 @@ CREATE TABLE Vini (
 );
 
 CREATE TABLE Tappi (
-    Id INTEGER NOT NULL,
+    Id INTEGER NOT NULL AUTO_INCREMENT,
     Forma VARCHAR(255),
     Materiale VARCHAR(255),
     Quantita INTEGER,
@@ -126,7 +133,7 @@ CREATE TABLE Tappi (
 );
 
 CREATE TABLE Bottiglie (
-    Id INTEGER NOT NULL,
+    Id INTEGER NOT NULL AUTO_INCREMENT,
     Capacita INTEGER NOT NULL,
     Colore VARCHAR(255),
     Quantita INTEGER NOT NULL,
