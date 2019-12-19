@@ -21,7 +21,7 @@ CREATE TABLE Indirizzi (
 CREATE TABLE Informazioni (
     Id INTEGER NOT NULL AUTO_INCREMENT,
     Nome VARCHAR(255) NOT NULL,
-    Telefono VARCHAR(8) NOT NULL,
+    Telefono VARCHAR(11) NOT NULL,
     Email VARCHAR(255) NOT NULL,
     Indirizzo INTEGER NOT NULL,
 
