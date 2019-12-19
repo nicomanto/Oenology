@@ -9,7 +9,7 @@ Lo schema concenttuale presenta molte generalizzazioni. Si procede all'analisi d
 \begin{flushleft}
 	\textbf{\large{Acquirente}}\\
 	L'entità \emph{Acquirente} presenta un attributo ed una relazione. A loro volta anche le entità figlie \emph{Azienda e Privato} hanno attributi significativi. Per ristrutturare questa generalizzazione si è deciso di creare due relazioni differenti. La prima si chiama \textbf{IsAzienda} dove la cardinalità da \emph{Azienda ad Acquirente} è (0,1) perchè un'azienda puo' non essere un nostro acquirente, invece da \emph{Acquirente ad Azienda} è (0,1) perchè non sempre un acquirente è un'azienda.
-	La seconda relazione si chiama \textbf{IsPrivato} dove la cardinalita' da \emph{Acquirente a Privato} e' (0,1) perchè non sempre un acquirente è un privato, invece da \emph{Privato ad Acquirente} è (1,1) perchè un privato e' sempre un nostro acquirente. Le entità \emph{Azienda e Privato} avranno sempre gli attributi visti in precedenza.
+	La seconda relazione si chiama \textbf{IsPrivato} dove la cardinalita' da \emph{Acquirente a Privato} e' (0,1) perchè non sempre un acquirente è un privato, invece da \emph{Privato ad Acquirente} è (1,1) perchè un privato e' sempre un nostro acquirente. Le entità \emph{Azienda e Privato} avranno sempre gli attributi visti in precedenza, in piu' \emph{Acquirente} avra' l'attributo NumAcquirente che sara' chiave referenziale ad \emph{Acquirente}. Si e' deciso di aggiungere quest'attributo consapevoli dell'eventualita' che quest'ultimo possa essere \textbf{NULL} visto che il carico di aziende che non sono acquirenti e' minore di quelle che lo sono.
 \end{flushleft}
 
 \begin{flushleft}
@@ -19,7 +19,7 @@ Lo schema concenttuale presenta molte generalizzazioni. Si procede all'analisi d
 
 \begin{flushleft}
 	\textbf{\large{LineaProduttiva}}\\
-	L'entità \emph{LineaProduttiva} è una generalizzazione a più livelli, infatti essa generalizza le entità \emph{ProduzioneVino, Imbottigliamento, Magazzino}. A sua volta l'entità \textbf{ProduzioneVino} generalizza \emph{IngrMateriePrime, Pigiatura, Fermentazione, Vinificazione, Svinatura}. Infine l'entità \emph{Magazzino} generalizza le entità \emph{MagBianco, MagSpumante, MagRosato, MagRosso}. Essendo tutte generalizzazioni complete e non avendo attributi (a parte l'entità \emph{Magazzino}*) che vanno a particolarizzare le varie entità figlie, si è deciso di aggiungere un attributo \textbf{Tipologia} nell'entità \emph{LineaProduttiva} che identifica queste specializzazioni.
+	L'entità \emph{LineaProduttiva} è una generalizzazione a più livelli, infatti essa generalizza le entità \emph{ProduzioneVino, Imbottigliamento, Magazzino}. A sua volta l'entità \textbf{ProduzioneVino} generalizza \emph{IngrMateriePrime, Pigiatura, Fermentazione, Vinificazione, Svinatura}. Infine l'entità \emph{Magazzino} generalizza le entità \emph{MagBianco, MagSpumante, MagRosato, MagRosso}. Essendo tutte generalizzazioni complete e non avendo attributi (a parte l'entità \emph{Magazzino}*) che vanno a particolarizzare le varie entità figlie, si è deciso di aggiungere un attributo \textbf{Nome} nell'entità \emph{LineaProduttiva} che identifica queste specializzazioni.
 \end{flushleft}
 
 \begin{verse}
