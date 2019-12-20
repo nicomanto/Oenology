@@ -123,7 +123,6 @@ CREATE TABLE Tappi (
     Forma VARCHAR(255),
     Materiale VARCHAR(255),
     Quantita INTEGER,
-    Prezzo INTEGER NOT NULL,
     Fornitore INTEGER NOT NULL,
 
     PRIMARY KEY (Id),
@@ -135,7 +134,6 @@ CREATE TABLE Bottiglie (
     Capacita INTEGER NOT NULL,
     Colore VARCHAR(255),
     Quantita INTEGER NOT NULL,
-    Prezzo INTEGER NOT NULL,
     Fornitore INTEGER NOT NULL,
 
     PRIMARY KEY (Id),
