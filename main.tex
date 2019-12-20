@@ -1,0 +1,32 @@
+\documentclass[a4paper,10pt]{report}
+\usepackage[T1]{fontenc}        % Codifica dei font
+\usepackage[utf8]{inputenc}    % Lettere accentate da tastiera
+\usepackage[english,italian]{babel}     % Lingua del documento
+\usepackage{color, colortbl}
+\usepackage{booktabs}
+\usepackage{array}
+%\usepackage[compact]{titlesec}
+\usepackage[margin=0.8in, includefoot]{geometry}
+
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+%\titleformat{\chapter}[display]{\bfseries}{}{-30pt}{\Huge}
+
+
+\begin{document}
+    \tableofcontents
+
+	\chapter{Abstract}
+    \input{src/abstract/_main}
+    
+    \chapter{Analisi dei requisiti}
+        \input{src/analisiRequisiti/_main}
+
+    \chapter{Progettazione concettuale}
+        \input{src/progettazioneConcettuale/_main}
+
+    \chapter{Progettazione logica}
+        \input{src/progettazioneLogica/_main}
+
+    \chapter{Query Funzioni e Indici}
+        \input{src/queryFunzioniIndici/_main}
+\end{document}

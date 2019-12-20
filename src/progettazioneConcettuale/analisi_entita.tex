@@ -1,0 +1,309 @@
+Il grassetto negli attributi indica che quell'attributo è o fa parte di una chiave. \\
+Il simbolo $\gets$ identifica una generalizzazione completa, cioè l'\textbf{entita'} a sinistra è una generalizzazione completa delle identità che stanno a destra.
+Il simbolo $\Leftarrow$ identifica una generalizzazione parziale, cioè l'\textbf{entita'} a sinistra è una generalizzazione parziale delle identità che stanno a destra.
+
+\begin{verse}
+	L'\textbf{entita'} \emph{ProduzioneVino} è una generalizzazione completa delle entita' \emph{IngrMateriePrime, Pigiatura, Fermentazione, Vinificazione, Svinatura} che sono tutte prive di attributi.
+	L'\textbf{entita'} \emph{Fornitore}  è una generalizzazione completa delle entita' \emph{FornitoreTappi, FornitureUva, FornitoreBottiglie} che sono tutte prive di attributi
+\end{verse}
+\begin{verse}
+	Le \textbf{entita'} \emph{Fornitore, ProduzioneVino, Imbottigliamento, NegozioInterno, MagBianco, MagRosso, MagRosato, MagSpumante, AzManutenzione} sono prive di attributi.
+\end{verse}
+
+\vspace{0.5cm}
+\begin{center}
+	\begin{tabular}{P{4cm}P{2cm}P{8cm}}
+		\multicolumn{3}{c}{\textbf {\large {Vigneto}}} \\
+		\toprule
+		\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
+		\midrule
+		\textbf{ID} & INTEGER &  Identifica univocamente il vigneto\\
+		\midrule
+		Indirzzo & VARCHAR &  Identifica la posizione geografica del vigneto.  Attributo composto: stato, città, provincia, cap, via, numero civico\\
+		\bottomrule
+	\end{tabular}
+	
+	\vspace{0.5cm}
+	
+	\begin{tabular}{P{4cm}P{2cm}P{8cm}}
+		\multicolumn{3}{c}{\textbf {\large {Vigna}}} \\
+		\toprule
+		\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
+		\midrule
+		\textbf{ID} & INTEGER &  Identifica univocamente la vigna\\
+		\midrule
+		DataPiantagione & DATE & Data piantagione della vigna \\
+		\bottomrule
+	\end{tabular}
+
+		\vspace{0.5cm}
+	
+	\begin{tabular}{P{4cm}P{2cm}P{8cm}}
+		\multicolumn{3}{c}{\textbf {\large {TipoUva}}} \\
+		\toprule
+		\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
+		\midrule
+		\textbf{Colore} & VARCHAR & Rappresenta il colore dell'uva \\
+		\midrule
+		\textbf{Nome} & VARCHAR & Rappresenta il nome dell'uva \\
+		\bottomrule
+	\end{tabular}
+	
+	\vspace{0.5cm}
+	\begin{tabular}{P{4cm}P{2cm}P{8cm}}
+		\multicolumn{3}{c}{\textbf {\large {Uva}}} \\
+		\toprule
+		\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
+		\midrule
+		Annata & INTEGER & Anno in cui viene raccolta l'uva \\
+		\bottomrule
+	\end{tabular}
+
+		\vspace{0.5cm}
+	
+	
+\begin{tabular}{P{4cm}P{2cm}P{8cm}}
+	\multicolumn{3}{c}{\textbf {\large {Tappo}}} \\
+	\toprule
+	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
+	\midrule
+	Forma & VARCHAR &  Rappresenta il tipo di forma del tappo\\
+	\midrule
+	Materiale & VARCHAR &  Rappresenta il tipo di materiale del tappo\\
+	\midrule
+	Quantità & INTEGER &  Rappresenta il numero di tappi per forma e colore posseduti dalla cantina\\
+	\bottomrule
+\end{tabular}
+
+	\vspace{0.5cm}
+
+\begin{tabular}{P{4cm}P{2cm}P{8cm}}
+	\multicolumn{3}{c}{\textbf {\large {Bottiglia}}} \\
+	\toprule
+	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
+	\midrule
+	Colore & VARCHAR &  Rappresenta il colore della bottiglia\\
+	\midrule
+	Capacità & VARCHAR &  Rappresenta la capacità della bottiglia\\
+	\midrule
+	Quantità & INTEGER &  Rappresenta il numero di bottiglie per capacità e colore possedute dalla cantina\\
+	\bottomrule
+\end{tabular}
+	\vspace{0.5cm}
+	
+	\begin{tabular}{P{4cm}P{2cm}P{8cm}}
+	\multicolumn{3}{c}{\textbf {\large {MateriaPrima} $\gets$ (\emph{Uva, Tappo, Bottiglia})}} \\
+	\toprule
+	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
+	\midrule
+	\textbf{ID} & INTEGER &  Rappresenta univocamente la materia prima\\
+	\bottomrule
+\end{tabular}
+
+	\vspace{0.5cm}
+
+\begin{tabular}{P{4cm}P{2cm}P{8cm}}
+	\multicolumn{3}{c}{\textbf {\large {Vino}}} \\
+	\toprule
+	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
+	\midrule
+	\textbf{Nome} & VARCHAR & Identifica il nome del vino\\
+	\midrule
+	GradazioneAlcolica & TINYINT & Identifica il grado di alcol del vino\\
+	\midrule
+	TempoFermentazione & TINYINT & Rappresenta i giorni che sono serviti per la fermentazione del vino\\
+	\midrule
+	StatoProduzione & BOOLEAN & Rappresenta se il vino è ancora in produzione\\
+	\bottomrule
+\end{tabular}
+
+
+	\vspace{0.5cm}
+
+\begin{tabular}{P{4cm}P{2cm}P{8cm}}
+	\multicolumn{3}{c}{\textbf {\large {BottigliaDiVino}}} \\
+	\toprule
+	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
+	\midrule
+	\textbf{Nome} & VARCHAR &  Rappresenta il nome del vino a cui la bottiglia fa riferimento\\
+	\midrule
+	\textbf{Annata} & INTEGER &  Rappresenta l'anno della vendemmia dell'uva con cui è stato prodotto il vino\\
+	\midrule
+	Prezzo & DECIMAL &  Identifica il prezzo della bottiglia di vino\\
+	\midrule
+	Classificazione & VARCHAR & Tutela i consumatori su alcune caratteristiche del vino\\
+	\midrule
+	NumBottiglieVendute & INTEGER & Numero di bottiglie per nome e annata di vino vendute\\
+	\midrule
+	NumBottiglieProdotte & INTEGER &  Numero di bottiglie per nome e annata di vino prodotte\\
+	\bottomrule
+\end{tabular}
+
+
+	\vspace{0.5cm}
+
+\begin{tabular}{P{4cm}P{2cm}P{8cm}}
+	\multicolumn{3}{c}{\textbf {\large {Ordine}}} \\
+	\toprule
+	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
+	\midrule
+	\textbf{ID} & INTEGER &  Identifica univocamente un ordine di vendita ricevuto\\
+	\midrule
+	PrezzoTotale & INTEGER &  Rappresenta il prezzo complessivo dell'ordine, formato da prezzo di spedizione più il costo delle bottigle acquistate\\
+	\midrule
+	Data & DATE &  Data in cui è stato effettuato l'ordine\\
+	\bottomrule
+\end{tabular}
+
+	\vspace{0.5cm}
+
+\begin{tabular}{P{4cm}P{2cm}P{8cm}}
+	\multicolumn{3}{c}{\textbf {\large {Corriere}}} \\
+	\toprule
+	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
+	\midrule
+	\textbf{Id} & INTEGER &  Identifica univocamente il corriere\\
+	\midrule
+	Nome & VARCHAR &  Rappresenta il nome commerciale del corriere\\
+	\bottomrule
+\end{tabular}
+
+	\vspace{0.5cm}
+
+
+\begin{tabular}{P{4cm}P{2cm}P{8cm}}
+	\multicolumn{3}{c}{\textbf {\large {Azienda} $\gets$ (\emph{NegozioInterno, Fornitore, AzManutenzione})}} \\
+	\toprule
+	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
+	\midrule
+	\textbf{Id} & INTEGER &  Identifica univocamente l'azienda\\
+	\midrule
+	NomeReferente & VARCHAR &  Rappresenta il nome del referente dell'azienda\\
+	\midrule
+	CognomeReferente & VARCHAR &  Rappresenta il cognome del referente dell'azienda\\	\midrule
+	PartitaIVA & VARCHAR &  Identifica la partita IVA dell'azienda\\
+	\midrule
+	Nome & VARCHAR &  Rappresenta il nome dell'azienda\\
+	\midrule
+	Telefono & VARCHAR &  Rappresenta il numero telefonico dell'azienda\\
+	\midrule
+	Indirzzo & VARCHAR &  Identifica la posizione geografica cui risiede l'azienda.  Attributo composto: stato, città, provincia, cap, via, numero civico\\
+	\midrule
+	Email & VARCHAR & Identifica l'email aziendale\\
+	\bottomrule
+\end{tabular}
+
+\vspace{0.5cm}
+
+\begin{tabular}{P{4cm}P{2cm}P{8cm}}
+	\multicolumn{3}{c}{\textbf {\large {Privato}}} \\
+	\toprule
+	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
+	\midrule
+	Nome & VARCHAR &  Rappresenta il nome dell'acquirente privato\\
+	\midrule
+	Telefono & VARCHAR &  Rappresenta il numero telefonico dell'acquirente privato\\
+	\midrule
+	Indirzzo & VARCHAR &  Identifica la posizione geografica cui risiede l'acquirente privato.  Attributo composto: stato, città, provincia, cap, via, numero civico\\
+	\midrule
+	Email & VARCHAR & Identifica l'email dell'acquirente privato\\
+	\midrule
+	Cognome & VARCHAR &  Rappresenta il cognome dell'acquirente privato\\
+	\bottomrule
+\end{tabular}
+
+\vspace{0.5cm}
+
+\begin{tabular}{P{4cm}P{2cm}P{8cm}}
+	\multicolumn{3}{c}{\textbf {\large {Acquirente} $\gets$ (\emph{Privato}), \large {Acquirente} $\Leftarrow$ (\emph{Azienda})}} \\
+	\toprule
+	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
+	\midrule
+	\textbf{Id} & INTEGER &  Identifica univocamente l'acquirente\\
+	\bottomrule
+\end{tabular}
+
+\vspace{0.5cm}
+
+\begin{tabular}{P{4cm}P{2cm}P{8cm}}
+	\multicolumn{3}{c}{\textbf {\large {Eventi}}} \\
+	\toprule
+	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
+	\midrule
+	\textbf{Titolo} & VARCHAR &  Rappresenta il titolo dell'evento\\
+	\midrule
+	\textbf{NumEdizione} & INTEGER &  Rappresenta l'edizione dell'evento\\
+	\bottomrule
+\end{tabular}
+
+\vspace{0.5cm}
+
+\begin{tabular}{P{4cm}P{2cm}P{8cm}}
+	\multicolumn{3}{c}{\textbf {\large {Partecipante}}} \\
+	\toprule
+	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
+	\midrule
+	\textbf{Id} & INTEGER &  Rappresenta univocamente il partecipante di un evento\\
+	\midrule
+	Nome & VARCHAR &  Rappresenta il nome del partecipante\\
+	\midrule
+	Cognome & VARCHAR &  Rappresenta il cognome del partecipante\\
+	\midrule
+	Età & TINYINT &  Rappresenta l'età del partecipante, che devo essere maggiore o uguale a 18 anni\\
+	\bottomrule
+\end{tabular}
+
+\vspace{0.5cm}
+
+
+\begin{tabular}{P{4cm}P{2cm}P{8cm}}
+	\multicolumn{3}{c}{\textbf {\large {LineaProduttiva} $\gets$ (\emph{ProduzioneVino, Imbottigliamento})}} \\
+	\toprule
+	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
+	\midrule
+	\textbf{Id} & INTEGER &  Rappresenta univocamente la linea produttiva\\
+	\bottomrule
+\end{tabular}
+
+\vspace{0.5cm}
+
+\begin{tabular}{P{4cm}P{2cm}P{8cm}}
+	\multicolumn{3}{c}{\textbf {\large {Magazzino} $\gets$ (\emph{MagBianco, MagRosso, MagRosato, MagSpumante})}} \\
+	\toprule
+	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
+	\midrule
+	\textbf{NumBottiglie} & INTEGER &  Rappresenta la quantità delle bottiglie di vino, divise per tipologia di colore, contenute nel magazzino\\
+	\bottomrule
+\end{tabular}
+
+\vspace{0.5cm}
+
+\begin{tabular}{P{4cm}P{2cm}P{8cm}}
+	\multicolumn{3}{c}{\textbf {\large {Dipendente}}} \\
+	\toprule
+	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
+	\midrule
+	\textbf{CodFiscale} & VARCHAR &  Rappresenta univocamente il dipendente\\
+	\midrule
+	Nome & VARCHAR & Rappresenta il nome del dipendente \\
+	\midrule
+	Cognome & VARCHAR & Rappresenta il congnome del dipendente \\
+	\bottomrule
+\end{tabular}
+
+\vspace{0.5cm}
+
+\begin{tabular}{P{4cm}P{2cm}P{8cm}}
+	\multicolumn{3}{c}{\textbf {\large {Macchinario}}} \\
+	\toprule
+	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
+	\midrule
+	\textbf{Id} & INTEGER &  Rappresenta univocamente il macchinario\\
+	\midrule
+	Nome & VARCHAR & Rappresenta il nome commerciale del macchinario \\
+	\midrule
+	DataProManute & DATE & Rappresenta la data prossima della manutenzione \\
+	\bottomrule
+\end{tabular}
+
+\end{center}

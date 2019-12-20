@@ -1,0 +1,27 @@
+Lo schema concenttuale presenta molte generalizzazioni. Si procede all'analisi di quest'ultime per permettere la traduzione verso lo schema logico.\\
+
+\begin{flushleft}
+	\textbf{\large{Fornitore}}\\
+	L'entità \emph{Fornitore} non ha attributi ed è generalizzata dall'entità \emph{Azienda}. A sua volta \emph{Fornitore} è una generalizzazione di \emph{FornitoreUva, FornitoreTappi, FornitoreBottiglie}. Si è deciso di mantenere l'entità \emph{Fornitore} e di eliminare \emph{FornitoreUva, FornitoreTappi, FornitoreBottiglie}. Inoltre si è stato aggiunto un attributo \textbf{Tipologia} per identificare quale tipo di fornitura offre.
+\end{flushleft}
+
+
+\begin{flushleft}
+	\textbf{\large{Acquirente}}\\
+	L'entità \emph{Acquirente} presenta un attributo ed una relazione. A loro volta anche le entità figlie \emph{Azienda e Privato} hanno attributi significativi. Per ristrutturare questa generalizzazione si è deciso di creare due relazioni differenti. La prima si chiama \textbf{IsAzienda} dove la cardinalità da \emph{Azienda ad Acquirente} è (0,1) perchè un'azienda puo' non essere un nostro acquirente, invece da \emph{Acquirente ad Azienda} è (0,1) perchè non sempre un acquirente è un'azienda.
+	La seconda relazione si chiama \textbf{IsPrivato} dove la cardinalita' da \emph{Acquirente a Privato} e' (0,1) perchè non sempre un acquirente è un privato, invece da \emph{Privato ad Acquirente} è (1,1) perchè un privato e' sempre un nostro acquirente. Le entità \emph{Azienda e Privato} avranno sempre gli attributi visti in precedenza, in piu' \emph{Acquirente} avra' l'attributo NumAcquirente che sara' chiave referenziale ad \emph{Acquirente}. Si e' deciso di aggiungere quest'attributo consapevoli dell'eventualita' che quest'ultimo possa essere \textbf{NULL} visto che il carico di aziende che non sono acquirenti e' minore di quelle che lo sono.
+\end{flushleft}
+
+\begin{flushleft}
+	\textbf{\large{Azienda}}\\
+	L'entità \emph{Azienda} può essere un negozio interno della cantina, un fornitore o un'azienda di manutenzione. Per ristrutturare questa generalizzazione si è deciso di aggiungere una relazione chiamata \emph{IsNegozioInterno} con cardinalità (0,1) da \emph{Azienda a NegozioInterno} perchè un'azienda può o non essere un \emph{NegozioInterno}. La cardinalità da \emph{NegozioInterno a Azienda} è (1,1) perchè un negozio interno è anch'egli un'azienda. Si è scelta questa strada perchè il carico di aziende che non sono negozi interni è maggiore rispetto a quelle che sono negozi interni, perciò è stato escluso l'aggiunta di un attributo in \emph{Azienda} che identificava se quest'ultima era anche negozio interno. La stessa identica cosa è stata fatta per la generalizzazione con \emph{Fornitore}. Invece per la generalizzazione con \emph{AzManutenzione}, si è deciso di togliere \emph{AzManutenzione} e di non specificare se un'azienda è di per se un' azienda di manutenzione, ma di ricavarlo tramite la relazione \emph{Manutenzione}.
+\end{flushleft}
+
+\begin{flushleft}
+	\textbf{\large{LineaProduttiva}}\\
+	L'entità \emph{LineaProduttiva} è una generalizzazione a più livelli, infatti essa generalizza le entità \emph{ProduzioneVino, Imbottigliamento, Magazzino}. A sua volta l'entità \textbf{ProduzioneVino} generalizza \emph{IngrMateriePrime, Pigiatura, Fermentazione, Vinificazione, Svinatura}. Infine l'entità \emph{Magazzino} generalizza le entità \emph{MagBianco, MagSpumante, MagRosato, MagRosso}. Essendo tutte generalizzazioni complete e non avendo attributi (a parte l'entità \emph{Magazzino}*) che vanno a particolarizzare le varie entità figlie, si è deciso di aggiungere un attributo \textbf{Nome} nell'entità \emph{LineaProduttiva} che identifica queste specializzazioni.
+\end{flushleft}
+
+\begin{verse}
+	*L'attributo \textbf{NumBottiglie} dell'entità \emph{Magazzino}, essendo di cardinalità (1,1) per l'entità \emph{BottigliaDiVino}, è stato assegnato a quest'ultima rinominandolo \textbf{NumBottiglieMagazzino} perchè viene identificato univocamento per ogni tipologia di bottiglia di vino.
+\end{verse}
