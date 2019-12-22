@@ -32,3 +32,7 @@ FROM Acquirenti as Acq1 JOIN Aziende as A ON Acq1.Id=NumAcquirente JOIN Ordini O
 Acquirenti as Acq2 JOIN Aziende as A ON Acq2.Id=NumAcquirente) JOIN Ordini ON Acquirente=Acq2.Id JOIN Informazioni ON InformazioniAggiuntive=Informazioni.Id,
 WHERE Acq1.Id<Acq2.Id and Acq1.Data=Acq2.Data
 ORDER BY Acq1.Nome, Acq2.Nome
+
+
+/*QUERY 4
+il vino/i che rappresenta il tema di un evento che è stato visto da meno partecipanti*/
