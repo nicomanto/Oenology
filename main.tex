@@ -1,4 +1,4 @@
-\documentclass[a4paper,10pt]{report}
+\documentclass[a4paper,10pt]{article}
 \usepackage[T1]{fontenc}        % Codifica dei font
 \usepackage[utf8]{inputenc}    % Lettere accentate da tastiera
 \usepackage[english,italian]{babel}     % Lingua del documento
@@ -15,18 +15,18 @@
 \begin{document}
     \tableofcontents
 
-	\chapter{Abstract}
+	\section{Abstract}
     \input{src/abstract/_main}
     
-    \chapter{Analisi dei requisiti}
+    \section{Analisi dei requisiti}
         \input{src/analisiRequisiti/_main}
 
-    \chapter{Progettazione concettuale}
+    \section{Progettazione concettuale}
         \input{src/progettazioneConcettuale/_main}
 
-    \chapter{Progettazione logica}
+    \section{Progettazione logica}
         \input{src/progettazioneLogica/_main}
 
-    \chapter{Query Funzioni e Indici}
+    \section{Query Funzioni e Indici}
         \input{src/queryFunzioniIndici/_main}
 \end{document}
