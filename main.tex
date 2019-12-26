@@ -11,7 +11,8 @@
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
 %\titleformat{\chapter}[display]{\bfseries}{}{-30pt}{\Huge}
 
-
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[scaled]{helvet}
 \begin{document}
     \tableofcontents
 
@@ -27,6 +28,6 @@
     \section{Progettazione logica}
         \input{src/progettazioneLogica/_main}
 
-    \section{Query Funzioni e Indici}
-        \input{src/queryFunzioniIndici/_main}
+    \section{Query e indici}
+        \input{src/queryIndici/_main}
 \end{document}
