@@ -1,0 +1,21 @@
+Si è deciso di creare un indice sulla tabella \emph{Dipendenti} perchè analizzando il carico della base di dati è l'unica tabella che rappresenta molti dati che vengono acceduti spesso in lettura ma non in scrittura. L'unico momento in cui la tabella viene acceduta in scrittura è quando vengono assunti dei nuovi dipendenti, ma questo avviene solo 10 volte all'anno.\\
+
+\begin{flushleft}
+	\textbf{{Creazione indice:}} \emph{CREATE INDEX idx\_dipendenti ON Dipendenti (CodiceFiscale)}
+\end{flushleft}
+
+\begin{minipage}{6cm}
+	\rightline{
+		\centering
+		\textbf{Esecuzione senza indice}
+		%inserimento immagine
+	}
+\end{minipage}
+\hspace{2mm}
+\begin{minipage}{6cm}
+	\leftline{
+		\centering
+		\textbf{Esecuzione con indice}
+		%inserimento immagine
+}
+\end{minipage}
