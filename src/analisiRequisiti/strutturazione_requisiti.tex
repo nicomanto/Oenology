@@ -3,7 +3,8 @@
 		\toprule
 		\rowcolor[rgb]{.929, .929, .929} \textbf {\large {FRASI RELATIVE A BOTTIGLIA DI VINO}} \\
 		\midrule
-		La bottiglia di vino che è caratterizzata dal tipo di vino contenuto e dall'annata. Altri dati importanti sono il prezzo per bottiglia, il numero di bottiglie prodotte e vendute, il tipo di tappo e bottiglia ed infine dalla classificazione: vini a denominazione d'origine controllata e garantita (D.O.C.G.); vini a denominazione d'origine controllata (D.O.C.); vini ad indicazione geografica tipica (I.G.T.). Ciascuna tipologia di bottiglia di vino è racchiusa in magazzini. Ovviamente le bottiglie di vino possono essere spedite in una determinata quantità in un ordine di vendita\\
+		Una bottiglia di vino e' il prodotto finale che viene venduto dalla cantina, e rappresenta l'unione di una bottiglia di vetro, di un tappo e di un tipo di vino. Ogni bottiglia e' caratterizzata dal suo prezzo, dal numero di unita' uguali prodotte e vendute, oltre che dal tipo di tappo e dal tipo di bottiglia 
+		Altri dati importanti sono il prezzo per bottiglia, il numero di bottiglie prodotte e vendute, il tipo di tappo e bottiglia ed infine dalla classificazione: vini a denominazione d'origine controllata e garantita (D.O.C.G.); vini a denominazione d'origine controllata (D.O.C.); vini ad indicazione geografica tipica (I.G.T.). Ciascuna tipologia di bottiglia di vino è racchiusa in magazzini. Ovviamente le bottiglie di vino possono essere spedite in una determinata quantità in un ordine di vendita\\
 		\bottomrule
 	\end{tabular}
 
@@ -11,9 +12,9 @@
 	
 	\begin{tabular}{P{16cm}}
 		\toprule
-		\rowcolor[rgb]{.929, .929, .929} \textbf {\large {FRASI RELATIVE A VINO}} \\
+		\rowcolor[rgb]{.929, .929, .929} \textbf {\large {FRASI RELATIVE A TIPO DI VINO}} \\
 		\midrule
-		Altro prodotto importante è il vino, che viene identificato tramite il nome. Inoltre dati importanti del vino sono la gradazione alcolica, il tempo di fermentazione e la tipologia dell'uva con la relativa vendemmia (anno di raccolta) con cui è stato prodotto. Importante inoltre tenere traccia se un determinato vino è ancora in fase di produzione o è diventato fuori commercio.\\
+		Relativamente ai tipi di vino rappresentiamo il nome, la gradazione alcolica, il tempo di fermentazione e l'uva utilizzata oltre che lo stato produttivo, ovvero se il vino viene prodotto ancora o e' ormai fuori commercio. \\
 		\bottomrule
 	\end{tabular}
 
@@ -23,17 +24,7 @@
 		\toprule
 		\rowcolor[rgb]{.929, .929, .929} \textbf {\large {FRASI RELATIVE A MATERIA PRIMA}} \\
 		\midrule
-		Ovviamente la cantina acquista esternamente da altre aziende le proprie materie prime che vanno a formare il prodotto finale, queste materie prime sono identificate tramite un ID univoco. Quest'ultime si dividono in uva, bottiglia e tappo. Dell'uva è importante tenere traccia dell'anno di raccolta, del nome e del colore. Dei tappi viene registrata la forma ed il materiale; delle bottigle, invece, viene registrata la capacità ed il colore. Inoltre è presente il dato che identifica la quantità posseduta dalla cantina sia per i tappi che per le bottigle. Un tipo d'uva proviene da un tipo di vigna\\
-		\bottomrule
-	\end{tabular}
-
-	\vspace{0.5cm}
-
-	\begin{tabular}{P{16cm}}
-		\toprule
-		\rowcolor[rgb]{.929, .929, .929} \textbf {\large {FRASI RELATIVE A VIGNA}} \\
-		\midrule
-		Un tipo d'uva proviene da un tipo di vigna, identificata da un ID, la quale è coltivata in un determinato vigneto. Importante identificare la data della piantagione della vigna.\\
+		Le materie prima che vengono acquistate viene rappresentato un ID univoco che le rappresenta. Se la materia prima e' l'Uva questa viene rappresentata dall'anno di raccolta, dal nome e dal colore, se, invece, la materia prima sono i Tappi questa viene rappresentata dalla forma e dal materiale, infine se la materia prima sono le Bottiglie, questa viene rappresentata dalla capacita' e dal colore.\\
 		\bottomrule
 	\end{tabular}
 
@@ -43,7 +34,7 @@
 		\toprule
 		\rowcolor[rgb]{.929, .929, .929} \textbf {\large {FRASI RELATIVE A VIGNETO}} \\
 		\midrule
-		Del vigneto, anch'esso identificato tramite un ID è utile identificatore l'indirizzo di locazione.\\
+		I Vigneti sono rappresentati da un ID univoco e dalla loro posizione geografica\\
 		\bottomrule
 	\end{tabular}
 	
@@ -53,9 +44,8 @@
 		\toprule
 		\rowcolor[rgb]{.929, .929, .929} \textbf {\large {FRASI RELATIVE AD AZIENDA}} \\
 		\midrule
-		Le aziende con cui la cantina ha relazione sono molteplici. Queste aziende si dividono in fornitori, aziende di manutenzione macchinari e negozi interni della cantina. Le aziende sono identificate tramite un ID univoco e sono caratterizzate da: nome commerciale, partita IVA, nome e cognome di un referente, telefono ed email aziendale e dall'indirizzo di locazione (che nel caso di un ordine di vendita coincide con quello di spedizione). I fornitori, inoltre, sono divisi in fornitori d'uva, di tappi e di bottiglie. Per ogni fornitura va identificata la data, il prezzo e la quantità del prodotto fornito.
-		Esistono alcune aziende, che anche se gestite esternamente, sono sotto lo stesso gruppo della cantina \emph{Nome Cantina}, le quali vendono le nostre bottigle di vino.
-		Queste aziende sono dei nostri negozi interni e possono ospitare degli eventi. Le manutenzioni vengono eseguite da aziende esterne\\
+
+		Una Azienda e' rappresentata dal nome, dalla Partita IVA, dal nome e dal cognome del referente oltre che dal numero di telefono, dalla email aziendale e dalla sua posizione geografica. Per le aziende che sono Fornitori rappresentiamo poi la tipologia di Materia Prima fornita, sia essa Uva, Tappi o Bottiglie.\\
 		\bottomrule
 	\end{tabular}
 	
@@ -65,7 +55,7 @@
 		\toprule
 		\rowcolor[rgb]{.929, .929, .929} \textbf {\large {FRASI RELATIVE AD ORDINE}} \\
 		\midrule
-		Per l'ordine, identificato univocamente da un ID, è utile rappresentare la data in cui è stato fatto ed il prezzo totale (rappresentato dal prezzo delle bottiglie acquistate moltiplicate per la loro quantità più il prezzo di spedizione). Ogni ordine è affidato ad un corriere. Importante identificare la data  di spedizione e di ricezione dell'ordine. Ogni ordine viene venduto ad un'azienda o ad un privato.\\
+		Relativamente ad un ordine rappresentiamo un ID univoco, la data in cui e' stato effettuato, il corriere a cui e' stata affidato, la data di spedizione, la data di consegna e il prezzo totale (che deve corrispondere al prodotto tra il prezzo delle bottiglie di vino acquistate e il relativo prezzo sommato al costo della spedizione).\\
 		\bottomrule
 	\end{tabular}
 	
@@ -73,17 +63,8 @@
 	
 	\begin{tabular}{P{16cm}}
 		\toprule
-		\rowcolor[rgb]{.929, .929, .929} \textbf {\large {FRASI RELATIVE A CORRIERE}} \\
-		Ogni ordine è affidato ad un corriere il quale viene rappresentato tramite un ID ed un nome commerciale.\\
-		\bottomrule
-	\end{tabular}
-	
-	\vspace{0.5cm}
-	
-	\begin{tabular}{P{16cm}}
-		\toprule
-		\rowcolor[rgb]{.929, .929, .929} \textbf {\large {FRASI RELATIVE AD ACQUIRENTE}} \\
-		Ogni ordine viene venduto ad un acquirente, che può essere un'azienda o un privato. I privati vengono identificati tramite un'ID ed è utile tenere traccia di queste informazioni del privato: nome, cognome, telefono, email e l'indirizzo di spedizione.\\
+		\rowcolor[rgb]{.929, .929, .929} \textbf {\large {FRASI RELATIVE AD PRIVATO}} \\
+		Per i privati, che sono delle persone che hanno effettuato un ordine nel negozio online della cantina rappresentiamo il nome, il cognome, il numero di telefono e l'email oltre che l'indirizzo di residenza (che corrisponde con l'indirizzo di spedizione).\\
 		\bottomrule
 	\end{tabular}
 	
