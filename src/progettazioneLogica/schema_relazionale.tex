@@ -1,113 +1,123 @@
-\textbf{BottiglieDiVino} (\underline{Vino, Annata}, Prezzo, Classificazione, NumBottiglieVendute,NumBottiglieMagazzino, NumBottiglieProdotte, IdTappo, IdBottiglia, IdMagazzino)
+\textbf{BottiglieDiVino} (\underline{Id}, Vino, Annata, Prezzo, Classificazione, NumBottiglieVendute, NumBottiglieMagazzino, NumBottiglieProdotte, IdTappo, IdBottiglia, IdMagazzino)
 \begin{verse}
-	(BottiglieDiVino.Vino, BottiglieDiVino.Annata) $\to$ (Vino.Nome, Vini.TipologiaUva.AnnoRaccolta)\\
-	BottiglieDiVino.IdTappo $\to$ Tappo.Id\\
+	(BottiglieDiVino.Vino, BottiglieDiVino.Annata) $\to$ (Vini.Nome, Vini.Uva.Annata)\\
+	BottiglieDiVino.IdTappo $\to$ Tappi.Id\\
 	BottiglieDiVino.IdBottiglia $\to$ Bottiglie.Id\\
-	BottiglieDiVino.IdMagazzino $\to$ LineeProduttiva.Id
+	BottiglieDiVino.IdMagazzino $\to$ LineeProduttive.Id
 \end{verse} 
-\textbf{Vini} (\underline{Nome}, GradazioneAlcolica, TempoFermentazione, StatoProduzione,TipologiaUva, IdProduzione)
+\textbf{Vini} (\underline{Nome}, GradazioneAlcolica, TempoFermentazione, StatoProduzione, IdProduzione, Uva)
 \begin{verse}
-	Vino.TipoligiaUva $\to$ Uva.Id\\
-	Vino.IdProduzione $\to$ LineaProduttiva.Id
+	Vini.Uva $\to$ Uva.Id\\
+	Vini.IdProduzione $\to$ LineeProduttive.Id
 \end{verse} 
-\textbf{Uva} (\underline{Id}, Nome, AnnoRaccolta, Colore)\\
+\textbf{Uva} (\underline{Id}, TipoUva, Fornitore, Annata)
+\begin{verse}
+	Uva.Fornitore $\to$ Fornitori.Id\\
+	Uva.TipoUva $\to$ TipiUva.Id
+\end{verse}
+\textbf{TipiUva} (\underline{Id}, Nome, Colore)\\
 \textbf{Vigne} (\underline{Id}, Tipologia, DataPiantagione, VignetoDiAppartenenza)
 \begin{verse}
-	Vigna.Tipologia $\to$ Uva.Id\\
-	Vigna.VignetodiAppartenenza $\to$ Vigneto.Id
+	Vigne.Tipologia $\to$ Uva.Id\\
+	Vigne.VignetodiAppartenenza $\to$ Vigneti.Id
 \end{verse} 
-\textbf{Vigneti} (\underline{Id}, Terreno, Indirizzo)
+\textbf{Vigneti} (\underline{Id}, Indirizzo)
 \begin{verse}
-	Vigneto.Indirizzo $\to$ Indirizzo.Id
+	Vigneti.Indirizzo $\to$ Indirizzi.Id
 \end{verse} 
-\textbf{Tappi} (\underline{Id}, Forma, Materiale, Quantità)\\
-\textbf{Bottiglie} (\underline{Id}, Capacità, Colore, Quantità)\\
-\textbf{FornitoreTappi} (\underline{Id}, Nome, PrezzoAlTappo)\\
-\textbf{FornitoreBottiglie} (\underline{Id}, Nome, PrezzoABottiglia)\\
-\textbf{FornitoreUva} (\underline{Id}, Nome, PrezzoAlKg)\\
-\textbf{FornisceUva} (\underline{Fornitore, Uva}, Prezzo, Quantità, DataAcquisto)
+\textbf{Tappi} (\underline{Id}, Forma, Materiale, Quantita, Fornitore)
 \begin{verse}
-	FornisceUva.Fornitore $\to$ FornitoreUva.Id\\
+	Tappi.Fornitore $\to$ Fornitori.Id
+\end{verse}
+\textbf{Bottiglie} (\underline{Id}, Capacita, Colore, Quantita, Fornitore)
+\begin{verse}
+	Bottiglie.Fornitore $\to$ Fornitori.Id
+\end{verse}
+\textbf{FornisceUva} (\underline{Uva, DataAcquisto}, Prezzo, Quantita)
+\begin{verse}
 	FornisceUva.Uva $\to$ Uva.Id
 \end{verse}
-\textbf{FornisceTappi} (\underline{Fornitore, Tappo}, Prezzo, Quantità, DataAcquisto)
+\textbf{FornisceTappo} (\underline{Tappo, DataAcquisto}, Prezzo, Quantita)
 \begin{verse}
-	FornisceTappi.Fornitore $\to$ FornitoreTappi.Id\\
-	FornisceTappi.Tappo $\to$ Tappo.Id
+	FornisceTappi.Tappo $\to$ Tappi.Id
 \end{verse} 
-\textbf{FornisceBottiglia} (\underline{Fornitore, Bottiglia}, Prezzo, Quantità, DataAcquisto)
+\textbf{FornisceBottiglia} (\underline{Bottiglia, DataAcquisto}, Prezzo, Quantita)
 \begin{verse}
-	FornisceBottiglia.Fornitore $\to$ FornitoreBottiglie.Id\\
-	FornisceBottiglia.Bottiglia $\to$ Bottiglia.Id
+	FornisceBottiglia.Bottiglia $\to$ Bottiglie.Id
 \end{verse} 
 \textbf{LineeProduttive} (\underline{Id}, Nome, Direttore)
 \begin{verse}
-	LineeProduttiva.Direttore $\to$ Dipendenti.CodFiscale
+	LineeProduttive.Direttore $\to$ Dipendenti.CodiceFiscale
 \end{verse} 
-\textbf{Macchinari} (\underline{Id}, Nome, DataProssimaManute, UltimaManutenzione, DataAcquisto, LineaProduttiva)
+\textbf{Macchinari} (\underline{Id}, Nome, DataProssimaManutenzione, DataAcquisto, LineaProduttiva)
 \begin{verse}
-	Macchinario.LineaProduttiva $\to$ LineeProduttive.Id\\
-	Macchinario.UltimaManutenzione $\to$ Manutenzioni.Id\\
+	Macchinari.LineaProduttiva $\to$ LineeProduttive.Id
 \end{verse} 
 \textbf{Manutenzioni} (\underline{Id}, Macchinario, Azienda, Costo, Data)
 \begin{verse}
-	Manutenzioni.Macchinario $\to$ Macchinarii.Id\\
-	Manutenzioni.Azienda $\to$ AziendeManutenzione.Id
-\end{verse} 
-\textbf{AziendaManutenzione} (\underline{Id}, Nome)\\
-\textbf{Dipendenti} (\underline{CodFiscale}, Nome, Cognome, Stipendio, Referente)
+	Manutenzioni.Macchinario $\to$ Macchinari.Id\\
+	Manutenzioni.Azienda $\to$ Aziende.Id
+\end{verse}
+\textbf{Dipendenti} (\underline{CodiceFiscale}, Nome, Cognome, Referente)
 \begin{verse}
-	Dipendenti.Referente $\to$ Dipendenti.Id
+	Dipendenti.Referente $\to$ Dipendenti.CodiceFiscale
 \end{verse} 
-\textbf{Turni} (\underline{Dipendente, InizioTurno, FineTurno}, LineaProduttiva)
+\textbf{Turni} (\underline{Dipendente, InizioTurno}, FineTurno, LineaProduttiva)
 \begin{verse}
-	Turni.Dipendente $\to$ Dipendenti.Id\\
+	Turni.Dipendente $\to$ Dipendenti.CodiceFiscale\\
 	Turni.LineaProduttiva $\to$ LineeProduttive.Id
 \end{verse} 
 \textbf{Ordini} (\underline{Id}, PrezzoTotale, Data, Acquirente)
 \begin{verse}
 	Ordini.Acquirente $\to$ Acquirenti.Id
 \end{verse} 
-\textbf{Contenuto} (\underline{Ordine, Vino, Annata}, QuantitàBottiglie)
+\textbf{Dettagli} (\underline{Ordine, Vino}, QuantitaBottiglie)
 \begin{verse}
-	Contenuto.Ordine $\to$ Ordine.Id\\
-	(Contenuto.Vino, Contenuto.Annata) $\to$ (BottigliaDiVino.Vino, BottigliaDiVino.Annata)
+	Dettagli.Ordine $\to$ Ordini.Id\\
+	Dettagli.Vino $\to$ BottiglieDiVino.Id
 \end{verse} 
-\textbf{Spedizione} (\underline{Ordine, Corriere}, DataSpedizione, DataArrivo, Prezzo)
+\textbf{Spedizioni} (\underline{Ordine, Corriere}, DataSpedizione, DataConsegna, Prezzo)
 \begin{verse}
-	Spedizione.Ordine $\to$ Ordine.Id\\
-	Spedizione.Corriere $\to$ Corriere.Id
+	Spedizioni.Ordine $\to$ Ordini.Id\\
+	Spedizioni.Corriere $\to$ Corrieri.Id
 \end{verse} 
-\textbf{Corriere} (\underline{Id}, Nome)\\
-\textbf{Acquirente} (\underline{Id}, Nome, Telefono, Email, IndirizzoSpedizione)
+\textbf{Corrieri} (\underline{Id}, Nome)\\
+\textbf{Acquirenti} (\underline{Id})\\
+\textbf{Privati} (\underline{Id}, Cognome, InformazioniAggiuntive)
 \begin{verse}
-	Acquirente.Indirizzo $\to$ Indirizzo.Id
+	Privati.Id $\to$ Acquirenti.Id\\
+	Privati.InformazioniAggiuntive $\to$ Informazioni.Id
 \end{verse} 
-\textbf{Privato} (\underline{Id}, Cognome)
+\textbf{Aziende} (\underline{Id}, NumAcquirente, PartitaIva, NomeReferente, CognomeReferente, InformazioniAggiuntive)
 \begin{verse}
-	Privato.Id $\to$ Acquirente.Id
+	Aziende.NumAcquirente $\to$ Acquirenti.Id\\
+	Aziende.InformazioniAggiuntive $\to$ Informazioni.Id
+\end{verse}
+\textbf{Fornitori} (\underline{Id}, Tipologia)
+\begin{verse}
+	Fornitori.Id $\to$ Aziende.Id
 \end{verse} 
-\textbf{Azienda} (\underline{Id}, NomeReferente, CognomeReferente)
+\textbf{NegoziInterni} (\underline{Id})
 \begin{verse}
-	Azienda.Id $\to$ Acquirente.Id
+	NegoziInterni.Id $\to$ Aziende.Id
 \end{verse} 
-\textbf{NegozioInterno} (\underline{Id})
+\textbf{Indirizzi} (\underline{Id}, Via, NumeroCivico, Stato, Provincia, Citta, CAP)\\
+\textbf{Eventi} (\underline{Id}, Titolo, Edizione)\\
+\textbf{Ospita} (\underline{Evento, Negozio}, Data)
 \begin{verse}
-	NegozioInterno.Id $\to$ Azienda.Id
+	Ospita.Evento $\to$ Eventi.Id\\
+	Ospita.Negozio $\to$ NegoziInterni.Id
 \end{verse} 
-\textbf{Indirizzo} (\underline{Id}, Via, NumCivico, Stato, Provincia, Città, CAP)\\
-\textbf{Evento} (\underline{Id}, Titolo, NumEdizione)\\
-\textbf{Ospita} (\underline{Evento, Negozio})
+\textbf{Partecipanti} (\underline{Id}, Nome, Cognome, Eta, Evento)
 \begin{verse}
-	Ospita.Evento $\to$ Evento.Id\\
-	Ospita.Negozio $\to$ Negozio.Id
+	Partecipanti.(Evento, Negozio) $\to$ Ospita.(Evento, Negozio)
 \end{verse} 
-\textbf{Partecipante} (\underline{Id}, Nome, Cognome, Età, Evento, Negozio)
+\textbf{TemiVino} (\underline{Vino, Evento})
 \begin{verse}
-	(Partecipante.Evento, Partecipante.Negozio) $\to$ (Ospita.Evento, Ospita.Negozio)
-\end{verse} 
-\textbf{TemaVino} (\underline{Vino, Evento})
+	TemiVino.Vino $\to$ Vini.Nome\\
+	TemiVino.Evento $\to$ Eventi.Id
+\end{verse}
+\textbf{Informazioni} (\underline{Id}, Nome, Telefono, Email, Indirizzo)
 \begin{verse}
-	TemaVino.Vino $\to$ Vino.Nome\\
-	TemaVino.Evento $\to$ Evento.Id
+	Informazioni.Indirizzo $\to$ Indirizzi.Id
 \end{verse} 
