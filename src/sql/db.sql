@@ -60,11 +60,10 @@ CREATE TABLE Aziende (
 
 CREATE TABLE Fornitori (
     Id INTEGER NOT NULL,
-    Tipologia VARCHAR(255) NOT NULL,
+    Tipologia ENUM('Uva','Tappo','Bottiglia') NOT NULL,
 
     PRIMARY KEY (Id),
-    FOREIGN KEY (Id) REFERENCES Aziende(Id),
-    CHECK (Tipologia = 'Uva' OR Tipologia = 'Tappo' OR Tipologia = 'Bottiglia')
+    FOREIGN KEY (Id) REFERENCES Aziende(Id)
 );
 
 CREATE TABLE TipiUva (
@@ -99,7 +98,7 @@ CREATE TABLE Dipendenti (
 
 CREATE TABLE LineeProduttive (
     Id INTEGER NOT NULL AUTO_INCREMENT,
-    Nome VARCHAR (255) NOT NULL,
+    Nome ENUM('ProduzioneVino','Imbottigliamento','MagazzinoBianco', 'MagazzinoRosso', 'MagazzinoSpumante', 'MagazzinoRosato') NOT NULL,
     Direttore VARCHAR (255) NOT NULL,
 
     PRIMARY KEY (Id),
@@ -148,7 +147,7 @@ CREATE TABLE BottiglieDiVino (
     Vino VARCHAR(255) NOT NULL,
     Annata  INTEGER NOT NULL,
     Prezzo FLOAT NOT NULL,
-    Classificazione VARCHAR(4),
+    Classificazione ENUM('DOC','IGT','DOCG') DEFAULT NULL,
     NumBottiglieVendute INTEGER,
     NumBottiglieMagazzino INTEGER,
     NumBottiglieProdotte INTEGER,
@@ -162,6 +161,8 @@ CREATE TABLE BottiglieDiVino (
     FOREIGN KEY (IdBottiglia) REFERENCES Bottiglie(Id),
     FOREIGN KEY (IdMagazzino) REFERENCES LineeProduttive(Id),
     UNIQUE (Vino, Annata)
+
+    /*CHECK se Annata= Vino->Uva.Annata (non so se si può fare con un check, penso ci sia bisogno di un trigger)*/
 );
 
 CREATE TABLE Vigneti (
@@ -226,6 +227,8 @@ CREATE TABLE Ordini (
 
     PRIMARY KEY (Id),
     FOREIGN KEY (Acquirente) REFERENCES Acquirenti(Id)
+    
+    /*CHECK se PrezzoTotale= QuantitaBottiglie(Dettagli) x Prezzo(BottigliaDiVino) + Prezzo(Spedizione)  (non so se si può fare con un check, penso ci sia bisogno di un trigger)*/
 );
 
 CREATE TABLE Dettagli ( /*cambiare nome!! */
@@ -236,6 +239,8 @@ CREATE TABLE Dettagli ( /*cambiare nome!! */
     PRIMARY KEY (Ordine, Vino),
     FOREIGN KEY (Ordine) REFERENCES Ordini(Id),
     FOREIGN KEY (Vino) REFERENCES BottiglieDiVino(Id)
+
+    /*Non sapevo se modificare il nome Vino visto che ci riferiamo alla BottigliaDiVino*/
 );
 
 CREATE TABLE Corrieri (
