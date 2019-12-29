@@ -131,7 +131,7 @@ Il simbolo $\Leftarrow$ identifica una generalizzazione parziale, cioè l'\textb
 	\midrule
 	Prezzo & DECIMAL &  Identifica il prezzo della bottiglia di vino\\
 	\midrule
-	Classificazione & VARCHAR & Tutela i consumatori su alcune caratteristiche del vino\\
+	Classificazione & ENUM & Tutela i consumatori su alcune caratteristiche del vino\\
 	\midrule
 	NumBottiglieVendute & INTEGER & Numero di bottiglie per nome e annata di vino vendute\\
 	\midrule
@@ -215,7 +215,7 @@ Il simbolo $\Leftarrow$ identifica una generalizzazione parziale, cioè l'\textb
 \vspace{0.5cm}
 
 \begin{tabular}{P{4cm}P{2cm}P{8cm}}
-	\multicolumn{3}{c}{\textbf {\large {Acquirente} $\gets$ (\emph{Privato}), \large {Acquirente} $\Leftarrow$ (\emph{Azienda})}} \\
+	\multicolumn{3}{c}{\textbf {\large {Acquirente} $\gets$ (\emph{Privato}), \large{Acquirente} $\Leftarrow$ (\emph{Azienda})}} \\
 	\toprule
 	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
 	\midrule
@@ -257,7 +257,7 @@ Il simbolo $\Leftarrow$ identifica una generalizzazione parziale, cioè l'\textb
 
 
 \begin{tabular}{P{4cm}P{2cm}P{8cm}}
-	\multicolumn{3}{c}{\textbf {\large {LineaProduttiva} $\gets$ (\emph{ProduzioneVino, Imbottigliamento})}} \\
+	\multicolumn{3}{c}{\textbf {\large {LineaProduttiva} $\gets$ (\emph{ProduzioneVino, Imbottigliamento, Magazzino})}} \\
 	\toprule
 	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
 	\midrule
