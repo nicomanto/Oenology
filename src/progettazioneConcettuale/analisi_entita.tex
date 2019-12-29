@@ -1,13 +1,15 @@
-Il grassetto negli attributi indica che quell'attributo è o fa parte di una chiave. \\
-Il simbolo $\gets$ identifica una generalizzazione completa, cioè l'\textbf{entita'} a sinistra è una generalizzazione completa delle identità che stanno a destra.
-Il simbolo $\Leftarrow$ identifica una generalizzazione parziale, cioè l'\textbf{entita'} a sinistra è una generalizzazione parziale delle identità che stanno a destra.
+Gli attributi contraddistinti dal carattere tipografico \emph{grassetto} sono (o fanno parte) della chiave della relativa tabella. \\
+Il simbolo $\gets$ identifica una generalizzazione completa, cioè la \textbf{prima entita'} è una generalizzazione completa delle entita' seguenti.
+Il simbolo $\Leftarrow$ identifica una generalizzazione parziale, cioè la \textbf{prima entita'} è una generalizzazione parziale delle identità seguenti.
 
 \begin{verse}
-	L'\textbf{entita'} \emph{ProduzioneVino} è una generalizzazione completa delle entita' \emph{IngrMateriePrime, Pigiatura, Fermentazione, Vinificazione, Svinatura} che sono tutte prive di attributi.
-	L'\textbf{entita'} \emph{Fornitore}  è una generalizzazione completa delle entita' \emph{FornitoreTappi, FornitureUva, FornitoreBottiglie} che sono tutte prive di attributi
+	\textbf{ProduzioneVino} $\gets$ \emph{IngrMateriePrime, Pigiatura, Fermentazione, Vinificazione, Svinatura} le quali sono tutte prive di attributi.
 \end{verse}
 \begin{verse}
-	Le \textbf{entita'} \emph{Fornitore, ProduzioneVino, Imbottigliamento, NegozioInterno, MagBianco, MagRosso, MagRosato, MagSpumante, AzManutenzione} sono prive di attributi.
+	\textbf{Fornitore} $\gets$ \emph{FornitoreTappi, FornitureUva, FornitoreBottiglie} le quali sono tutte prive di attributi
+\end{verse}
+\begin{verse}
+	Le entita' \emph{Fornitore, ProduzioneVino, Imbottigliamento, NegozioInterno, MagBianco, MagRosso, MagRosato, MagSpumante, AzManutenzione} sono prive di attributi.
 \end{verse}
 
 \vspace{0.5cm}
@@ -19,23 +21,10 @@ Il simbolo $\Leftarrow$ identifica una generalizzazione parziale, cioè l'\textb
 		\midrule
 		\textbf{ID} & INTEGER &  Identifica univocamente il vigneto\\
 		\midrule
-		Indirzzo & VARCHAR &  Identifica la posizione geografica del vigneto.  Attributo composto: stato, città, provincia, cap, via, numero civico\\
+		Indirzzo & VARCHAR &  Posizione geografica del vigneto.  Attributo composto: stato, città, provincia, cap, via, numero civico\\
 		\bottomrule
 	\end{tabular}
 	
-	\vspace{0.5cm}
-	
-	\begin{tabular}{P{4cm}P{2cm}P{8cm}}
-		\multicolumn{3}{c}{\textbf {\large {Vigna}}} \\
-		\toprule
-		\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
-		\midrule
-		\textbf{ID} & INTEGER &  Identifica univocamente la vigna\\
-		\midrule
-		DataPiantagione & DATE & Data piantagione della vigna \\
-		\bottomrule
-	\end{tabular}
-
 		\vspace{0.5cm}
 	
 	\begin{tabular}{P{4cm}P{2cm}P{8cm}}
@@ -43,9 +32,9 @@ Il simbolo $\Leftarrow$ identifica una generalizzazione parziale, cioè l'\textb
 		\toprule
 		\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
 		\midrule
-		\textbf{Colore} & VARCHAR & Rappresenta il colore dell'uva \\
+		\textbf{Nome} & VARCHAR & Nome dell'uva \\
 		\midrule
-		\textbf{Nome} & VARCHAR & Rappresenta il nome dell'uva \\
+		Colore & VARCHAR & Colore dell'uva \\
 		\bottomrule
 	\end{tabular}
 	
@@ -67,11 +56,11 @@ Il simbolo $\Leftarrow$ identifica una generalizzazione parziale, cioè l'\textb
 	\toprule
 	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
 	\midrule
-	Forma & VARCHAR &  Rappresenta il tipo di forma del tappo\\
+	Forma & VARCHAR &  Tipo di forma del tappo\\
 	\midrule
-	Materiale & VARCHAR &  Rappresenta il tipo di materiale del tappo\\
+	Materiale & VARCHAR &  Tipo di materiale del tappo\\
 	\midrule
-	Quantità & INTEGER &  Rappresenta il numero di tappi per forma e colore posseduti dalla cantina\\
+	Quantità & INTEGER &  Numero di tappi di un determinato tipo non ancora utilizzati\\
 	\bottomrule
 \end{tabular}
 
@@ -82,11 +71,11 @@ Il simbolo $\Leftarrow$ identifica una generalizzazione parziale, cioè l'\textb
 	\toprule
 	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
 	\midrule
-	Colore & VARCHAR &  Rappresenta il colore della bottiglia\\
+	Colore & VARCHAR &  Colore della bottiglia\\
 	\midrule
-	Capacità & VARCHAR &  Rappresenta la capacità della bottiglia\\
+	Capacità & VARCHAR &  Capacità della bottiglia\\
 	\midrule
-	Quantità & INTEGER &  Rappresenta il numero di bottiglie per capacità e colore possedute dalla cantina\\
+	Quantità & INTEGER &  Numero di bottiglie di un determinato tipo non ancora utilizzate\\
 	\bottomrule
 \end{tabular}
 	\vspace{0.5cm}
@@ -96,7 +85,7 @@ Il simbolo $\Leftarrow$ identifica una generalizzazione parziale, cioè l'\textb
 	\toprule
 	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
 	\midrule
-	\textbf{ID} & INTEGER &  Rappresenta univocamente la materia prima\\
+	\textbf{ID} & INTEGER &  Identifica univocamente la materia prima\\
 	\bottomrule
 \end{tabular}
 
@@ -107,13 +96,13 @@ Il simbolo $\Leftarrow$ identifica una generalizzazione parziale, cioè l'\textb
 	\toprule
 	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
 	\midrule
-	\textbf{Nome} & VARCHAR & Identifica il nome del vino\\
+	\textbf{Nome} & VARCHAR & Identifica univocamente un tipo di vino\\
 	\midrule
-	GradazioneAlcolica & TINYINT & Identifica il grado di alcol del vino\\
+	GradazioneAlcolica & TINYINT & Gradazione alcolica del vino\\
 	\midrule
-	TempoFermentazione & TINYINT & Rappresenta i giorni che sono serviti per la fermentazione del vino\\
+	TempoFermentazione & TINYINT & Numero di giorni di fermentazione del vino\\
 	\midrule
-	StatoProduzione & BOOLEAN & Rappresenta se il vino è ancora in produzione\\
+	StatoProduzione & BOOLEAN & Identifica se il vino è ancora in produzione\\
 	\bottomrule
 \end{tabular}
 
@@ -125,17 +114,17 @@ Il simbolo $\Leftarrow$ identifica una generalizzazione parziale, cioè l'\textb
 	\toprule
 	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
 	\midrule
-	\textbf{Nome} & VARCHAR &  Rappresenta il nome del vino a cui la bottiglia fa riferimento\\
+	\textbf{Nome} & VARCHAR &  Identifica il nome del vino contenuto nella bottiglia\\
 	\midrule
-	\textbf{Annata} & INTEGER &  Rappresenta l'anno della vendemmia dell'uva con cui è stato prodotto il vino\\
+	\textbf{Annata} & INTEGER &  Identifica l'anno di imbottigliamento della bottiglia\\
 	\midrule
-	Prezzo & DECIMAL &  Identifica il prezzo della bottiglia di vino\\
+	Prezzo & DECIMAL &  Prezzo della bottiglia di vino\\
 	\midrule
-	Classificazione & ENUM & Tutela i consumatori su alcune caratteristiche del vino\\
+	Classificazione & ENUM & Caratteristiche del vino per la tutela dei consumatori\\
 	\midrule
-	NumBottiglieVendute & INTEGER & Numero di bottiglie per nome e annata di vino vendute\\
+	NumBottiglieVendute & INTEGER & Numero di bottiglie di un determinato tipo vendute\\
 	\midrule
-	NumBottiglieProdotte & INTEGER &  Numero di bottiglie per nome e annata di vino prodotte\\
+	NumBottiglieProdotte & INTEGER &  Numero di bottiglie di un determinato tipo prodotte\\
 	\bottomrule
 \end{tabular}
 
@@ -149,7 +138,7 @@ Il simbolo $\Leftarrow$ identifica una generalizzazione parziale, cioè l'\textb
 	\midrule
 	\textbf{ID} & INTEGER &  Identifica univocamente un ordine di vendita ricevuto\\
 	\midrule
-	PrezzoTotale & INTEGER &  Rappresenta il prezzo complessivo dell'ordine, formato da prezzo di spedizione più il costo delle bottigle acquistate\\
+	PrezzoTotale & INTEGER &  Prezzo complessivo dell'ordine, uguale alla somma del prezzo di spedizione e del costo delle bottigle acquistate\\
 	\midrule
 	Data & DATE &  Data in cui è stato effettuato l'ordine\\
 	\bottomrule
@@ -164,7 +153,7 @@ Il simbolo $\Leftarrow$ identifica una generalizzazione parziale, cioè l'\textb
 	\midrule
 	\textbf{Id} & INTEGER &  Identifica univocamente il corriere\\
 	\midrule
-	Nome & VARCHAR &  Rappresenta il nome commerciale del corriere\\
+	Nome & VARCHAR &  Nome del corriere\\
 	\bottomrule
 \end{tabular}
 
@@ -178,18 +167,18 @@ Il simbolo $\Leftarrow$ identifica una generalizzazione parziale, cioè l'\textb
 	\midrule
 	\textbf{Id} & INTEGER &  Identifica univocamente l'azienda\\
 	\midrule
-	NomeReferente & VARCHAR &  Rappresenta il nome del referente dell'azienda\\
+	NomeReferente & VARCHAR &  Nome del referente dell'azienda\\
 	\midrule
-	CognomeReferente & VARCHAR &  Rappresenta il cognome del referente dell'azienda\\	\midrule
+	CognomeReferente & VARCHAR &  Cognome del referente dell'azienda\\	\midrule
 	PartitaIVA & VARCHAR &  Identifica la partita IVA dell'azienda\\
 	\midrule
-	Nome & VARCHAR &  Rappresenta il nome dell'azienda\\
+	Nome & VARCHAR &  Nome dell'azienda\\
 	\midrule
-	Telefono & VARCHAR &  Rappresenta il numero telefonico dell'azienda\\
+	Telefono & VARCHAR &  Numero telefonico dell'azienda\\
 	\midrule
-	Indirzzo & VARCHAR &  Identifica la posizione geografica cui risiede l'azienda.  Attributo composto: stato, città, provincia, cap, via, numero civico\\
+	Indirzzo & VARCHAR &  Posizione geografica della sede dell'azienda.  Attributo composto: stato, città, provincia, cap, via, numero civico\\
 	\midrule
-	Email & VARCHAR & Identifica l'email aziendale\\
+	Email & VARCHAR & Email dell'azienda\\
 	\bottomrule
 \end{tabular}
 
@@ -200,15 +189,15 @@ Il simbolo $\Leftarrow$ identifica una generalizzazione parziale, cioè l'\textb
 	\toprule
 	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
 	\midrule
-	Nome & VARCHAR &  Rappresenta il nome dell'acquirente privato\\
+	Nome & VARCHAR &  Nome del privato\\
 	\midrule
-	Telefono & VARCHAR &  Rappresenta il numero telefonico dell'acquirente privato\\
+	Telefono & VARCHAR &  Numero telefonico del privato\\
 	\midrule
-	Indirzzo & VARCHAR &  Identifica la posizione geografica cui risiede l'acquirente privato.  Attributo composto: stato, città, provincia, cap, via, numero civico\\
+	Indirzzo & VARCHAR &  Posizione geografica cui risiede il privato, corrisponde con l'indirizzo di spedizione.  Attributo composto: stato, città, provincia, cap, via, numero civico\\
 	\midrule
-	Email & VARCHAR & Identifica l'email dell'acquirente privato\\
+	Email & VARCHAR & Email del privato\\
 	\midrule
-	Cognome & VARCHAR &  Rappresenta il cognome dell'acquirente privato\\
+	Cognome & VARCHAR &  Cognome del privato\\
 	\bottomrule
 \end{tabular}
 
@@ -219,7 +208,7 @@ Il simbolo $\Leftarrow$ identifica una generalizzazione parziale, cioè l'\textb
 	\toprule
 	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
 	\midrule
-	\textbf{Id} & INTEGER &  Identifica univocamente l'acquirente\\
+	\textbf{Id} & INTEGER &  Identifica univocamente un acquirente\\
 	\bottomrule
 \end{tabular}
 
@@ -230,26 +219,9 @@ Il simbolo $\Leftarrow$ identifica una generalizzazione parziale, cioè l'\textb
 	\toprule
 	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
 	\midrule
-	\textbf{Titolo} & VARCHAR &  Rappresenta il titolo dell'evento\\
+	\textbf{Titolo} & VARCHAR &  Titolo dell'evento\\
 	\midrule
-	\textbf{Edizione} & INTEGER &  Rappresenta l'edizione dell'evento\\
-	\bottomrule
-\end{tabular}
-
-\vspace{0.5cm}
-
-\begin{tabular}{P{4cm}P{2cm}P{8cm}}
-	\multicolumn{3}{c}{\textbf {\large {Partecipante}}} \\
-	\toprule
-	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
-	\midrule
-	\textbf{Id} & INTEGER &  Rappresenta univocamente il partecipante di un evento\\
-	\midrule
-	Nome & VARCHAR &  Rappresenta il nome del partecipante\\
-	\midrule
-	Cognome & VARCHAR &  Rappresenta il cognome del partecipante\\
-	\midrule
-	Età & TINYINT &  Rappresenta l'età del partecipante, che devo essere maggiore o uguale a 18 anni\\
+	\textbf{Edizione} & INTEGER &  Numero di edizione dell'evento\\
 	\bottomrule
 \end{tabular}
 
@@ -261,7 +233,7 @@ Il simbolo $\Leftarrow$ identifica una generalizzazione parziale, cioè l'\textb
 	\toprule
 	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
 	\midrule
-	\textbf{Id} & INTEGER &  Rappresenta univocamente la linea produttiva\\
+	\textbf{Id} & INTEGER &  Identifica univocamente una linea produttiva\\
 	\bottomrule
 \end{tabular}
 
@@ -283,11 +255,11 @@ Il simbolo $\Leftarrow$ identifica una generalizzazione parziale, cioè l'\textb
 	\toprule
 	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
 	\midrule
-	\textbf{CodiceFiscale} & VARCHAR &  Rappresenta univocamente il dipendente\\
+	\textbf{CodiceFiscale} & VARCHAR &  Identifica univocamente un dipendente\\
 	\midrule
-	Nome & VARCHAR & Rappresenta il nome del dipendente \\
+	Nome & VARCHAR & Nome del dipendente \\
 	\midrule
-	Cognome & VARCHAR & Rappresenta il congnome del dipendente \\
+	Cognome & VARCHAR & Cognome del dipendente \\
 	\bottomrule
 \end{tabular}
 
@@ -298,11 +270,11 @@ Il simbolo $\Leftarrow$ identifica una generalizzazione parziale, cioè l'\textb
 	\toprule
 	\rowcolor[rgb]{.929, .929, .929} Attributo & Tipo & Descrizione \\
 	\midrule
-	\textbf{Id} & INTEGER &  Rappresenta univocamente il macchinario\\
+	\textbf{Id} & INTEGER &  Identifica univocamente un macchinario\\
 	\midrule
-	Nome & VARCHAR & Rappresenta il nome commerciale del macchinario \\
+	Nome & VARCHAR & Nome commerciale del macchinario \\
 	\midrule
-	DataProssimaManutenzione & DATE & Rappresenta la data prossima della manutenzione \\
+	DataProssimaManutenzione & DATE & Data prossima della manutenzione \\
 	\bottomrule
 \end{tabular}
 
