@@ -1,6 +1,6 @@
 SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS Informazioni, TipiUva, Uva, Dipendenti, LineeProduttive, Vini, Aziende, Fornitori,
-                    Tappi, Bottiglie, BottiglieDiVino, Indirizzi, Vigneti, Vigne,
+                    Tappi, Bottiglie, BottiglieDiVino, Indirizzi, Vigneti,
                     Macchinari, Manutenzione, Turni, Acquirenti, Ordini, Privati,
                     Dettagli, Corrieri, Spedizioni, NegoziInterni, Eventi, Ospita,
                     TemiVino/*,FornisceUva, FornisceTappi, FornisceBottiglia*/;
@@ -65,12 +65,10 @@ CREATE TABLE Fornitori (
 );
 
 CREATE TABLE TipiUva (
-    Id INTEGER NOT NULL AUTO_INCREMENT,
     Nome VARCHAR(255) NOT NULL,
     Colore VARCHAR(255) NOT NULL,
 
-    PRIMARY KEY (Id),
-    UNIQUE (Nome, Colore)
+    PRIMARY KEY (Nome)
 );
 
 CREATE TABLE Uva (
@@ -108,7 +106,6 @@ CREATE TABLE Vini (
     GradazioneAlcolica TINYINT NOT NULL,
     TempoFermentazione TINYINT NOT NULL,
     StatoProduzione BOOLEAN NOT NULL,
-    IdProduzione INTEGER NOT NULL,
     Uva INTEGER NOT NULL,
 
     PRIMARY KEY (Nome),
@@ -169,17 +166,6 @@ CREATE TABLE Vigneti (
 
     PRIMARY KEY (Id),
     FOREIGN KEY (Indirizzo) REFERENCES Indirizzi(Id)
-);
-
-CREATE TABLE Vigne (
-    Id INTEGER NOT NULL AUTO_INCREMENT,
-    Tipologia INTEGER NOT NULL,
-    DataPiantagione DATE NOT NULL,
-    VignetoDiAppartenenza INTEGER NOT NULL,
-
-    PRIMARY KEY (Id),
-    FOREIGN KEY (Tipologia) REFERENCES Uva(Id),
-    FOREIGN KEY (VignetoDiAppartenenza) REFERENCES Vigneti(Id)
 );
 
 CREATE TABLE Macchinari (
