@@ -30,8 +30,8 @@ def insert(connection, table, properties):
     print(query)
     cursor = connection.cursor()
     f.write(query)
-    cursor.execute(query)
-    connection.commit()
+    # cursor.execute(query)
+    # connection.commit()
 
 
 def populateIndirizzi(connection):
@@ -117,11 +117,10 @@ def populateAziende(connection):
             0].findAll("h3")[0].text.split(" ")[1]
         infAgg = i + 41
         azienda = [Field("PartitaIVA", partIVA),
-                   Field("NomeReferente", nome),
                    Field("CognomeReferente", cognome),
                    Field("InformazioniAggiuntive", infAgg)]
         if numAcquirente is not None:
-            azienda.insert(0, Field("NumAcquirente", numAcquirente))
+            azienda.insert(1, Field("NumAcquirente", numAcquirente))
 
         insert(connection, 'Aziende', azienda)
 
@@ -431,33 +430,33 @@ def main():
                                passwd=password,
                                db=dbname)
 
-    populateIndirizzi(connection)
-    populateInformazioni(connection)
-    populateAcquirenti(connection)
-    populatePrivati(connection)
+    # populateIndirizzi(connection)
+    # populateInformazioni(connection)
+    # populateAcquirenti(connection)
+    # populatePrivati(connection)
     populateAziende(connection)
-    populateFornitori(connection)
-    populateTipiUva(connection)
-    populateUva(connection)
-    populateDipendenti(connection)
-    populateLineeProduttive(connection)
-    populateVini(connection)
-    populateTappi(connection)
-    populateBottiglie(connection)
-    populateBottilieDiVino(connection)
-    populateVigneti(connection)
-    populateVigne(connection)
-    populateMacchinari(connection)
-    populateTurni(connection)
-    populateOrdini(connection)
-    populateDettagli(connection)
-    populateCorrieri(connection)
-    populateSpedizioni(connection)
-    populateNegoziInterni(connection)
-    populateEventi(connection)
-    populateOspita(connection)
-    populatePartecipanti(connection)
-    populateTemiVino(connection)
+    # populateFornitori(connection)
+    # populateTipiUva(connection)
+    # populateUva(connection)
+    # populateDipendenti(connection)
+    # populateLineeProduttive(connection)
+    # populateVini(connection)
+    # populateTappi(connection)
+    # populateBottiglie(connection)
+    # populateBottilieDiVino(connection)
+    # populateVigneti(connection)
+    # populateVigne(connection)
+    # populateMacchinari(connection)
+    # populateTurni(connection)
+    # populateOrdini(connection)
+    # populateDettagli(connection)
+    # populateCorrieri(connection)
+    # populateSpedizioni(connection)
+    # populateNegoziInterni(connection)
+    # populateEventi(connection)
+    # populateOspita(connection)
+    # populatePartecipanti(connection)
+    # populateTemiVino(connection)
 
 
 if __name__ == "__main__":

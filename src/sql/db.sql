@@ -61,7 +61,7 @@ CREATE TABLE Fornitori (
     Tipologia ENUM('Uva','Tappo','Bottiglia') NOT NULL,
 
     PRIMARY KEY (Id),
-    FOREIGN KEY (Id) REFERENCES Aziende(Id)
+    FOREIGN KEY (Id) REFERENCES Aziende(PartitaIVA)
 );
 
 CREATE TABLE TipiUva (
