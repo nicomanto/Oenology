@@ -65,23 +65,21 @@ CREATE TABLE Fornitori (
 );
 
 CREATE TABLE TipiUva (
-    Id INTEGER NOT NULL AUTO_INCREMENT,
     Nome VARCHAR(255) NOT NULL,
     Colore VARCHAR(255) NOT NULL,
 
-    PRIMARY KEY (Id),
-    UNIQUE (Nome, Colore)
+    PRIMARY KEY (Nome)
 );
 
 CREATE TABLE Uva (
     Id INTEGER NOT NULL AUTO_INCREMENT,
-    TipoUva INTEGER NOT NULL,
+    TipoUva VARCHAR(255) NOT NULL,
     Fornitore INTEGER NOT NULL,
     Annata INTEGER NOT NULL,
 
     PRIMARY KEY (Id),
     FOREIGN KEY (Fornitore) REFERENCES Fornitori(Id),
-    FOREIGN KEY (TipoUva) REFERENCES TipiUva(Id)
+    FOREIGN KEY (TipoUva) REFERENCES TipiUva(Nome)
 );
 
 CREATE TABLE Dipendenti (
