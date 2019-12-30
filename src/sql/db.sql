@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS Informazioni, TipiUva, Uva, Dipendenti, LineeProduttive, Vi
                     Tappi, Bottiglie, BottiglieDiVino, Indirizzi, Vigneti, Vigne,
                     Macchinari, Manutenzione, Turni, Acquirenti, Ordini, Privati,
                     Dettagli, Corrieri, Spedizioni, NegoziInterni, Eventi, Ospita,
-                    Partecipanti, TemiVino/*,FornisceUva, FornisceTappi, FornisceBottiglia*/;
+                    TemiVino/*,FornisceUva, FornisceTappi, FornisceBottiglia*/;
 SET FOREIGN_KEY_CHECKS=1;
 
 CREATE TABLE Indirizzi (
@@ -46,14 +46,12 @@ CREATE TABLE Privati (
 );
 
 CREATE TABLE Aziende (
-    Id INTEGER NOT NULL AUTO_INCREMENT,
-    NumAcquirente INTEGER DEFAULT NULL,
     PartitaIVA VARCHAR(255) NOT NULL,
-    NomeReferente VARCHAR(255) NOT NULL,
+    NumAcquirente INTEGER DEFAULT NULL,
     CognomeReferente VARCHAR(255) NOT NULL,
     InformazioniAggiuntive INTEGER NOT NULL,
 
-    PRIMARY KEY (Id),
+    PRIMARY KEY (PartitaIVA),
     FOREIGN KEY (NumAcquirente) REFERENCES Acquirenti(Id),
     FOREIGN KEY (InformazioniAggiuntive) REFERENCES Informazioni(Id)
 );
@@ -286,18 +284,6 @@ CREATE TABLE Ospita (
     PRIMARY KEY (Evento, Negozio),
     FOREIGN KEY (Evento) REFERENCES Eventi(Id),
     FOREIGN KEY (Negozio) REFERENCES NegoziInterni(Id)
-);
-
-CREATE TABLE Partecipanti (
-    Id INTEGER NOT NULL AUTO_INCREMENT,
-    Nome VARCHAR(255) NOT NULL,
-    Cognome VARCHAR(255) NOT NULL,
-    Eta INTEGER NOT NULL,
-    Evento INTEGER NOT NULL,
-    Negozio INTEGER NOT NULL,
-    
-    PRIMARY KEY (Id),
-    FOREIGN KEY (Evento, Negozio) REFERENCES Ospita(Evento, Negozio)
 );
 
 CREATE TABLE TemiVino (
