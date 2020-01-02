@@ -2,8 +2,8 @@
 	\item \underline{Vigneto - TipoUva}: \textbf{Proviene}
 	
 	\begin{itemize}
-		\item Un vigneto produce solamente una tipologia d'uva (1,1)
-		\item Un tipo di uva può provenire da più vigneti (1,N)
+		\item Un vigneto produce solamente una tipologia d'uva $(0,1)$.
+		\item Un tipo di uva può provenire da più vigneti $(1,N)$.
 	\end{itemize}
 	
 \end{itemize}
@@ -12,8 +12,8 @@
 	\item \underline{Uva - Vino}: \textbf{Prodotto}
 	
 	\begin{itemize}
-		\item Da un tipo di uva (di una determinata annata) possono essere stati prodotti più tipi di vino o nessun tipo di vino (0,N)*
-		\item Un vino è prodotto da un solo tipo d'uva (di una determinata annata) (1,1)
+		\item Da un tipo di uva (di una determinata annata) possono essere stati prodotti più tipi di vino o nessun tipo di vino $(0,N)$*.
+		\item Un vino è prodotto da un solo tipo d'uva (di una determinata annata) $(0,1)$.
 	\end{itemize}
 	
 \end{itemize}
@@ -27,14 +27,14 @@
 	\item \underline{MateriaPrima - Fornitore}: \textbf{Fornitura}*
 	
 	\begin{itemize}
-		\item Una Materia prima viene fornita da un solo fornitore (1,1)
-		\item Un fornitore fornisce una o più tipologie di materie prime (1,N)
+		\item Una Materia prima viene fornita da un solo fornitore $(0,1)$.
+		\item Un fornitore fornisce una o più tipologie di materie prime $(1,N)$.
 	\end{itemize}
 	
 \end{itemize}
 
 \begin{verse}
-*\emph{Nella relazione sono presenti gli attributi \textbf{DataAcquisto, Prezzo, Quantità} perchè una fornitura può essere effettuata più volte, con data, prezzo e quantità differenti}
+*\emph{Nella relazione sono presenti gli attributi \textbf{DataAcquisto, Prezzo, Quantità} perchè una fornitura può essere effettuata più volte, con data, prezzo e quantità differenti.}
 \end{verse}
 
 
@@ -42,22 +42,22 @@
 	\item \underline{BottigliaDiVino - Vino}: \textbf{TipoVino}
 	
 	\begin{itemize}
-		\item Una bottiglia di vino contiene solamente una tipologia di vino (1,1)
-		\item Un vino può essere contenuto in più bottiglie di vino o in nessuna (0,N)*
+		\item Una bottiglia di vino contiene solamente una tipologia di vino $(0,1)$.
+		\item Un vino può essere contenuto in più bottiglie di vino o in nessuna $(0,N)$*.
 	\end{itemize}
 	
 \end{itemize}
 
 \begin{verse}
-	*\emph{(0,N) perchè una tipologia di vino può essere appena stato prodotto e quindi non è stato ancora imbottigliato, oppure possono essere terminate le bottiglie che lo contenevano.}
+	*\emph{$(0,N)$ perchè una tipologia di vino può essere appena stato prodotto e quindi non è stato ancora imbottigliato, oppure possono essere terminate le bottiglie che lo contenevano.}
 \end{verse}
 
 \begin{itemize}
 	\item \underline{BottigliaDiVino - Tappo}: \textbf{TipoTappo}
 	
 	\begin{itemize}
-		\item Una bottiglia di vino ha solamente un tappo (1,1)
-		\item Un tipo di tappo può appartenere a più bottiglie di vino o a nessuna (0,N)*
+		\item Una bottiglia di vino ha solamente un tappo $(0,1)$.
+		\item Un tipo di tappo può appartenere a più bottiglie di vino o a nessuna $(0,N)$*.
 	\end{itemize}
 	
 \end{itemize}
@@ -70,8 +70,8 @@
 	\item \underline{BottigliaDiVino - Bottiglia}: \textbf{TipoBottiglia}
 	
 	\begin{itemize}
-		\item Una bottiglia di vino è formata da una sola bottiglia (1,1)
-		\item Un tipo di bottiglia può appartenere a più bottiglie di vino o a nessuna (0,N)*
+		\item Una bottiglia di vino è formata da una sola bottiglia $(0,1)$.
+		\item Un tipo di bottiglia può appartenere a più bottiglie di vino o a nessuna $(0,N)$*.
 	\end{itemize}
 	
 \end{itemize}
@@ -84,8 +84,8 @@
 	\item \underline{BottigliaDiVino - Magazzino}: \textbf{Conservata}
 	
 	\begin{itemize}
-		\item Una tipologia di bottiglia di vino è conservata in un unico magazzino (1,1)
-		\item Un magazzino contiene da una a molteplici tipologie di vino, poiche' la loro divisione avviene per colore e non per annata (1,N)
+		\item Una tipologia di bottiglia di vino è conservata in un unico magazzino $(0,1)$
+		\item Un magazzino contiene da una a molteplici tipologie di vino, poiche' la loro divisione avviene per colore e non per annata $(1,N)$.
 	\end{itemize}
 	
 \end{itemize}
@@ -94,36 +94,36 @@
 	\item \underline{BottigliaDiVino - Ordine}: \textbf{Dettaglio}*
 	
 	\begin{itemize}
-		\item Un tipo di bottiglia di vino può appartenere a zero o più ordini di vendita (0,N)
-		\item Un ordine di vendita contiene uno o più tipi di bottiglie di vino acquistate (1,N)
+		\item Un tipo di bottiglia di vino può appartenere a zero o più ordini di vendita $(0,N)$.
+		\item Un ordine di vendita contiene uno o più tipi di bottiglie di vino acquistate $(1,N)$.
 	\end{itemize}
 	
 \end{itemize}
 
 \begin{verse}
-	*\emph{Nella relazione è presente l'attributo \textbf{QuantitàBottiglie} poiche' serve sapere il numero di bottiglie di vino per tipologia richieste dall'ordine}
+	*\emph{Nella relazione è presente l'attributo \textbf{QuantitàBottiglie} poiche' serve sapere il numero di bottiglie di vino per tipologia richieste dall'ordine.}
 \end{verse}
 
 \begin{itemize}
 	\item \underline{Ordine - Corriere}: \textbf{Spedizione}*
 	
 	\begin{itemize}
-		\item Un ordine viene spedito da un singolo corriere (1,1)
-		\item Un corriere può spedire uno o piu' ordini (1,N)
+		\item Un ordine viene spedito da un singolo corriere $(0,1)$.
+		\item Un corriere può spedire uno o piu' ordini $(1,N)$.
 	\end{itemize}
 	
 \end{itemize}
 
 \begin{verse}
-	*\emph{Nella relazione sono presenti gli attributi \textbf{DataSpedizione, Prezzo, DataArrivo} perchè dell'ordine è importante tracciare la data in cui è stato spedito l'ordine, il prezzo della spedizione e la data di consegna dell'ordine}
+	*\emph{Nella relazione sono presenti gli attributi \textbf{DataSpedizione, Prezzo, DataArrivo} perchè dell'ordine è importante tracciare la data in cui è stato spedito l'ordine, il prezzo della spedizione e la data di consegna dell'ordine.}
 \end{verse}
 
 \begin{itemize}
 	\item \underline{Ordine - Acquirente}: \textbf{Venduta}
 	
 	\begin{itemize}
-		\item Un ordine e' effettuato da un singolo acquirente (1,1)
-		\item Un acquirente può effettuare uno o più ordini (1,N)
+		\item Un ordine e' effettuato da un singolo acquirente $(0,1)$.
+		\item Un acquirente può effettuare uno o più ordini $(1,N)$.
 	\end{itemize}
 	
 \end{itemize}
@@ -132,8 +132,8 @@
 	\item \underline{NegozioInterno - Evento}: \textbf{Ospita}*
 	
 	\begin{itemize}
-		\item Un negozio interno può ospitare o nessuno o molteplici eventi (0,N)
-		\item Un evento può essere ospitato in uno o in molteplici negozi (1,N)
+		\item Un negozio interno può ospitare o nessuno o molteplici eventi $(0,N)$.
+		\item Un evento può essere ospitato in uno o in molteplici negozi $(1,N)$.
 	\end{itemize}
 	
 \end{itemize}
@@ -147,8 +147,8 @@
 	\item \underline{Evento - Vino}: \textbf{TemaVino}
 	
 	\begin{itemize}
-		\item Un evento può avere uno o molteplici vini come tema (1,N)
-		\item Un vino può essere essere il tema di nessuno o molteplici eventi (0,N)
+		\item Un evento può avere uno o molteplici vini come tema $(1,N)$.
+		\item Un vino può essere essere il tema di nessuno o molteplici eventi $(0,N)$.
 	\end{itemize}
 	
 \end{itemize}
@@ -157,22 +157,22 @@
 	\item \underline{LineaProduttiva - Dipendente}: \textbf{Turno}*
 	
 	\begin{itemize}
-		\item In una linea produttiva possono lavorare uno o molteplici dipendenti (1,N)
-		\item Un dipendete può lavorare in una sola linea produttiva (1,1)
+		\item In una linea produttiva possono lavorare uno o molteplici dipendenti $(1,N)$.
+		\item Un dipendete può lavorare in una sola linea produttiva $(0,1)$.
 	\end{itemize}
 	
 \end{itemize}
 
 \begin{verse}
-	*\emph{Nella relazione sono presenti gli attributi \textbf{InizioTurno, FineTurno} perchè è utile rappresentare il giorno e l'orario in cui un dipendente lavora. Entrambi gli attributi sono rappresentati attraverso il tipo DATETIME}
+	*\emph{Nella relazione sono presenti gli attributi \textbf{InizioTurno, FineTurno} perchè è utile rappresentare il giorno e l'orario in cui un dipendente lavora. Entrambi gli attributi sono rappresentati attraverso il tipo DATETIME.}
 \end{verse}
 
 \begin{itemize}
 	\item \underline{LineaProduttiva - Dipendente}: \textbf{Diretto}
 	
 	\begin{itemize}
-		\item Una linea produttiva è diretta da un solo dipendente (1,1)
-		\item Un dipendete può dirigere più linee produttive o nessuna (0,N)
+		\item Una linea produttiva è diretta da un solo dipendente $(0,1)$.
+		\item Un dipendete può dirigere più linee produttive o nessuna $(0,N)$.
 	\end{itemize}
 	
 \end{itemize}
@@ -181,8 +181,8 @@
 	\item \underline{Dipendente - Dipendente}: \textbf{Referisce}
 	
 	\begin{itemize}
-		\item Un dipendente può essere riferito da uno o nessun altro dipendente (0,1)
-		\item Un dipendente può riferire molteplici dipendenti o nessuno (0,N)
+		\item Un dipendente può essere riferito da uno o nessun altro dipendente $(0,1)$.
+		\item Un dipendente può riferire molteplici dipendenti o nessuno $(0,N)$.
 	\end{itemize}
 	
 \end{itemize}
@@ -191,8 +191,8 @@
 	\item \underline{LineaProduttiva - Macchinario}: \textbf{Utilizzo}
 	
 	\begin{itemize}
-		\item In una linea produttiva possono essere utilizzati molteplici macchinari oppure nessuno (0,N)
-		\item Un macchinario può appartenere solamente ad una linea produttiva (1,1)
+		\item In una linea produttiva possono essere utilizzati molteplici macchinari oppure nessuno $(0,N)$.
+		\item Un macchinario può appartenere solamente ad una linea produttiva $(0,1)$.
 	\end{itemize}
 	
 \end{itemize}
@@ -201,13 +201,13 @@
 	\item \underline{Macchinario - AziendaManutenzione}: \textbf{Manutenzione}*
 	
 	\begin{itemize}
-		\item Un macchinario può aver ricevuto molteplici manutenzioni o nessuna (0,N)
-		\item Un'azienda di manutenzione può revisionare uno o molteplici macchinari (1,N)
+		\item Un macchinario può aver ricevuto molteplici manutenzioni o nessuna $(0,N)$.
+		\item Un'azienda di manutenzione può revisionare uno o molteplici macchinari $(1,N)$.
 	\end{itemize}
 	
 \end{itemize}
 
 \begin{verse}
-	*\emph{Nella relazione sono presenti gli attributi \textbf{Costo e Data} che identifica il costo della singola manutenzione e in quale data e' stata effettuata}
+	*\emph{Nella relazione sono presenti gli attributi \textbf{Costo} e \textbf{Data} che identificano il costo della singola manutenzione e in quale data e' stata effettuata.}
 \end{verse}
 
