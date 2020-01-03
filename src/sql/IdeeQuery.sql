@@ -43,8 +43,8 @@ WHERE Acq1.Id<Acq2.Id and Acq1.Data=Acq2.Data
 ORDER BY Acq1.Nome, Acq2.Nome
 
 
-/*QUERY 4
-il vino/i che rappresenta il tema di un evento che è stato visto da meno partecipanti*/
+/*QUERY 4 (vecchia)
+il vino/i che rappresenta il tema di un evento che è stato visto da meno partecipanti
 
 CREATE VIEW Num_partecipanti_evento as
 SELECT Evento as Cod_evento, SUM(Id) as Num_partecipanti
@@ -62,7 +62,14 @@ FROM Num_partecipanti_evento
 WHERE Num_partecipanti IN
 
 SELECT MIN(Num_partecipanti)
-FROM Num_partecipanti_evento))
+FROM Num_partecipanti_evento))*/
+
+/*QUERY 4
+Lista dei dipendenti (ordinati in ordine alfabetico) che sono supervisori di altri dipendenti (se sono troppi limita le nuple a 10)*/
+SELECT DISTINCT D1.Nome, D1.Cognome
+FROM Dipendenti as D1, Dipendenti as D2
+WHERE D2.Referente=D1.CodiceFiscale
+ORDER BY D1.Nome, D1.Cognome
 
 
 
