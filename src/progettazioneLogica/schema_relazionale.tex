@@ -5,25 +5,20 @@
 	BottiglieDiVino.IdBottiglia $\to$ Bottiglie.Id\\
 	BottiglieDiVino.IdMagazzino $\to$ LineeProduttive.Id
 \end{verse} 
-\textbf{Vini} (\underline{Nome}, GradazioneAlcolica, TempoFermentazione, StatoProduzione, IdProduzione, Uva)
+\textbf{Vini} (\underline{Nome}, GradazioneAlcolica, TempoFermentazione, StatoProduzione, Uva)
 \begin{verse}
-	Vini.Uva $\to$ Uva.Id\\
-	Vini.IdProduzione $\to$ LineeProduttive.Id
+	Vini.Uva $\to$ Uva.Id
 \end{verse} 
 \textbf{Uva} (\underline{Id}, TipoUva, Fornitore, Annata)
 \begin{verse}
 	Uva.Fornitore $\to$ Fornitori.Id\\
-	Uva.TipoUva $\to$ TipiUva.Id
+	Uva.TipoUva $\to$ TipiUva.Nome
 \end{verse}
-\textbf{TipiUva} (\underline{Id}, Nome, Colore)\\
-\textbf{Vigne} (\underline{Id}, Tipologia, DataPiantagione, VignetoDiAppartenenza)
+\textbf{TipiUva} (\underline{Nome}, Colore)\\
+\textbf{Vigneti} (\underline{Id}, Indirizzo, TipoUva)
 \begin{verse}
-	Vigne.Tipologia $\to$ Uva.Id\\
-	Vigne.VignetodiAppartenenza $\to$ Vigneti.Id
-\end{verse} 
-\textbf{Vigneti} (\underline{Id}, Indirizzo)
-\begin{verse}
-	Vigneti.Indirizzo $\to$ Indirizzi.Id
+	Vigneti.Indirizzo $\to$ Indirizzi.Id\\
+	Vigneti.TipoUva $\to$ TipiUva.Nome\\
 \end{verse} 
 \textbf{Tappi} (\underline{Id}, Forma, Materiale, Quantita, Fornitore)
 \begin{verse}
@@ -107,11 +102,7 @@
 \begin{verse}
 	Ospita.Evento $\to$ Eventi.Id\\
 	Ospita.Negozio $\to$ NegoziInterni.Id
-\end{verse} 
-\textbf{Partecipanti} (\underline{Id}, Nome, Cognome, Eta, Evento)
-\begin{verse}
-	Partecipanti.(Evento, Negozio) $\to$ Ospita.(Evento, Negozio)
-\end{verse} 
+\end{verse}  
 \textbf{TemiVino} (\underline{Vino, Evento})
 \begin{verse}
 	TemiVino.Vino $\to$ Vini.Nome\\
