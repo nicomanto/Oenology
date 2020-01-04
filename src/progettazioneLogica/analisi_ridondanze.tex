@@ -1,5 +1,5 @@
 Lo schema concettuale rappresenta 2 attributi ridondanti, il primo è il \textbf{PrezzoTotale} nell'entità \emph{Ordine}. Infatti questo attributo è derivabile da \textbf{
-	\begin{math}\sum_{n = 1}^{j}  (PrezzoBottiglia_n \times QuantitàBottiglie_n) + PrezzoSpedizione\end{math}
+	$\sum_{n = 1}^{j}  (PrezzoBottiglia_n \times QuantitàBottiglie_n) + PrezzoSpedizione$
 }, 
 dove $j$ e' il numero di tipologie di bottiglie di vino presenti nell'ordine,
 PrezzoBottiglia e' l'attributo dell'entità \emph{Bottiglia di vino}, PrezzoSpedizione è l'attributo della relazione \emph{Spedizione} e QuantitàBottiglie è l'attributo della relazione \emph{Dettaglio}. L'operazione coinvolta è la \emph{Stampa resoconto guadagno}, che avviene 1 volta alla settimana. Analizziamo la tavola dei volumi e delle operazioni:
@@ -67,9 +67,9 @@ PrezzoBottiglia e' l'attributo dell'entità \emph{Bottiglia di vino}, PrezzoSped
 \end{center}
 
 \begin{flushleft}
-In questo esempio vediamo che nello schema \emph{con ridondanza} viene effettuato 1 accesso e 350 letture a settimana alla tabella \emph{Ordine} per stampare il resoconto settimanale (semplice somma di tutti i prezzi totali degli ordini di una specifica settimana).\\
+In questo esempio vediamo che nello schema \emph{con ridondanza} viene effettuato 1 accesso e 350 letture a settimana alla tabella \emph{Ordine} per ottenere il resoconto settimanale (semplice somma di tutti i prezzi totali degli ordini di una specifica settimana).\\
 \vspace{0.5cm}
-Nello schema \emph{senza ridondanza}, invece, per ogni ordine bisognerà accedere alle relativa tabelle:
+Nello schema \emph{senza ridondanza}, invece, per ogni ordine occorrera' accedere alle seguenti tabelle:
 \begin{itemize}
 	\item \emph{BottigliaDiVino} per conoscere il prezzo della singola bottiglia dell'ordine;
 	\item \emph{Spedizione} per conoscere il prezzo della spedizione;
