@@ -1,6 +1,6 @@
 \textbf{BottiglieDiVino} (\underline{Id}, Vino, Annata, Prezzo, Classificazione, NumBottiglieVendute, NumBottiglieMagazzino, NumBottiglieProdotte, IdTappo, IdBottiglia, IdMagazzino)
 \begin{verse}
-	(BottiglieDiVino.Vino, BottiglieDiVino.Annata) $\to$ (Vini.Nome, Vini.Uva.Annata)\\
+	(BottiglieDiVino.Vino, BottiglieDiVino.Annata) $\to$ (Vini.Nome, Vini.Uva.Annata)*\\
 	BottiglieDiVino.IdTappo $\to$ Tappi.Id\\
 	BottiglieDiVino.IdBottiglia $\to$ Bottiglie.Id\\
 	BottiglieDiVino.IdMagazzino $\to$ LineeProduttive.Id
@@ -62,7 +62,7 @@
 	Turni.Dipendente $\to$ Dipendenti.CodiceFiscale\\
 	Turni.LineaProduttiva $\to$ LineeProduttive.Id
 \end{verse} 
-\textbf{Ordini} (\underline{Id}, PrezzoTotale, Data, Acquirente)
+\textbf{Ordini} (\underline{Id}, PrezzoTotale *, Data, Acquirente)
 \begin{verse}
 	Ordini.Acquirente $\to$ Acquirenti.Id
 \end{verse} 
@@ -111,4 +111,9 @@
 \textbf{Informazioni} (\underline{Id}, Nome, Telefono, Email, Indirizzo)
 \begin{verse}
 	Informazioni.Indirizzo $\to$ Indirizzi.Id
-\end{verse} 
+\end{verse}
+
+
+\begin{verse}
+	*\emph{Per ovviare al problema del vincolo referenziale fra \textbf{BottiglieDiVino.Annata e Vini.Uva.Annata} e \textbf{Ordini.PrezzoTotale} come somma di \begin{math}(BottiglieDiVino.Prezzo \times Dettagli.QuantitaBottiglie)+ Spedizioni.Prezzo\end{math}} si potrebbe aggiungere un \textbf{TRIGGER}, cosa comunque non richiesta ai fini del progetto.
+\end{verse}
