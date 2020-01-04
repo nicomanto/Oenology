@@ -117,6 +117,7 @@ def populateAziende(connection):
             0].findAll("h3")[0].text.split(" ")[1]
         infAgg = i + 41
         azienda = [Field("PartitaIVA", partIVA),
+                   Field("NomeReferente", nome),
                    Field("CognomeReferente", cognome),
                    Field("InformazioniAggiuntive", infAgg)]
         if numAcquirente is not None:
@@ -177,7 +178,7 @@ def populateDipendenti(connection):
 
 
 def populateLineeProduttive(connection):
-    for i in range(5):
+    for i in range(6):
         linea = []
         nome = "".join(["Linea", str(i)])
         direttore = str(9893442147309730)
@@ -193,13 +194,11 @@ def populateVini(connection):
         gradazione = randint(10, 20)
         tempoFermentazione = randint(30, 40)
         statoProduzione = True if randint(0, 1) else False
-        IdProduzione = randint(1, 5)
         uva = randint(1, 20)
         vino = [Field("Nome", nome),
                 Field("GradazioneAlcolica", gradazione),
                 Field("TempoFermentazione", tempoFermentazione),
                 Field("StatoProduzione", statoProduzione),
-                Field("IdProduzione", IdProduzione),
                 Field("Uva", uva)]
         insert(connection, 'Vini', vino)
 
@@ -215,7 +214,6 @@ def populateTappi(connection):
         tappo = [Field("Forma", forma),
                  Field("Materiale", materiale),
                  Field("Quantita", quantita),
-                 Field("Prezzo", prezzo),
                  Field("Fornitore", fornitore)]
         insert(connection, 'Tappi', tappo)
 
@@ -231,7 +229,6 @@ def populateBottiglie(connection):
         bottiglia = [Field("Capacita", capacita),
                      Field("Colore", colore),
                      Field("Quantita", quantita),
-                     Field("Prezzo", prezzo),
                      Field("Fornitore", fornitore)]
         insert(connection, 'Bottiglie', bottiglia)
 
@@ -288,7 +285,7 @@ def populateMacchinari(connection):
         nome = "".join(["Macchinario", str(i)])
         dataProssimaManutenzione = date(randint(2020, 2021), randint(1,12), randint(1,28)).strftime("%Y-%m-%d")
         dataAcquisto = date(randint(2000, 2010), randint(1,12), randint(1,28)).strftime("%Y-%m-%d")
-        lineaProduttiva = randint(1, 5)
+        lineaProduttiva = randint(1, 6)
         macchinario = [Field("Nome", nome),
                        Field("DataProssimaManutenzione", dataProssimaManutenzione),
                        Field("DataAcquisto", dataAcquisto),
@@ -303,7 +300,7 @@ def populateTurni(connection):
         date = datetime(2019, randint(1,12), randint(1,28), randint(5,22), randint(0,59), randint(0,59))
         inizio = date.strftime("%Y-%m-%d %H:%M:%S")
         fine = date.strftime("%Y-%m-%d %H:%M:%S")
-        linea = randint(1, 5)
+        linea = randint(1, 6)
         turno = [Field("Dipendente", dipendente),
                  Field("InizioTurno", inizio),
                  Field("FineTurno", fine),
@@ -330,7 +327,7 @@ def populateDettagli(connection):
         vino = "".join(["Vino", str(i)])
         quantita = randint(1, 10)
         dettaglio = [Field("Ordine", ordine),
-                     Field("Vino", vino),
+                     Field("BottigliaDiVino", vino),
                      Field("QuantitaBottiglie", quantita)]
         insert(connection, 'Dettagli', dettaglio)
 
@@ -383,7 +380,7 @@ def populateOspita(connection):
         data = date(2019, randint(1,12), randint(1,28)).strftime("%Y-%m-%d")
         ospita = [Field("Evento", evento),
                   Field("Negozio", negozio),
-                  Field("Date", data)]
+                  Field("Data", data)]
         insert(connection, 'Ospita', ospita)
 
 
@@ -415,11 +412,9 @@ def populatePartecipanti(connection):
 def populateTemiVino(connection):
     for i in range(10):
         tema = []
-        nome = "".join(["Tema", str(i)])
         vino = "".join(["Vino", str(randint(0, 39))])
         Evento = randint(0, 30)
-        tema = [Field("Nome", nome),
-                Field("Vino", vino),
+        tema = [Field("Vino", vino),
                 Field("Evento", Evento)]
         insert(connection, 'TemiVino', tema)
 

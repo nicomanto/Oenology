@@ -1,9 +1,9 @@
 SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS Informazioni, TipiUva, Uva, Dipendenti, LineeProduttive, Vini, Aziende, Fornitori,
                     Tappi, Bottiglie, BottiglieDiVino, Indirizzi, Vigneti,
-                    Macchinari, Manutenzione, Turni, Acquirenti, Ordini, Privati,
+                    Macchinari, Manutenzioni, Turni, Acquirenti, Ordini, Privati,
                     Dettagli, Corrieri, Spedizioni, NegoziInterni, Eventi, Ospita,
-                    TemiVino/*,FornisceUva, FornisceTappi, FornisceBottiglia*/;
+                    TemiVino, FornituraUva, FornituraTappi, FornituraBottiglie;
 SET FOREIGN_KEY_CHECKS=1;
 
 CREATE TABLE Indirizzi (
@@ -48,8 +48,8 @@ CREATE TABLE Privati (
 CREATE TABLE Aziende (
     PartitaIVA VARCHAR(255) NOT NULL,
     NumAcquirente INTEGER DEFAULT NULL,
-    CognomeReferente VARCHAR(255) NOT NULL,
     NomeReferente VARCHAR(255) NOT NULL,
+    CognomeReferente VARCHAR(255) NOT NULL,
     InformazioniAggiuntive INTEGER NOT NULL,
 
     PRIMARY KEY (PartitaIVA),
@@ -58,7 +58,7 @@ CREATE TABLE Aziende (
 );
 
 CREATE TABLE Fornitori (
-    Id INTEGER NOT NULL,
+    Id VARCHAR(255) NOT NULL,
     Tipologia ENUM('Uva','Tappo','Bottiglia') NOT NULL,
 
     PRIMARY KEY (Id),
@@ -75,7 +75,7 @@ CREATE TABLE TipiUva (
 CREATE TABLE Uva (
     Id INTEGER NOT NULL AUTO_INCREMENT,
     TipoUva VARCHAR(255) NOT NULL,
-    Fornitore INTEGER NOT NULL,
+    Fornitore VARCHAR(255) NOT NULL,
     Annata INTEGER NOT NULL,
 
     PRIMARY KEY (Id),
@@ -110,8 +110,7 @@ CREATE TABLE Vini (
     Uva INTEGER NOT NULL,
 
     PRIMARY KEY (Nome),
-    FOREIGN KEY (Uva) REFERENCES Uva(Id),
-    FOREIGN KEY (IdProduzione) REFERENCES LineeProduttive(Id)
+    FOREIGN KEY (Uva) REFERENCES Uva(Id)
 );
 
 CREATE TABLE Tappi (
@@ -119,7 +118,7 @@ CREATE TABLE Tappi (
     Forma VARCHAR(255),
     Materiale VARCHAR(255),
     Quantita INTEGER,
-    Fornitore INTEGER NOT NULL,
+    Fornitore VARCHAR(255) NOT NULL,
 
     PRIMARY KEY (Id),
     FOREIGN KEY (Fornitore) REFERENCES Fornitori(Id),
@@ -131,7 +130,7 @@ CREATE TABLE Bottiglie (
     Capacita INTEGER NOT NULL,
     Colore VARCHAR(255),
     Quantita INTEGER NOT NULL,
-    Fornitore INTEGER NOT NULL,
+    Fornitore VARCHAR(255) NOT NULL,
 
     PRIMARY KEY (Id),
     FOREIGN KEY (Fornitore) REFERENCES Fornitori(Id),
@@ -183,13 +182,13 @@ CREATE TABLE Macchinari (
 CREATE TABLE Manutenzioni (
     Id INTEGER NOT NULL AUTO_INCREMENT,
     Macchinario INTEGER NOT NULL,
-    Azienda INTEGER NOT NULL,
+    Azienda VARCHAR(255) NOT NULL,
     Costo INTEGER NOT NULL,
     Data DATE NOT NULL,
 
     PRIMARY KEY (Id),
     FOREIGN KEY (Macchinario) REFERENCES Macchinari(Id),
-    FOREIGN KEY (Azienda) REFERENCES Aziende(Id)
+    FOREIGN KEY (Azienda) REFERENCES Aziende(PartitaIVA)
 );
 
 
@@ -246,10 +245,10 @@ CREATE TABLE Spedizioni (
 );
 
 CREATE TABLE NegoziInterni (
-    Id INTEGER NOT NULL,
+    Id VARCHAR(255) NOT NULL,
 
     PRIMARY KEY (Id),
-    FOREIGN KEY (Id) REFERENCES Aziende(Id)
+    FOREIGN KEY (Id) REFERENCES Aziende(PartitaIVA)
 );
 
 CREATE TABLE Eventi (
@@ -263,7 +262,7 @@ CREATE TABLE Eventi (
 
 CREATE TABLE Ospita (
     Evento INTEGER NOT NULL,
-    Negozio INTEGER NOT NULL,
+    Negozio VARCHAR(255) NOT NULL,
     Data DATE NOT NULL,
 
     PRIMARY KEY (Evento, Negozio),
@@ -281,7 +280,7 @@ CREATE TABLE TemiVino (
 );
 
 CREATE TABLE FornituraUva (
-    Uva INTERGER NOT NULL,
+    Uva INTEGER NOT NULL,
     DataAcquisto DATE NOT NULL,
     Prezzo FLOAT NOT NULL,
     Quantita INTEGER NOT NULL,
@@ -290,8 +289,8 @@ CREATE TABLE FornituraUva (
     FOREIGN KEY (Uva) REFERENCES Uva(Id)
 );
 
-CREATE TABLE FornituraTappo (
-    Tappo INTERGER NOT NULL,
+CREATE TABLE FornituraTappi (
+    Tappo INTEGER NOT NULL,
     DataAcquisto DATE NOT NULL,
     Prezzo FLOAT NOT NULL,
     Quantita INTEGER NOT NULL,
@@ -300,8 +299,8 @@ CREATE TABLE FornituraTappo (
     FOREIGN KEY (Tappo) REFERENCES Tappi(Id)
 );
 
-CREATE TABLE FornituraBottiglia (
-    Bottiglia INTERGER NOT NULL,
+CREATE TABLE FornituraBottiglie (
+    Bottiglia INTEGER NOT NULL,
     DataAcquisto DATE NOT NULL,
     Prezzo FLOAT NOT NULL,
     Quantita INTEGER NOT NULL,
