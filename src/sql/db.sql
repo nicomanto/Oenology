@@ -49,6 +49,7 @@ CREATE TABLE Aziende (
     PartitaIVA VARCHAR(255) NOT NULL,
     NumAcquirente INTEGER DEFAULT NULL,
     CognomeReferente VARCHAR(255) NOT NULL,
+    NomeReferente VARCHAR(255) NOT NULL,
     InformazioniAggiuntive INTEGER NOT NULL,
 
     PRIMARY KEY (PartitaIVA),
@@ -215,16 +216,14 @@ CREATE TABLE Ordini (
     /*CHECK se PrezzoTotale= QuantitaBottiglie(Dettagli) x Prezzo(BottigliaDiVino) + Prezzo(Spedizione)  (non so se si può fare con un check, penso ci sia bisogno di un trigger)*/
 );
 
-CREATE TABLE Dettagli ( /*cambiare nome!! */
+CREATE TABLE Dettagli (
     Ordine INTEGER NOT NULL,
-    Vino INTEGER NOT NULL,
+    BottigliaDiVino INTEGER NOT NULL,
     QuantitaBottiglie INTEGER NOT NULL,
 
-    PRIMARY KEY (Ordine, Vino),
+    PRIMARY KEY (Ordine, BottigliaDiVino),
     FOREIGN KEY (Ordine) REFERENCES Ordini(Id),
-    FOREIGN KEY (Vino) REFERENCES BottiglieDiVino(Id)
-
-    /*Non sapevo se modificare il nome Vino visto che ci riferiamo alla BottigliaDiVino*/
+    FOREIGN KEY (BottigliaDiVino) REFERENCES BottiglieDiVino(Id)
 );
 
 CREATE TABLE Corrieri (
@@ -273,17 +272,15 @@ CREATE TABLE Ospita (
 );
 
 CREATE TABLE TemiVino (
-    /*Id INTEGER NOT NULL AUTO_INCREMENT,*/
-    /*Nome VARCHAR(255) NOT NULL,*/
     Vino VARCHAR(255) NOT NULL,
     Evento INTEGER NOT NULL,
 	
-    PRIMARY KEY (Vino, Evento), /*PRIMARY KEY (Id),*/
+    PRIMARY KEY (Vino, Evento),
     FOREIGN KEY (Vino) REFERENCES Vini(Nome),
     FOREIGN KEY (Evento) REFERENCES Eventi(Id)
 );
 
-/*CREATE TABLE FornisceUva (
+CREATE TABLE FornituraUva (
     Uva INTERGER NOT NULL,
     DataAcquisto DATE NOT NULL,
     Prezzo FLOAT NOT NULL,
@@ -293,7 +290,7 @@ CREATE TABLE TemiVino (
     FOREIGN KEY (Uva) REFERENCES Uva(Id)
 );
 
-CREATE TABLE FornisceTappo (
+CREATE TABLE FornituraTappo (
     Tappo INTERGER NOT NULL,
     DataAcquisto DATE NOT NULL,
     Prezzo FLOAT NOT NULL,
@@ -303,7 +300,7 @@ CREATE TABLE FornisceTappo (
     FOREIGN KEY (Tappo) REFERENCES Tappi(Id)
 );
 
-CREATE TABLE FornisceBottiglia (
+CREATE TABLE FornituraBottiglia (
     Bottiglia INTERGER NOT NULL,
     DataAcquisto DATE NOT NULL,
     Prezzo FLOAT NOT NULL,
@@ -311,4 +308,4 @@ CREATE TABLE FornisceBottiglia (
 
     PRIMARY KEY (Bottiglia, DataAcquisto),
     FOREIGN KEY (Bottiglia) REFERENCES Bottiglie(Id)
-);*/
+);
