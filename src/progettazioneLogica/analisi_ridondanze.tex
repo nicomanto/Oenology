@@ -12,7 +12,7 @@ PrezzoBottiglia è l'attributo dell'entità \emph{Bottiglia di vino}, PrezzoSped
 		\midrule
 		BottigliaDiVino & E & 50\\
 		\midrule
-		Ordini & E & 350\\
+		Ordine & E & 350\\
 		\midrule
 		Corriere & E & 25\\
 		\midrule
@@ -28,14 +28,14 @@ PrezzoBottiglia è l'attributo dell'entità \emph{Bottiglia di vino}, PrezzoSped
 	\vspace{0.2cm}
 	\begin{minipage}{6cm}
 		\rightline{
-			\begin{tabular}{P{2cm}P{2cm}P{1cm}P{1cm}}
+			\begin{tabular}{P{2cm}P{2cm}P{1.1cm}P{1cm}}
 				\multicolumn{4}{c}{\textbf {Con ridondanza}} \\
 				\toprule
 				\rowcolor[rgb]{.929, .929, .929} Concetto & Costrutto & Accesso & Tipo \\
 				\midrule
 				BottigliaDiVino & E & 0 & -\\
 				\midrule
-				Ordini & E & 1 & L\\
+				Ordine & E & 1 & L\\
 				\midrule
 				Dettaglio & R & 0 & -\\
 				\midrule
@@ -47,14 +47,14 @@ PrezzoBottiglia è l'attributo dell'entità \emph{Bottiglia di vino}, PrezzoSped
 	\hspace{2mm}
 	\begin{minipage}{6cm}
 		\leftline{
-			\begin{tabular}{P{2cm}P{2cm}P{1cm}P{1cm}}
+			\begin{tabular}{P{2cm}P{2cm}P{1.1cm}P{1cm}}
 				\multicolumn{4}{c}{\textbf {Senza ridondanza}} \\
 				\toprule
 				\rowcolor[rgb]{.929, .929, .929} Concetto & Costrutto & Accesso & Tipo \\
 				\midrule
 				BottigliaDiVino & E & 350 & L\\
 				\midrule
-				Ordini & E & 1 & L\\
+				Ordine & E & 1 & L\\
 				\midrule
 				Dettaglio & R & 350 & L\\
 				\midrule
