@@ -7,6 +7,108 @@ import contextlib
 from datetime import date
 from datetime import datetime
 
+cfs = [1013434220619035,
+1381537753713443,
+1689195725025757,
+1960374235792456,
+2077727937224817,
+2137239448629138,
+2223765222996174,
+2276852400932009,
+2293965865210543,
+2317633520051872,
+2328223935673762,
+2455319125488814,
+2480438817420409,
+2485106861310395,
+2487732140018372,
+2679311619230526,
+2753973761830893,
+2891604629252377,
+2915003288081997,
+3027006815233269,
+3120907610315308,
+3245695612629995,
+3338525794980959,
+3385769454333542,
+3433980433518461,
+3448486193165981,
+3517680265459629,
+3636454043099290,
+3752669038620118,
+3774025139063718,
+3993916252502469,
+4139389581288432,
+4150190736140990,
+4218661661290687,
+4230396305753748,
+4396104097665407,
+4396424888016696,
+4403702588022043,
+4511427461055965,
+4567329622339251,
+4608141143774318,
+4697477669615590,
+4741213049682931,
+4803724411531419,
+4852638948317467,
+4868689557394904,
+4999913052769009,
+5196056974546384,
+5347367672304511,
+5369178801082115,
+5415702359117925,
+5469651034458670,
+5568020893250070,
+5673383480806896,
+5720827150719192,
+5728908152392130,
+5804801506966712,
+5829148907148442,
+6114614869090860,
+6192422535429477,
+6239588849645286,
+6310865063405342,
+6337260322246448,
+6535112762611768,
+6565584349581894,
+6822185620095516,
+6863430699839482,
+6946084288859162,
+6976314212807459,
+7262172596441694,
+7390048029193446,
+7425501400753756,
+7435073643922558,
+7524614508723081,
+7575432453216282,
+7610723435843567,
+7681361712211111,
+7779897512480822,
+8148721728497327,
+8164846354125222,
+8244424488008854,
+8294188648960155,
+8308600785993792,
+8396940121051054,
+8486061080774805,
+8505246802530648,
+8530156167317144,
+8601041431529522,
+8703935763413583,
+8763554918715981,
+8791626944576787,
+9173158280114929,
+9190321605508069,
+9202278899672787,
+9278583151896578,
+9339042240897420,
+9352529591790993,
+9655897791164901,
+9899796553218757,
+9994832010206615
+]
+
 host = "localhost"
 user = "filippo"
 password = ""
@@ -158,7 +260,8 @@ def populateUva(connection):
 
 
 def populateDipendenti(connection):
-    for i in range(100):
+    referente = None
+    for i in range(101):
         dipendente = []
         while True:
             r = browser.open(link)
@@ -171,9 +274,13 @@ def populateDipendenti(connection):
             0].findAll("h3")[0].text.split(" ")[1]
         nome = page.findAll("div", {"class": "address"})[
             0].findAll("h3")[0].text.split(" ")[0]
+        if i % 20 == 0:
+            referente = codiceFiscale
         dipendente = [Field("CodiceFiscale", codiceFiscale),
                       Field("Nome", nome),
                       Field("Cognome", cognome)]
+        if referente and codiceFiscale != referente:
+            dipendente.append(Field("Referente", referente))
         insert(connection, 'Dipendenti', dipendente)
 
 
@@ -294,18 +401,21 @@ def populateMacchinari(connection):
 
 
 def populateTurni(connection):
-    for i in range(60):
+    for i in range(len(cfs)):
         turno = []
-        dipendente = str(9893442147309730)
-        date = datetime(2019, randint(1,12), randint(1,28), randint(5,22), randint(0,59), randint(0,59))
-        inizio = date.strftime("%Y-%m-%d %H:%M:%S")
-        fine = date.strftime("%Y-%m-%d %H:%M:%S")
+        dipendente = cfs.pop(0)
+        h = 6 if randint(0,1) else 12
+        inizio = datetime(2019, 10, 24, h, randint(0,59), randint(0,59)).strftime("%Y-%m-%d %H:%M:%S")
+        h += 9
+        fine = datetime(2019, 10, 24, h, randint(0,59), randint(0,59)).strftime("%Y-%m-%d %H:%M:%S")
+
         linea = randint(1, 6)
         turno = [Field("Dipendente", dipendente),
                  Field("InizioTurno", inizio),
                  Field("FineTurno", fine),
                  Field("LineaProduttiva", linea)]
-        insert(connection, 'Turni', turno)
+        if randint(0,1):
+            insert(connection, 'Turni', turno)
 
 
 def populateOrdini(connection):
@@ -321,15 +431,16 @@ def populateOrdini(connection):
 
 
 def populateDettagli(connection):
-    for i in range(randint(1, 10)):
-        dettaglio = []
-        ordine = randint(1, 200)
-        vino = "".join(["Vino", str(i)])
-        quantita = randint(1, 10)
-        dettaglio = [Field("Ordine", ordine),
-                     Field("BottigliaDiVino", vino),
-                     Field("QuantitaBottiglie", quantita)]
-        insert(connection, 'Dettagli', dettaglio)
+    for i in range(200):
+        for j in range(randint(1, 4)):
+            dettaglio = []
+            ordine = i + 1
+            bottigliaDiVino = randint(1, 30)
+            quantita = randint(1, 10)
+            dettaglio = [Field("Ordine", ordine),
+                        Field("BottigliaDiVino", bottigliaDiVino),
+                        Field("QuantitaBottiglie", quantita)]
+            insert(connection, 'Dettagli', dettaglio)
 
 
 def populateCorrieri(connection):
@@ -429,7 +540,7 @@ def main():
     # populateInformazioni(connection)
     # populateAcquirenti(connection)
     # populatePrivati(connection)
-    populateAziende(connection)
+    # populateAziende(connection)
     # populateFornitori(connection)
     # populateTipiUva(connection)
     # populateUva(connection)
@@ -442,7 +553,7 @@ def main():
     # populateVigneti(connection)
     # populateVigne(connection)
     # populateMacchinari(connection)
-    # populateTurni(connection)
+    populateTurni(connection)
     # populateOrdini(connection)
     # populateDettagli(connection)
     # populateCorrieri(connection)
