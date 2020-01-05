@@ -1,14 +1,68 @@
+\begin{center}
+	\begin{minipage}{7.5cm}
+		\rightline{
+			\begin{tabular}{P{7.5cm}}
+				\toprule
+				\rowcolor[rgb]{.929, .929, .929} \textbf{BottiglieDiVino} (\underline{Id}, Vino, Annata, Prezzo, Classificazione, NumBottiglieVendute, NumBottiglieMagazzino, NumBottiglieProdotte, IdTappo, IdBottiglia, IdMagazzino) \\
+				\midrule
+				(BottiglieDiVino.Vino, BottiglieDiVino.Annata) $\to$ (Vini.Nome, Vini.Uva.Annata)*                                                                                                                                     \\
+				\midrule
+				BottiglieDiVino.IdTappo $\to$ Tappi.Id                                                                                                                                                                                 \\
+				\midrule
+				BottiglieDiVino.IdBottiglia $\to$ Bottiglie.Id                                                                                                                                                                         \\
+				\midrule
+				BottiglieDiVino.IdMagazzino $\to$ LineeProduttive.Id                                                                                                                                                                   \\                                  \\
+				\bottomrule
+
+				\rowcolor[rgb]{.929, .929, .929} \textbf{Vini} (\underline{Nome}, GradazioneAlcolica, TempoFermentazione, StatoProduzione, Uva)                                                                                        \\
+				\midrule
+				Vini.Uva $\to$ Uva.Id                                                                                                                                                                                                  \\
+				\bottomrule
+
+				\rowcolor[rgb]{.929, .929, .929} \textbf{Uva} (\underline{Id}, TipoUva, Fornitore, Annata)                                                                                                                             \\
+				\midrule
+				Uva.Fornitore $\to$ Fornitori.Id                                                                                                                                                                                       \\
+				\midrule
+				Uva.TipoUva $\to$ TipiUva.Nome                                                                                                                                                                                         \\
+				\bottomrule
+
+				\rowcolor[rgb]{.929, .929, .929} \textbf{Vigneti} (\underline{Id}, Indirizzo, TipoUva)                                                                                                                                 \\
+				\midrule
+				Vigneti.Indirizzo $\to$ Indirizzi.Id                                                                                                                                                                                   \\
+				\midrule
+				Vigneti.TipoUva $\to$ TipiUva.Nome                                                                                                                                                                                     \\                                \\
+				\bottomrule
+			\end{tabular}
+		}
+	\end{minipage}
+	\hspace{5mm}
+	\begin{minipage}{7.5cm}
+		\rightline{
+			\begin{tabular}{P{7.5cm}}
+				\toprule
+				\rowcolor[rgb]{.929, .929, .929} Titolo \\
+				\midrule
+				sdfsdfdf                                \\
+				\bottomrule
+			\end{tabular}
+		}
+	\end{minipage}
+\end{center}
+
+
 \textbf{BottiglieDiVino} (\underline{Id}, Vino, Annata, Prezzo, Classificazione, NumBottiglieVendute, NumBottiglieMagazzino, NumBottiglieProdotte, IdTappo, IdBottiglia, IdMagazzino)
 \begin{verse}
 	(BottiglieDiVino.Vino, BottiglieDiVino.Annata) $\to$ (Vini.Nome, Vini.Uva.Annata)*\\
 	BottiglieDiVino.IdTappo $\to$ Tappi.Id\\
 	BottiglieDiVino.IdBottiglia $\to$ Bottiglie.Id\\
 	BottiglieDiVino.IdMagazzino $\to$ LineeProduttive.Id
-\end{verse} 
+\end{verse}
+
 \textbf{Vini} (\underline{Nome}, GradazioneAlcolica, TempoFermentazione, StatoProduzione, Uva)
 \begin{verse}
 	Vini.Uva $\to$ Uva.Id
-\end{verse} 
+\end{verse}
+
 \textbf{Uva} (\underline{Id}, TipoUva, Fornitore, Annata)
 \begin{verse}
 	Uva.Fornitore $\to$ Fornitori.Id\\
@@ -19,7 +73,7 @@
 \begin{verse}
 	Vigneti.Indirizzo $\to$ Indirizzi.Id\\
 	Vigneti.TipoUva $\to$ TipiUva.Nome\\
-\end{verse} 
+\end{verse}
 \textbf{Tappi} (\underline{Id}, Forma, Materiale, Quantita, Fornitore)
 \begin{verse}
 	Tappi.Fornitore $\to$ Fornitori.Id
@@ -35,19 +89,19 @@
 \textbf{FornituraTappo} (\underline{Tappo, DataAcquisto}, Prezzo, Quantita)
 \begin{verse}
 	FornituraTappo.Tappo $\to$ Tappi.Id
-\end{verse} 
+\end{verse}
 \textbf{FornituraBottiglia} (\underline{Bottiglia, DataAcquisto}, Prezzo, Quantita)
 \begin{verse}
 	FornituraBottiglia.Bottiglia $\to$ Bottiglie.Id
-\end{verse} 
+\end{verse}
 \textbf{LineeProduttive} (\underline{Id}, Nome, Direttore)
 \begin{verse}
 	LineeProduttive.Direttore $\to$ Dipendenti.CodiceFiscale
-\end{verse} 
+\end{verse}
 \textbf{Macchinari} (\underline{Id}, Nome, DataProssimaManutenzione, DataAcquisto, LineaProduttiva)
 \begin{verse}
 	Macchinari.LineaProduttiva $\to$ LineeProduttive.Id
-\end{verse} 
+\end{verse}
 \textbf{Manutenzioni} (\underline{Id}, Macchinario, Azienda, Costo, Data)
 \begin{verse}
 	Manutenzioni.Macchinario $\to$ Macchinari.Id\\
@@ -56,33 +110,33 @@
 \textbf{Dipendenti} (\underline{CodiceFiscale}, Nome, Cognome, Referente)
 \begin{verse}
 	Dipendenti.Referente $\to$ Dipendenti.CodiceFiscale
-\end{verse} 
+\end{verse}
 \textbf{Turni} (\underline{Dipendente, InizioTurno}, FineTurno, LineaProduttiva)
 \begin{verse}
 	Turni.Dipendente $\to$ Dipendenti.CodiceFiscale\\
 	Turni.LineaProduttiva $\to$ LineeProduttive.Id
-\end{verse} 
+\end{verse}
 \textbf{Ordini} (\underline{Id}, PrezzoTotale *, Data, Acquirente)
 \begin{verse}
 	Ordini.Acquirente $\to$ Acquirenti.Id
-\end{verse} 
+\end{verse}
 \textbf{Dettagli} (\underline{Ordine, Vino}, QuantitaBottiglie)
 \begin{verse}
 	Dettagli.Ordine $\to$ Ordini.Id\\
 	Dettagli.Vino $\to$ BottiglieDiVino.Id
-\end{verse} 
+\end{verse}
 \textbf{Spedizioni} (\underline{Ordine, Corriere}, DataSpedizione, DataConsegna, Prezzo)
 \begin{verse}
 	Spedizioni.Ordine $\to$ Ordini.Id\\
 	Spedizioni.Corriere $\to$ Corrieri.Id
-\end{verse} 
+\end{verse}
 \textbf{Corrieri} (\underline{Id}, Nome)\\
 \textbf{Acquirenti} (\underline{Id})\\
 \textbf{Privati} (\underline{Id}, Cognome, InformazioniAggiuntive)
 \begin{verse}
 	Privati.Id $\to$ Acquirenti.Id\\
 	Privati.InformazioniAggiuntive $\to$ Informazioni.Id
-\end{verse} 
+\end{verse}
 \textbf{Aziende} (\underline{Id}, NumAcquirente, PartitaIva, NomeReferente, CognomeReferente, InformazioniAggiuntive)
 \begin{verse}
 	Aziende.NumAcquirente $\to$ Acquirenti.Id\\
@@ -91,18 +145,18 @@
 \textbf{Fornitori} (\underline{Id}, Tipologia)
 \begin{verse}
 	Fornitori.Id $\to$ Aziende.Id
-\end{verse} 
+\end{verse}
 \textbf{NegoziInterni} (\underline{Id})
 \begin{verse}
 	NegoziInterni.Id $\to$ Aziende.Id
-\end{verse} 
+\end{verse}
 \textbf{Indirizzi} (\underline{Id}, Via, NumeroCivico, Stato, Provincia, Citta, CAP)\\
 \textbf{Eventi} (\underline{Id}, Titolo, Edizione)\\
 \textbf{Ospita} (\underline{Evento, Negozio}, Data)
 \begin{verse}
 	Ospita.Evento $\to$ Eventi.Id\\
 	Ospita.Negozio $\to$ NegoziInterni.Id
-\end{verse}  
+\end{verse}
 \textbf{TemiVino} (\underline{Vino, Evento})
 \begin{verse}
 	TemiVino.Vino $\to$ Vini.Nome\\
