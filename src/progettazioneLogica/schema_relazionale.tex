@@ -1,7 +1,6 @@
 \begin{minipage}{9cm}
 	\leftline{
-		\begin{tabular}{P{9cm}}
-			\begin{flushleft}
+		\begin{tabular}{S{9cm}}
 				
 				\textbf{Uva} (\underline{Id}, TipoUva, Fornitore, Annata)
 				\begin{verse}
@@ -14,30 +13,24 @@
 					Vigneti.Indirizzo $\to$ Indirizzi.Id\\
 					Vigneti.TipoUva $\to$ TipiUva.Nome\\
 				\end{verse} 
-			\textbf{Tappi} (\underline{Id}, Forma, Materiale, Quantita, Fornitore)
-			\begin{verse}
-				Tappi.Fornitore $\to$ Fornitori.Id
-			\end{verse}
-			\textbf{Bottiglie} (\underline{Id}, Capacita, Colore, Quantita, Fornitore)
-			\begin{verse}
-				Bottiglie.Fornitore $\to$ Fornitori.Id
-			\end{verse}
-			\textbf{Eventi} (\underline{Id}, Titolo, Edizione)\\
-			\textbf{Corrieri} (\underline{Id}, Nome)\\
-			\textbf{Acquirenti} (\underline{Id})\\
-			
-			\end{flushleft}
-			
-			
-			
+				\textbf{Tappi} (\underline{Id}, Forma, Materiale, Quantita, Fornitore)
+				\begin{verse}
+					Tappi.Fornitore $\to$ Fornitori.Id
+				\end{verse}
+				\textbf{Bottiglie} (\underline{Id}, Capacita, Colore, Quantita, Fornitore)
+				\begin{verse}
+					Bottiglie.Fornitore $\to$ Fornitori.Id
+				\end{verse}
+				\textbf{Eventi} (\underline{Id}, Titolo, Edizione)\\
+				\textbf{Corrieri} (\underline{Id}, Nome)\\
+				\textbf{Acquirenti} (\underline{Id})\\
 			
 		\end{tabular}
 	}
 \end{minipage}
 \begin{minipage}{9cm}
 	\rightline{
-	\begin{tabular}{P{9cm}}
-		\begin{flushleft}
+	\begin{tabular}{S{9cm}}
 			\textbf{FornisceUva} (\underline{Uva, DataAcquisto}, Prezzo, Quantita)
 			\begin{verse}
 				FornisceUva.Uva $\to$ Uva.Id
@@ -58,24 +51,17 @@
 			\begin{verse}
 				Macchinari.LineaProduttiva $\to$ LineeProduttive.Id
 			\end{verse}
-			
-			
-		\end{flushleft}
-		
-		
-		
 		
 	\end{tabular}
 }
 \end{minipage}
-\begin{minipage}{8cm}
+\begin{minipage}{9cm}
 	\leftline{
-		\begin{tabular}{P{8cm}}
-			\begin{flushleft}
-				\textbf{Dipendenti} (\underline{CodiceFiscale}, Nome, Cognome, Referente)
-				\begin{verse}
-					Dipendenti.Referente $\to$ Dipendenti.CodiceFiscale
-				\end{verse}
+		\begin{tabular}{S{8cm}}
+			\textbf{Dipendenti} (\underline{CodiceFiscale}, Nome, Cognome, Referente)
+			\begin{verse}
+				Dipendenti.Referente $\to$ Dipendenti.CodiceFiscale
+			\end{verse}
 			\textbf{Turni} (\underline{Dipendente, InizioTurno}, FineTurno, LineaProduttiva)
 			\begin{verse}
 				Turni.Dipendente $\to$ Dipendenti.CodiceFiscale\\
@@ -95,7 +81,6 @@
 				Spedizioni.Ordine $\to$ Ordini.Id\\
 				Spedizioni.Corriere $\to$ Corrieri.Id
 			\end{verse} 
-			
 			\textbf{Privati} (\underline{Id}, Cognome, InformazioniAggiuntive)
 			\begin{verse}
 				Privati.Id $\to$ Acquirenti.Id\\
@@ -109,15 +94,13 @@
 			\textbf{Fornitori} (\underline{Id}, Tipologia)
 			\begin{verse}
 				Fornitori.Id $\to$ Aziende.Id
-			\end{verse} 
-			\end{flushleft}
+			\end{verse}
 		\end{tabular}
 	}
 \end{minipage}
 \begin{minipage}{9cm}
 	\rightline{
-		\begin{tabular}{P{9cm}}
-			\begin{flushleft}
+		\begin{tabular}{S{9cm}}
 				\textbf{NegoziInterni} (\underline{Id})
 				\begin{verse}
 					NegoziInterni.Id $\to$ Aziende.Id
@@ -153,7 +136,6 @@
 					Manutenzioni.Macchinario $\to$ Macchinari.Id\\
 					Manutenzioni.Azienda $\to$ Aziende.Id
 				\end{verse}
-			\end{flushleft}
 		\end{tabular}
 	}
 \end{minipage}
