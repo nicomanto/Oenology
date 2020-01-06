@@ -109,6 +109,58 @@ cfs = [1013434220619035,
 9994832010206615
 ]
 
+piva = [52562854351,
+57920166297,
+14019458487,
+80865928944,
+83916986053,
+75282938291,
+43387584918,
+56881424359,
+90577964125,
+93192822911,
+23014284219,
+66887761439,
+77167580326,
+76088428714,
+61567835518,
+29157536269,
+63457627793,
+56999890842,
+10935062647,
+64899171268,
+82429726777,
+99843548850,
+69335129569,
+22288789915,
+35580963355,
+84067678658,
+93154400832,
+44294051351,
+34090372115,
+68477534983,
+57246733917,
+88070544187,
+27650821381,
+47311443946,
+64158661717,
+60166872648,
+16784531646,
+44017267204,
+57492460140,
+68438593223,
+82811405174,
+98134702039,
+34213758600,
+28402852740,
+50372489437,
+86364114568,
+63852328799,
+80687294957,
+93294559682,
+41387604801,
+]
+
 host = "localhost"
 user = "filippo"
 password = ""
@@ -530,6 +582,29 @@ def populateTemiVino(connection):
         insert(connection, 'TemiVino', tema)
 
 
+def populateManutenzioni(connection):
+    for i in range(30):
+        manutenzione = []
+        macchinario = i + 1
+        azienda = piva[randint(0,49)]
+        costo = randint(500, 700)
+        data = date(2018, randint(1,12), randint(1,28)).strftime("%Y-%m-%d")
+        manutenzione = [Field("Macchinario", macchinario),
+                        Field("Azienda", azienda),
+                        Field("Costo", costo),
+                        Field("Data", data)]
+        insert(connection, 'Manutenzioni', manutenzione)
+        data = date(2017, randint(1,12), randint(1,28)).strftime("%Y-%m-%d")
+        manutenzione = [Field("Macchinario", macchinario),
+                        Field("Azienda", azienda),
+                        Field("Costo", costo),
+                        Field("Data", data)]
+        insert(connection, 'Manutenzioni', manutenzione)
+
+        
+            
+
+
 def main():
     connection = sqldb.connect(host=host,
                                user=user,
@@ -553,7 +628,7 @@ def main():
     # populateVigneti(connection)
     # populateVigne(connection)
     # populateMacchinari(connection)
-    populateTurni(connection)
+    # populateTurni(connection)
     # populateOrdini(connection)
     # populateDettagli(connection)
     # populateCorrieri(connection)
@@ -563,6 +638,7 @@ def main():
     # populateOspita(connection)
     # populatePartecipanti(connection)
     # populateTemiVino(connection)
+    populateManutenzioni(connection)
 
 
 if __name__ == "__main__":
