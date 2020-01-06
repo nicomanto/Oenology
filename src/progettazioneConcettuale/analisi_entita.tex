@@ -103,6 +103,8 @@ Il simbolo $\Leftarrow$ invece, identifica una generalizzazione parziale, cioè 
 	TempoFermentazione & TINYINT & Numero di giorni di fermentazione del vino\\
 	\midrule
 	StatoProduzione & BOOLEAN & Identifica se il vino è ancora in produzione\\
+	\midrule
+	Classificazione & ENUM & Caratteristiche del vino per la tutela dei consumatori\\
 	\bottomrule
 \end{tabular}
 
@@ -119,8 +121,6 @@ Il simbolo $\Leftarrow$ invece, identifica una generalizzazione parziale, cioè 
 	\textbf{Annata} & INTEGER &  Identifica l'anno di imbottigliamento della bottiglia\\
 	\midrule
 	Prezzo & DECIMAL &  Prezzo della bottiglia di vino\\
-	\midrule
-	Classificazione & ENUM & Caratteristiche del vino per la tutela dei consumatori\\
 	\midrule
 	NumBottiglieVendute & INTEGER & Numero di bottiglie di un determinato tipo vendute\\
 	\midrule
@@ -275,6 +275,8 @@ Il simbolo $\Leftarrow$ invece, identifica una generalizzazione parziale, cioè 
 	Nome & VARCHAR & Nome commerciale del macchinario \\
 	\midrule
 	DataProssimaManutenzione & DATE & Data prossima della manutenzione \\
+	\midrule
+	DataAcquisto & DATE & Data acquisto macchinario \\
 	\bottomrule
 \end{tabular}
 
