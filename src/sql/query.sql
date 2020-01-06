@@ -468,7 +468,7 @@ INSERT INTO Dipendenti ( CodiceFiscale, Nome, Cognome, Referente ) VALUES ( '439
 INSERT INTO Dipendenti ( CodiceFiscale, Nome, Cognome, Referente ) VALUES ( '5720827150719192', 'Cosma', 'Lucchese', '8703935763413583' );
 INSERT INTO Dipendenti ( CodiceFiscale, Nome, Cognome, Referente ) VALUES ( '7610723435843567', 'Alessandra', 'Angelo', '8703935763413583' );
 INSERT INTO Dipendenti ( CodiceFiscale, Nome, Cognome, Referente ) VALUES ( '6863430699839482', 'Fabiano', 'Fanucci', '8703935763413583' );
-INSERT INTO Dipendenti ( CodiceFiscale, Nome, Cognome ) VALUES ( '7681361712211111', 'Macaria', '' );
+INSERT INTO Dipendenti ( CodiceFiscale, Nome, Cognome ) VALUES ( '7681361712211111', 'Macaria', 'Angelo' );
 INSERT INTO Dipendenti ( CodiceFiscale, Nome, Cognome, Referente ) VALUES ( '4868689557394904', 'Taziana', 'Napolitani', '7681361712211111' );
 INSERT INTO Dipendenti ( CodiceFiscale, Nome, Cognome, Referente ) VALUES ( '3636454043099290', 'Ernesta', 'Barese', '7681361712211111' );
 INSERT INTO Dipendenti ( CodiceFiscale, Nome, Cognome, Referente ) VALUES ( '6535112762611768', 'Cristian', 'Udinesi', '7681361712211111' );

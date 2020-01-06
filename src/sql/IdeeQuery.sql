@@ -101,7 +101,7 @@ WHERE
     D2.Referente = D1.CodiceFiscale
 ORDER BY
     D1.Nome,
-    D1.Cognome
+    D1.Cognome;
     /*QUERY 5
      Lista dei dipendenti (nome, cognome), con inizio e fine turno, 
      ordinati in modo decrescente sull'inizio del turno,
@@ -116,6 +116,6 @@ FROM
     Turni as T
 WHERE
     T.Dipendente = D.CodiceFiscale
-    AND DATE_FORMAT(T.InizioTurno, '%Y-%m-%d') = '2019-10-20'
+    AND DATE_FORMAT(T.InizioTurno, '%Y-%m-%d') = '2019-10-22'
 ORDER BY
-    T.InizioTurno DESC
+    T.InizioTurno DESC;
