@@ -3,7 +3,7 @@
 		\rightline{
 			\begin{tabular}{P{7.5cm}}
 				\toprule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{BottiglieDiVino} (\underline{Id}, Vino, Annata, Prezzo, Classificazione, NumBottiglieVendute, NumBottiglieMagazzino, NumBottiglieProdotte, IdTappo, IdBottiglia, IdMagazzino) \\
+				\rowcolor[rgb]{.929, .929, .929} \textbf{BottiglieDiVino} (\underline{Id}, Vino, Annata, Prezzo, NumBottiglieVendute, NumBottiglieMagazzino, NumBottiglieProdotte, IdTappo, IdBottiglia, IdMagazzino) \\
 				\midrule
 				(BottiglieDiVino.Vino, BottiglieDiVino.Annata) $\to$ (Vini.Nome, Vini.Uva.Annata)*                                                                                                                                     \\
 				\midrule
@@ -14,7 +14,7 @@
 				BottiglieDiVino.IdMagazzino $\to$ LineeProduttive.Id                                                                                                                                                                   \\                                  
 				\midrule
 
-				\rowcolor[rgb]{.929, .929, .929} \textbf{Vini} (\underline{Nome}, GradazioneAlcolica, TempoFermentazione, StatoProduzione, Uva)                                                                                        \\
+				\rowcolor[rgb]{.929, .929, .929} \textbf{Vini} (\underline{Nome}, GradazioneAlcolica, TempoFermentazione, StatoProduzione, Uva, Classificazione)                                                                                        \\
 				\midrule
 				Vini.Uva $\to$ Uva.Id                                                                                                                                                                                                  \\
 				\midrule

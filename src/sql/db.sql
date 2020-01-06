@@ -108,6 +108,7 @@ CREATE TABLE Vini (
     TempoFermentazione TINYINT NOT NULL,
     StatoProduzione BOOLEAN NOT NULL,
     Uva INTEGER NOT NULL,
+    Classificazione ENUM('DOC','IGT','DOCG') DEFAULT NULL,
 
     PRIMARY KEY (Nome),
     FOREIGN KEY (Uva) REFERENCES Uva(Id)
@@ -142,7 +143,6 @@ CREATE TABLE BottiglieDiVino (
     Vino VARCHAR(255) NOT NULL,
     Annata  INTEGER NOT NULL,
     Prezzo FLOAT NOT NULL,
-    Classificazione ENUM('DOC','IGT','DOCG') DEFAULT NULL,
     NumBottiglieVendute INTEGER,
     NumBottiglieMagazzino INTEGER,
     NumBottiglieProdotte INTEGER,
