@@ -1,6 +1,4 @@
-Lo schema concettuale rappresenta 2 attributi ridondanti, il primo è il \textbf{PrezzoTotale} nell'entità \emph{Ordine}. Infatti questo attributo è derivabile da \textbf{
-	$\sum_{n = 1}^{j}  (PrezzoBottiglia_n \times QuantitàBottiglie_n) + PrezzoSpedizione$
-}, 
+Lo schema concettuale rappresenta 2 attributi ridondanti, il primo è il \textbf{PrezzoTotale} nell'entità \emph{Ordine}. Infatti questo attributo è derivabile da $\sum_{n = 1}^{j} (PrezzoBottiglia_n \times Quantita'Bottiglie_n) + PrezzoSpedizione$, 
 dove $j$ è il numero di tipologie di bottiglie di vino presenti nell'ordine,
 PrezzoBottiglia è l'attributo dell'entità \emph{Bottiglia di vino}, PrezzoSpedizione è l'attributo della relazione \emph{Spedizione} e QuantitàBottiglie è l'attributo della relazione \emph{Dettaglio}. L'operazione coinvolta è la \emph{Stampa resoconto guadagno}, che avviene 1 volta alla settimana. Analizziamo la tavola dei volumi e delle operazioni:
 
