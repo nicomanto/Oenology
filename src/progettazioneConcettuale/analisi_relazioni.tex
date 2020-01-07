@@ -2,7 +2,7 @@
 	\item \underline{Vigneto - TipoUva}: \textbf{Proviene}
 	
 	\begin{itemize}
-		\item Un vigneto produce solamente una tipologia d'uva $(0,1)$.
+		\item Un vigneto produce solamente una tipologia d'uva $(1,1)$.
 		\item Un tipo di uva può provenire da più vigneti $(1,N)$.
 	\end{itemize}
 	
@@ -13,7 +13,7 @@
 	
 	\begin{itemize}
 		\item Da un tipo di uva (di una determinata annata) possono essere stati prodotti più tipi di vino o nessun tipo di vino $(0,N)$*.
-		\item Un vino è prodotto da un solo tipo d'uva (di una determinata annata) $(0,1)$.
+		\item Un vino è prodotto da un solo tipo d'uva (di una determinata annata) $(1,1)$.
 	\end{itemize}
 	
 \end{itemize}
@@ -27,7 +27,7 @@
 	\item \underline{MateriaPrima - Fornitore}: \textbf{Fornitura}*
 	
 	\begin{itemize}
-		\item Una Materia prima viene fornita da un solo fornitore $(0,1)$.
+		\item Una Materia prima viene fornita da un solo fornitore $(1,1)$.
 		\item Un fornitore fornisce una o più tipologie di materie prime $(1,N)$.
 	\end{itemize}
 	
@@ -42,7 +42,7 @@
 	\item \underline{BottigliaDiVino - Vino}: \textbf{TipoVino}
 	
 	\begin{itemize}
-		\item Una bottiglia di vino contiene solamente una tipologia di vino $(0,1)$.
+		\item Una bottiglia di vino contiene solamente una tipologia di vino $(1,1)$.
 		\item Un vino può essere contenuto in più bottiglie di vino o in nessuna $(0,N)$*.
 	\end{itemize}
 	
@@ -56,7 +56,7 @@
 	\item \underline{BottigliaDiVino - Tappo}: \textbf{TipoTappo}
 	
 	\begin{itemize}
-		\item Una bottiglia di vino ha solamente un tappo $(0,1)$.
+		\item Una bottiglia di vino ha solamente un tappo $(1,1)$.
 		\item Un tipo di tappo può appartenere a più bottiglie di vino o a nessuna $(0,N)$*.
 	\end{itemize}
 	
@@ -70,7 +70,7 @@
 	\item \underline{BottigliaDiVino - Bottiglia}: \textbf{TipoBottiglia}
 	
 	\begin{itemize}
-		\item Una bottiglia di vino è formata da una sola bottiglia $(0,1)$.
+		\item Una bottiglia di vino è formata da una sola bottiglia $(1,1)$.
 		\item Un tipo di bottiglia può appartenere a più bottiglie di vino o a nessuna $(0,N)$*.
 	\end{itemize}
 	
@@ -84,7 +84,7 @@
 	\item \underline{BottigliaDiVino - Magazzino}: \textbf{Conservata}
 	
 	\begin{itemize}
-		\item Una tipologia di bottiglia di vino è conservata in un unico magazzino $(0,1)$
+		\item Una tipologia di bottiglia di vino è conservata in un unico magazzino $(1,1)$
 		\item Un magazzino contiene da una a molteplici tipologie di vino, poichè la loro divisione avviene per colore e non per annata $(1,N)$.
 	\end{itemize}
 	
@@ -108,7 +108,7 @@
 	\item \underline{Ordine - Corriere}: \textbf{Spedizione}*
 	
 	\begin{itemize}
-		\item Un ordine viene spedito da un singolo corriere $(0,1)$.
+		\item Un ordine viene spedito da un singolo corriere $(1,1)$.
 		\item Un corriere può spedire uno o più ordini $(1,N)$.
 	\end{itemize}
 	
@@ -122,7 +122,7 @@
 	\item \underline{Ordine - Acquirente}: \textbf{Venduta}
 	
 	\begin{itemize}
-		\item Un ordine è effettuato da un singolo acquirente $(0,1)$.
+		\item Un ordine è effettuato da un singolo acquirente $(1,1)$.
 		\item Un acquirente può effettuare uno o più ordini $(1,N)$.
 	\end{itemize}
 	
@@ -158,7 +158,7 @@
 	
 	\begin{itemize}
 		\item In una linea produttiva possono lavorare uno o molteplici dipendenti $(1,N)$.
-		\item Un dipendete può lavorare in una sola linea produttiva $(0,1)$.
+		\item Un dipendete può lavorare in una sola linea produttiva $(1,1)$.
 	\end{itemize}
 	
 \end{itemize}
@@ -171,7 +171,7 @@
 	\item \underline{LineaProduttiva - Dipendente}: \textbf{Diretto}
 	
 	\begin{itemize}
-		\item Una linea produttiva è diretta da un solo dipendente $(0,1)$.
+		\item Una linea produttiva è diretta da un solo dipendente $(1,1)$.
 		\item Un dipendete può dirigere più linee produttive o nessuna $(0,N)$.
 	\end{itemize}
 	
@@ -192,7 +192,7 @@
 	
 	\begin{itemize}
 		\item In una linea produttiva possono essere utilizzati molteplici macchinari oppure nessuno $(0,N)$.
-		\item Un macchinario può appartenere solamente ad una linea produttiva $(0,1)$.
+		\item Un macchinario può appartenere solamente ad una linea produttiva $(1,1)$.
 	\end{itemize}
 	
 \end{itemize}

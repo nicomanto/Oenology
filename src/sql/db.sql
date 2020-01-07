@@ -233,8 +233,8 @@ CREATE TABLE Corrieri (
 CREATE TABLE Spedizioni (
     Ordine INTEGER NOT NULL,
     Corriere INTEGER NOT NULL,
-    DataSpedizione DATE NOT NULL,
-    DataConsegna DATE,
+    DataSpedizione DATE DEFAULT NULL,
+    DataConsegna DATE DEFAULT NULL,
     Prezzo FLOAT NOT NULL,
 
     PRIMARY KEY (Ordine, Corriere),
