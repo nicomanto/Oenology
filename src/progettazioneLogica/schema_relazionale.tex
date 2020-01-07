@@ -23,14 +23,6 @@
 				\midrule
 				Uva.TipoUva $\to$ TipiUva.Nome                                                                                                                                                                                         \\
 				\midrule
-			\end{tabular}
-		}
-	\end{minipage}
-	\hspace{5mm}
-	\begin{minipage}[t]{7.5cm}
-		\rightline{
-			\begin{tabular}{P{7.5cm}}
-				\toprule
 				\rowcolor[rgb]{.929, .929, .929} \textbf{Vigneti} (\underline{Id}, Indirizzo, TipoUva)                      \\
 				\midrule
 				Vigneti.Indirizzo $\to$ Indirizzi.Id                                                                        \\
@@ -55,17 +47,6 @@
 				\midrule
 				\rowcolor[rgb]{.929, .929, .929} \textbf{Eventi} (\underline{Id}, Titolo, Edizione)                                                                    \\
 				\midrule
-			\end{tabular}
-		}
-	\end{minipage}
-\end{center}
-
-
-\begin{center}
-	\begin{minipage}[t]{7.5cm}
-		\rightline{
-			\begin{tabular}{P{7.5cm}}
-				\toprule
 				\rowcolor[rgb]{.929, .929, .929} \textbf{FornituraTappo} (\underline{Tappo, DataAcquisto}, Prezzo, Quantita)          \\
 				\midrule
 				FornituraTappo.Tappo $\to$ Tappi.Id                                                                                   \\                               
@@ -74,6 +55,14 @@
 				\midrule
 				LineeProduttive.Direttore $\to$ Dipendenti.CodiceFiscale                                                              \\                                
 				\midrule
+			\end{tabular}
+		}
+	\end{minipage}
+	\hspace{5mm}
+	\begin{minipage}[t]{7.5cm}
+		\rightline{
+			\begin{tabular}{P{7.5cm}}
+				\toprule
 				\rowcolor[rgb]{.929, .929, .929} \textbf{FornituraBottiglia} (\underline{Bottiglia, DataAcquisto}, Prezzo, Quantita)                                   \\
 				\midrule
 				FornituraBottiglia.Bottiglia $\to$ Bottiglie.Id                                                                                                        \\                                
@@ -112,14 +101,6 @@
 				\midrule
 				Informazioni.Indirizzo $\to$ Indirizzi.Id                                                                                                              \\                                
 				\midrule
-			\end{tabular}
-		}
-	\end{minipage}
-	\hspace{5mm}
-	\begin{minipage}[t]{7.5cm}
-		\rightline{
-			\begin{tabular}{P{7.5cm}}
-				\toprule
 				\rowcolor[rgb]{.929, .929, .929} \textbf{Manutenzioni} (\underline{Id}, Macchinario, Azienda, Costo, Data)            \\
 				\midrule
 				Manutenzioni.Macchinario $\to$ Macchinari.Id                                                                          \\
@@ -140,6 +121,17 @@
 				\midrule
 				Ordini.Acquirente $\to$ Acquirenti.Id                                                                                                                  \\                                
 				\midrule
+			\end{tabular}
+		}
+	\end{minipage}
+\end{center}
+
+
+\begin{center}
+	\begin{minipage}[t]{7.5cm}
+		\rightline{
+			\begin{tabular}{P{7.5cm}}
+				\toprule
 				\rowcolor[rgb]{.929, .929, .929} \textbf{Spedizioni} (\underline{Ordine, Corriere}, DataSpedizione, DataConsegna, Prezzo)                              \\
 				\midrule
 				Spedizioni.Ordine $\to$ Ordini.Id                                                                                                                      \\
@@ -152,7 +144,15 @@
 				\midrule
 				Privati.InformazioniAggiuntive $\to$ Informazioni.Id                                                                                                   \\                                
 				\midrule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{Aziende} (\underline{Id}, NumAcquirente, PartitaIva, NomeReferente, CognomeReferente, InformazioniAggiuntive) \\
+			\end{tabular}
+		}
+	\end{minipage}
+	\hspace{5mm}
+	\begin{minipage}[t]{7.5cm}
+		\rightline{
+			\begin{tabular}{P{7.5cm}}
+				\toprule
+				\rowcolor[rgb]{.929, .929, .929} \textbf{Aziende} (\underline{PartitaIVA}, NumAcquirente, NomeReferente, CognomeReferente, InformazioniAggiuntive) \\
 				\midrule
 				Aziende.NumAcquirente $\to$ Acquirenti.Id                                                                                                              \\
 				\midrule
