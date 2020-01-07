@@ -1,6 +1,6 @@
 Lo schema concettuale presenta 2 attributi ridondanti, cioè l'attributo \textbf{Annata} presente nell'entita' \textbf{BottigliaDiVino} e l'attributo \textbf{PrezzoTotale} presente nell'entità \emph{Ordine}. Quest'ultimo, infatti, è derivabile da $\sum_{n = 1}^{j} (PrezzoBottiglia_n \times QuantitaBottiglie_n) + PrezzoSpedizione$, 
 dove $j$ è il numero di tipologie di bottiglie di vino presenti nell'ordine,
-\textbf{PrezzoBottiglia} è l'attributo dell'entità \emph{BottigliaDiVino}, \textbf{PrezzoSpedizione} è l'attributo della relazione \emph{Spedizione} e \textbf{QuantitaBottiglie} è l'attributo della relazione \emph{Dettaglio}. L'operazione coinvolta è la \emph{Stampa resoconto guadagno}, che avviene 1 volta alla settimana. Analizziamo la tavola dei volumi e delle operazioni:
+\textbf{PrezzoBottiglia} è l'attributo dell'entità \emph{BottigliaDiVino}, \textbf{PrezzoSpedizione} è l'attributo della relazione \emph{Spedizione} e \textbf{QuantitaBottiglie} è l'attributo della relazione \emph{Dettaglio}. L'operazione coinvolta è la \emph{Stampa resoconto guadagno}, che avviene 1 volta alla settimana. Analizziamo la tavola dei volumi e delle operazioni (caso migliore con volume \emph{Dettaglio} uguale a volume \emph{Ordine}):
 
 \begin{center}
 	\begin{tabular}{P{2cm}P{8cm}P{4cm}}
@@ -27,25 +27,6 @@ dove $j$ è il numero di tipologie di bottiglie di vino presenti nell'ordine,
 	\begin{minipage}{6cm}
 		\rightline{
 			\begin{tabular}{P{2cm}P{2cm}P{1.1cm}P{1cm}}
-				\multicolumn{4}{c}{\textbf {Con ridondanza}} \\
-				\toprule
-				\rowcolor[rgb]{.929, .929, .929} Concetto & Costrutto & Accesso & Tipo \\
-				\midrule
-				BottigliaDiVino & E & 0 & -\\
-				\midrule
-				Ordine & E & 1 & L\\
-				\midrule
-				Dettaglio & R & 0 & -\\
-				\midrule
-				Spedizione & R & 0 & -\\
-				\bottomrule
-			\end{tabular}
-		}
-	\end{minipage}
-	\hspace{2mm}
-	\begin{minipage}{6cm}
-		\leftline{
-			\begin{tabular}{P{2cm}P{2cm}P{1.1cm}P{1cm}}
 				\multicolumn{4}{c}{\textbf {Senza ridondanza}} \\
 				\toprule
 				\rowcolor[rgb]{.929, .929, .929} Concetto & Costrutto & Accesso & Tipo \\
@@ -61,7 +42,26 @@ dove $j$ è il numero di tipologie di bottiglie di vino presenti nell'ordine,
 			\end{tabular}
 		}
 	\end{minipage}
-
+	\hspace{2mm}
+	\begin{minipage}{6cm}
+		\leftline{
+			\begin{tabular}{P{2cm}P{2cm}P{1.1cm}P{1cm}}
+				\multicolumn{4}{c}{\textbf {Con ridondanza}} \\
+				\toprule
+				\rowcolor[rgb]{.929, .929, .929} Concetto & Costrutto & Accesso & Tipo \\
+				\midrule
+				BottigliaDiVino & E & 0 & -\\
+				\midrule
+				Ordine & E & 1 & L\\
+				\midrule
+				Dettaglio & R & 0 & -\\
+				\midrule
+				Spedizione & R & 0 & -\\
+				\bottomrule
+			\end{tabular}
+		}
+	\end{minipage}
+	
 \end{center}
 
 \begin{flushleft}
