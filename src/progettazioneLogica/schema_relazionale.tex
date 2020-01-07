@@ -90,11 +90,11 @@
 				\midrule
 				\rowcolor[rgb]{.929, .929, .929} \textbf{Fornitori} (\underline{Id}, Tipologia)                                       \\
 				\midrule
-				Fornitori.Id $\to$ Aziende.Id                                                                                         \\                                
+				Fornitori.Id $\to$ Aziende.PartitaIVA \\                                
 				\midrule
 				\rowcolor[rgb]{.929, .929, .929} \textbf{NegoziInterni} (\underline{Id})                                              \\
 				\midrule
-				NegoziInterni.Id $\to$ Aziende.Id                                                                                     \\                                
+				NegoziInterni.Id $\to$ Aziende.PartitaIVA \\                                
 				\midrule
 				\rowcolor[rgb]{.929, .929, .929} \textbf{Ospita} (\underline{Evento, Negozio}, Data)                                  \\
 				\midrule
@@ -165,4 +165,10 @@
 			\end{tabular}
 		}
 	\end{minipage}
+	
+	
+	\begin{verse}
+	*\emph{Per ovviare al problema del vincolo referenziale fra 	\textbf{BottiglieDiVino.Annata e Vini.Uva.Annata}, nonche' \textbf{Ordini.PrezzoTotale} come somma di $BottiglieDiVino.Prezzo \times Dettagli.QuantitaBottiglie)+ Spedizioni.Prezzo$} si potrebbe aggiungere un \textbf{TRIGGER}, cosa comunque non richiesta ai fini del progetto.
+\end{verse}
+
 \end{center}
