@@ -528,7 +528,6 @@ INSERT INTO Dipendenti ( CodiceFiscale, Nome, Cognome, Referente ) VALUES ( '343
 INSERT INTO Dipendenti ( CodiceFiscale, Nome, Cognome, Referente ) VALUES ( '9190321605508069', 'Arianna', 'Padovano', '5347367672304511' );
 INSERT INTO Dipendenti ( CodiceFiscale, Nome, Cognome, Referente ) VALUES ( '7779897512480822', 'Melania', 'Trentini', '5347367672304511' );
 INSERT INTO Dipendenti ( CodiceFiscale, Nome, Cognome, Referente ) VALUES ( '2915003288081997', 'Amerigo', 'Colombo', '5347367672304511' );
-
 INSERT INTO LineeProduttive ( Nome, Direttore ) VALUES ( 'ProduzioneVino', '1381537753713443' );
 INSERT INTO LineeProduttive ( Nome, Direttore ) VALUES ( 'Imbottigliamento', '2137239448629138' );
 INSERT INTO LineeProduttive ( Nome, Direttore ) VALUES ( 'MagazzinoBianco', '5347367672304511' );

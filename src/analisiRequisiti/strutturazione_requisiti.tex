@@ -3,7 +3,7 @@
 		\toprule
 		\rowcolor[rgb]{.929, .929, .929} \textbf {\large {FRASI RELATIVE A BOTTIGLIA DI VINO}} \\
 		\midrule
-		Una bottiglia di vino è il prodotto finale che viene venduto dalla cantina, e rappresenta l'unione di una bottiglia di vetro, di un tappo e di un tipo di vino. Ogni bottiglia è identificata dal nome del vino e dall'annata di esso. Dati importanti per tale prodotto sono il prezzo, il numero di unità prodotte e vendute, oltre che dal tipo di tappo e dal tipo di bottiglia. Nel magazzino viene tenuto traccia della quantità delle bottiglie. Ovviamente le bottiglie di vino possono essere spedite in una determinata quantità in un ordine di vendita\\
+		Una bottiglia di vino è il prodotto finale che viene venduto dalla cantina, ed e' la composizione di una bottiglia di vetro, di un tappo e di un tipo di vino. Ogni bottiglia è identificata dal nome del vino e dall'anno (\emph{annata}) di imbottigliamento. Per ogni prodotto e' necessario tenere traccia del prezzo, del numero di unità prodotte e vendute, oltre che del tipo di tappo e del tipo di bottiglia. Nel magazzino viene tenuto traccia della quantità delle bottiglie. Le bottiglie di vino possono essere spedite in una determinata quantità negli ordine di vendita\\
 		\bottomrule
 	\end{tabular}
 
@@ -13,7 +13,7 @@
 		\toprule
 		\rowcolor[rgb]{.929, .929, .929} \textbf {\large {FRASI RELATIVE A TIPO DI VINO}} \\
 		\midrule
-		Relativamente ai tipi di vino, identificati dal nome, rappresentiamo la gradazione alcolica, il tempo di fermentazione e l'uva utilizzata oltre che lo stato produttivo, ovvero se il vino viene prodotto ancora o è ormai fuori commercio. Importante registrare la classificazione del vino: vini a denominazione d'origine controllata e garantita (D.O.C.G.); vini a denominazione d'origine controllata (D.O.C.); vini ad indicazione geografica tipica (I.G.T.). \\
+		Relativamente ai tipi di vino, identificati dal nome, rappresentiamo la gradazione alcolica, il tempo di fermentazione e l'uva utilizzata oltre che lo stato produttivo, ovvero se il vino viene prodotto ancora o è, ad oggi, fuori commercio. Importante registrare la classificazione del vino: vini a denominazione d'origine controllata e garantita (D.O.C.G.); vini a denominazione d'origine controllata (D.O.C.); vini ad indicazione geografica tipica (I.G.T.). \\
 		\bottomrule
 	\end{tabular}
 
@@ -23,7 +23,7 @@
 		\toprule
 		\rowcolor[rgb]{.929, .929, .929} \textbf {\large {FRASI RELATIVE A MATERIA PRIMA}} \\
 		\midrule
-		Le materie prime che vengono acquistate vengono identificate con un ID univoco. Se la materia prima è l'uva questa viene rappresentata dall'anno di raccolta, dal nome e dal colore. Se, invece, la materia prima sono i tappi questa viene rappresentata dalla forma e dal materiale, infine se la materia prima sono le bottiglie, questa viene rappresentata dalla capacità e dal colore. Inoltre è presente il dato che identifica la quantità posseduta dalla cantina sia per i tappi che per le bottigle.\\
+		Le materie prime che vengono acquistate vengono identificate da un ID univoco. Se la materia prima è l'uva questa viene rappresentata dall'anno di raccolta, dal nome e dal colore. Se, invece, la materia prima sono i tappi questa viene rappresentata dalla forma e dal materiale, infine se la materia prima sono le bottiglie, questa viene rappresentata dalla capacità e dal colore. Inoltre è presente il dato che identifica la quantità posseduta dalla cantina per i tappi e per le bottiglie, ma non per l'uva poiche' tutta l'uva viene utilizzata immediatamente dopo la ricezione.\\
 		\bottomrule
 	\end{tabular}
 
@@ -33,7 +33,7 @@
 		\toprule
 		\rowcolor[rgb]{.929, .929, .929} \textbf {\large {FRASI RELATIVE A VIGNETO}} \\
 		\midrule
-		I vigneti sono rappresentati da un ID univoco e dalla loro posizione geografica\\
+		I vigneti sono rappresentati da un ID univoco e dalla loro posizione geografica.\\
 		\bottomrule
 	\end{tabular}
 	
@@ -43,7 +43,7 @@
 		\toprule
 		\rowcolor[rgb]{.929, .929, .929} \textbf {\large {FRASI RELATIVE AD AZIENDA}} \\
 		\midrule
-		Le aziende si dividono in fornitori, aziende di manutenzione macchinari e negozi interni della cantina. Le aziende sono identificate tramite un ID univoco e sono caratterizzate dal nome, dalla Partita IVA, dal nome e dal cognome del referente oltre che dal numero di telefono, dalla email aziendale e dalla sua posizione geografica (che corrisponde con l'indirizzo di spedizione). Per le aziende che sono fornitori rappresentiamo poi la tipologia di materia prima fornita, sia essa uva, tappi o bottiglie.\\
+		Le aziende si dividono in fornitori, aziende di manutenzione macchinari e negozi interni della cantina. Le aziende sono identificate tramite un ID univoco e sono caratterizzate dal nome commerciale, dalla Partita IVA, dal nome e dal cognome del referente oltre che dal numero di telefono, dalla email aziendale e dalla sua posizione geografica (che corrisponde con l'indirizzo di spedizione). Per le aziende che sono fornitori rappresentiamo poi la tipologia di materia prima fornita, sia essa uva, tappi o bottiglie.\\
 		\bottomrule
 	\end{tabular}
 	
@@ -53,7 +53,7 @@
 		\toprule
 		\rowcolor[rgb]{.929, .929, .929} \textbf {\large {FRASI RELATIVE AD ORDINE}} \\
 		\midrule
-		Relativamente ad un ordine rappresentiamo un ID univoco, la data in cui è stato effettuato, il corriere a cui è stata affidato, la data di spedizione, la data di consegna e il prezzo totale (che deve corrispondere al prodotto tra il prezzo delle bottiglie di vino acquistate e il relativo prezzo sommato al costo della spedizione).\\
+		Relativamente ad un ordine rappresentiamo un ID univoco, la data in cui è stato effettuato, il corriere a cui è stata affidata la consegna, la data di spedizione, l'eventuale data di consegna e il prezzo totale (che deve corrispondere al prodotto tra la quantita' delle bottiglie di vino acquistate ed il relativo prezzo, sommato al costo della spedizione).\\
 		\bottomrule
 	\end{tabular}
 	

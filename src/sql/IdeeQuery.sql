@@ -5,32 +5,33 @@
 /*QUERY 1
  Bottiglia/e di vino più venduta/e dell'anno 2019 con la relativa quantita(Da vedere se è corretta, 
  si potrebbero usare le viste per rendere le cose più semplici)*/
-SELECT
-    Vini.Nome,
-    Dettagli.BottigliaDiVino,
-    SUM(Dettagli.QuantitaBottiglie) AS BottiglieVendute
-FROM
-    (
-        SELECT
-            Dettagli.*
-        FROM
-            Dettagli,
-            Ordini
-        WHERE
-            DATE_FORMAT(Ordini.Data, '%Y') = '2019'
-            AND Ordini.Id = Dettagli.Ordine
-    ) AS Dettagli,
-    BottiglieDiVino,
-    Vini
-WHERE
-    Dettagli.BottigliaDiVino = BottiglieDiVino.Id
-    AND Vini.Nome = BottiglieDiVino.Vino
-GROUP BY
-    Dettagli.BottigliaDiVino
-ORDER BY
-    (BottiglieVendute) DESC
-LIMIT
-    1;
+
+CREATE VIEW OrdineQuantita AS SELECT
+        Vini.Nome,
+        SUM(Dettagli.QuantitaBottiglie) AS BottiglieVendute
+    FROM
+        (
+            SELECT
+                Dettagli.*
+            FROM
+                Dettagli,
+                Ordini
+            WHERE
+                DATE_FORMAT(Ordini.Data, '%Y') = '2019'
+                AND Ordini.Id = Dettagli.Ordine
+        ) AS Dettagli,
+        BottiglieDiVino,
+        Vini
+    WHERE
+        Dettagli.BottigliaDiVino = BottiglieDiVino.Id
+        AND Vini.Nome = BottiglieDiVino.Vino
+    GROUP BY
+        Dettagli.BottigliaDiVino;
+
+SELECT OrdineQuantita.Nome, OrdineQuantita.BottiglieVendute
+    FROM OrdineQuantita
+    WHERE OrdineQuantita.BottiglieVendute IN (SELECT MAX(OrdineQuantita.BottiglieVendute) FROM OrdineQuantita)
+
 
 /*QUERY 2
  Numero di tipi di vino prodotti divisi per colore*/
