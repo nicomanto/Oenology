@@ -35,18 +35,16 @@ SELECT OrdineQuantita.Nome, OrdineQuantita.BottiglieVendute
 
 /*QUERY 2
  Numero di tipi di vino prodotti divisi per colore*/
-SELECT
-    T.Colore,
-    COUNT(*) as TipiDiVino
-FROM
-    TipiUva as T,
-    Uva as U,
-    Vini as V
-WHERE
-    V.Uva = U.Id
-    AND U.TipoUva = T.Nome
-GROUP BY
-    T.Colore;
+SELECT SUM(Ordini.PrezzoTotale)
+    FROM Ordini
+    WHERE Ordini.Data <= CURRENT_TIMESTAMP AND Ordini.Data >= DATE_ADD(CURRENT_TIMESTAMP, INTERVAL -7 DAY);
+
+
+-- Per screenshot
+-- SELECT SUM(Ordini.PrezzoTotale)
+--     FROM Ordini
+--     WHERE Ordini.Data <= '2016-01-24' AND Ordini.Data >= '2016-01-17';
+
 
 /*QUERY 3
  Coppie di aziende che hanno acquistato lo stesso giorno, con il relativo giorno, in ordine alfabetico*/
@@ -125,5 +123,11 @@ ORDER BY
 /* QUERY 6
     Lista degli acquirenti che hanno acquistato il maggiore valore di bottiglie di vino dalla nostra cantina
 */
-SELECT 
-    FROM Ordini, Acquirenti 
+CREATE VIEW SpeseTotali AS SELECT Ordini.Acquirente, SUM(Ordini.PrezzoTotale) AS SpesaTotale
+        FROM Ordini
+        GROUP BY Ordini.Acquirente;
+
+SELECT SpeseTotali.Acquirente, SpeseTotali.SpesaTotale
+FROM
+    SpeseTotali
+    WHERE SpeseTotali.SpesaTotale IN (SELECT MAX(SpeseTotali.SpesaTotale) FROM SpeseTotali);
