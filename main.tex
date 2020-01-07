@@ -19,20 +19,30 @@
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage[scaled]{helvet}
 \begin{document}
-    \tableofcontents
+\title{%
+    Progetto per il corso di Basi di Dati \\
+    \large LT in Informatica, Universita degli studi di Padova}
+\author{Niccolo Mantovani, 1234567
+    \and
+    Filippo Pinton, 1234567}
+\date{}
 
-	\section{Abstract}
-    \input{src/abstract/_main}
-    
-    \section{Analisi dei requisiti}
-        \input{src/analisiRequisiti/_main}
+\maketitle
 
-    \section{Progettazione concettuale}
-        \input{src/progettazioneConcettuale/_main}
+\tableofcontents
 
-    \section{Progettazione logica}
-        \input{src/progettazioneLogica/_main}
+\section{Abstract}
+\input{src/abstract/_main}
 
-    \section{Query ed indici}
-        \input{src/queryIndici/_main}
+\section{Analisi dei requisiti}
+\input{src/analisiRequisiti/_main}
+
+\section{Progettazione concettuale}
+\input{src/progettazioneConcettuale/_main}
+
+\section{Progettazione logica}
+\input{src/progettazioneLogica/_main}
+
+\section{Query ed indici}
+\input{src/queryIndici/_main}
 \end{document}
