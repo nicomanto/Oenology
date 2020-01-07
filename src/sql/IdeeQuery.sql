@@ -119,3 +119,10 @@ WHERE
     AND DATE_FORMAT(T.InizioTurno, '%Y-%m-%d') = '2019-10-22'
 ORDER BY
     T.InizioTurno DESC;
+
+
+/* QUERY 6
+    Lista degli acquirenti che hanno acquistato il maggiore valore di bottiglie di vino dalla nostra cantina
+*/
+SELECT 
+    FROM Ordini, Acquirenti 
