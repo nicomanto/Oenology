@@ -309,4 +309,4 @@ CREATE TABLE FornituraBottiglie (
     FOREIGN KEY (Bottiglia) REFERENCES Bottiglie(Id)
 );
 
-CREATE INDEX idx_dipendenti ON Dipendenti(CodiceFiscale)
+/*CREATE INDEX idx_dipendenti ON Dipendenti(CodiceFiscale)*/
