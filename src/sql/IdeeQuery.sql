@@ -91,26 +91,7 @@ WHERE
     -- ORDER BY
     --     Acq1.Nome,
     --     Acq2.Nome
-    /*QUERY 4 (vecchia)
-     il vino/i che rappresenta il tema di un evento che è stato visto da meno partecipanti
-     
-     CREATE VIEW Num_partecipanti_evento as
-     SELECT Evento as Cod_evento, SUM(Id) as Num_partecipanti
-     FROM Partecipanti
-     GROUP BY Evento
-     
-     
-     
-     SELECT V.Nome
-     FROM Vino as V, TemiVino as T
-     WHERE T.Vino=V.Id and T.Id IN
-     
-     (SELECT Cod_evento, 
-     FROM Num_partecipanti_evento
-     WHERE Num_partecipanti IN
-     
-     SELECT MIN(Num_partecipanti)
-     FROM Num_partecipanti_evento))*/
+    
     /*QUERY 4
      Lista dei dipendenti (ordinati in ordine alfabetico) che sono supervisori di altri dipendenti (se sono troppi limita le nuple a 10)*/
 SELECT
