@@ -1,3 +1,5 @@
+DROP VIEW IF EXISTS OrdineQuantita,SpeseTotali;
+
 DROP TABLE IF EXISTS FornituraBottiglie, FornituraTappi, FornituraUva, TemiVino, Ospita,
                     Eventi, NegoziInterni, Spedizioni, Corrieri, Dettagli, Ordini,
                     Turni, Manutenzioni, Macchinari, Vigneti, BottiglieDiVino, Bottiglie,
