@@ -5,27 +5,24 @@
 				\toprule
 				\rowcolor[rgb]{.929, .929, .929} \textbf{BottiglieDiVino} (\underline{Id}, Vino, Annata, Prezzo, NumBottiglieVendute, NumBottiglieMagazzino, NumBottiglieProdotte, IdTappo, IdBottiglia, IdMagazzino) \\
 				\midrule
-				(BottiglieDiVino.Vino, BottiglieDiVino.Annata) $\to$ (Vini.Nome, Vini.Uva.Annata)*
-				\\
+				(BottiglieDiVino.Vino, BottiglieDiVino.Annata) $\to$ (Vini.Nome, Vini.Uva.Annata)*                                                                                                                    \\
 				\midrule
-				BottiglieDiVino.IdTappo $\to$ Tappi.Id                                                                                                                                                                                 \\
+				BottiglieDiVino.IdTappo $\to$ Tappi.Id                                                                                                                                                                \\
 				\midrule
-				BottiglieDiVino.IdBottiglia $\to$ Bottiglie.Id                                                                                                                                                                         \\
+				BottiglieDiVino.IdBottiglia $\to$ Bottiglie.Id                                                                                                                                                        \\
 				\midrule
-				BottiglieDiVino.IdMagazzino $\to$ LineeProduttive.Id                                                                                                                                                                   \\                                  
+				BottiglieDiVino.IdMagazzino $\to$ LineeProduttive.Id                                                                                                                                                  \\
 				\midrule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{Vini} (\underline{Nome}, GradazioneAlcolica, TempoFermentazione, StatoProduzione, Uva, Classificazione)
-				\\
+				\rowcolor[rgb]{.929, .929, .929} \textbf{Vini} (\underline{Nome}, GradazioneAlcolica, TempoFermentazione, StatoProduzione, Uva, Classificazione)                                                      \\
 				\midrule
-				Vini.Uva $\to$ Uva.Id                                                                                                                                                                                                  \\
+				Vini.Uva $\to$ Uva.Id                                                                                                                                                                                 \\
 				\midrule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{Uva} (\underline{Id}, TipoUva, Fornitore, Annata)                                                                                                                             \\
+				\rowcolor[rgb]{.929, .929, .929} \textbf{Uva} (\underline{Id}, TipoUva, Fornitore, Annata)                                                                                                            \\
 				\midrule
-				Uva.Fornitore $\to$ Fornitori.Id                                                                                                                                                                                       \\
+				Uva.Fornitore $\to$ Fornitori.Id                                                                                                                                                                      \\
 				\midrule
-				Uva.TipoUva $\to$ TipiUva.Nome                                                                                                                                                                                         \\
+				Uva.TipoUva $\to$ TipiUva.Nome                                                                                                                                                                        \\
 				\midrule
-				
 			\end{tabular}
 		}
 	\end{minipage}
@@ -38,30 +35,28 @@
 				\midrule
 				Vigneti.Indirizzo $\to$ Indirizzi.Id                                                                        \\
 				\midrule
-				Vigneti.TipoUva $\to$ TipiUva.Nome                                                                          \\                                
+				Vigneti.TipoUva $\to$ TipiUva.Nome                                                                          \\
 				\midrule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{Tappi} (\underline{Id}, Forma, Materiale, Quantita, Fornitore)
-				\\
+				\rowcolor[rgb]{.929, .929, .929} \textbf{Tappi} (\underline{Id}, Forma, Materiale, Quantita, Fornitore)     \\
 				\midrule
-				Tappi.Fornitore $\to$ Fornitori.Id                                                                          \\                                
+				Tappi.Fornitore $\to$ Fornitori.Id                                                                          \\
 				\midrule
 				\rowcolor[rgb]{.929, .929, .929} \textbf{Bottiglie} (\underline{Id}, Capacita, Colore, Quantita, Fornitore) \\
 				\midrule
-				Bottiglie.Fornitore $\to$ Fornitori.Id                                                                      \\                                
+				Bottiglie.Fornitore $\to$ Fornitori.Id                                                                      \\
 				\midrule
 				\rowcolor[rgb]{.929, .929, .929} \textbf{FornituraUva} (\underline{Uva, DataAcquisto}, Prezzo, Quantita)    \\
 				\midrule
-				FornituraUva.Uva $\to$ Uva.Id                                                                               \\                                
+				FornituraUva.Uva $\to$ Uva.Id                                                                               \\
 				\midrule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{TipiUva} (\underline{Nome}, Colore)
-				\\                                
+				\rowcolor[rgb]{.929, .929, .929} \textbf{TipiUva} (\underline{Nome}, Colore)                                \\
 				\midrule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{Corrieri} (\underline{Id}, Nome)                                                                              \\                                
+				\rowcolor[rgb]{.929, .929, .929} \textbf{Corrieri} (\underline{Id}, Nome)                                   \\
 				\midrule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{Eventi} (\underline{Id}, Titolo, Edizione)                                                                   \\
+				\rowcolor[rgb]{.929, .929, .929} \textbf{Eventi} (\underline{Id}, Titolo, Edizione)                         \\
 				\midrule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{Acquirenti} (\underline{Id}) \\        
-				\midrule                        
+				\rowcolor[rgb]{.929, .929, .929} \textbf{Acquirenti} (\underline{Id})                                       \\
+				\midrule
 			\end{tabular}
 		}
 	\end{minipage}
@@ -73,57 +68,51 @@
 		\rightline{
 			\begin{tabular}{P{7.5cm}}
 				\toprule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{FornituraTappi} (\underline{Tappo, DataAcquisto}, Prezzo, Quantita)
-				\\
+				\rowcolor[rgb]{.929, .929, .929} \textbf{FornituraTappi} (\underline{Tappo, DataAcquisto}, Prezzo, Quantita)         \\
 				\midrule
-				FornituraTappi.Tappo $\to$ Tappi.Id                                                                                   \\                               
+				FornituraTappi.Tappo $\to$ Tappi.Id                                                                                  \\
 				\midrule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{FornituraBottiglie} (\underline{Bottiglia, DataAcquisto}, Prezzo, Quantita)
-				\\
+				\rowcolor[rgb]{.929, .929, .929} \textbf{FornituraBottiglie} (\underline{Bottiglia, DataAcquisto}, Prezzo, Quantita) \\
 				\midrule
-				FornituraBottiglie.Bottiglia $\to$ Bottiglie.Id                                                                                                        \\                                
+				FornituraBottiglie.Bottiglia $\to$ Bottiglie.Id                                                                      \\
 				\midrule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{Dipendenti} (\underline{CodiceFiscale}, Nome, Cognome, Referente)
-				\\
+				\rowcolor[rgb]{.929, .929, .929} \textbf{Dipendenti} (\underline{CodiceFiscale}, Nome, Cognome, Referente)           \\
 				\midrule
-				Dipendenti.Referente $\to$ Dipendenti.CodiceFiscale                                                                   \\                                
+				Dipendenti.Referente $\to$ Dipendenti.CodiceFiscale                                                                  \\
 				\midrule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{Turni} (\underline{Dipendente, InizioTurno}, FineTurno, LineaProduttiva)
-				\\
+				\rowcolor[rgb]{.929, .929, .929} \textbf{Turni} (\underline{Dipendente, InizioTurno}, FineTurno, LineaProduttiva)    \\
 				\midrule
-				Turni.Dipendente $\to$ Dipendenti.CodiceFiscale                                                                                                        \\
+				Turni.Dipendente $\to$ Dipendenti.CodiceFiscale                                                                      \\
 				\midrule
-				Turni.LineaProduttiva $\to$ LineeProduttive.Id                                                                                                         \\                                
+				Turni.LineaProduttiva $\to$ LineeProduttive.Id                                                                       \\
 				\midrule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{Fornitori} (\underline{Id}, Tipologia)
-				\\
+				\rowcolor[rgb]{.929, .929, .929} \textbf{Fornitori} (\underline{Id}, Tipologia)                                      \\
 				\midrule
-				Fornitori.Id $\to$ Aziende.PartitaIVA \\                                
+				Fornitori.Id $\to$ Aziende.PartitaIVA                                                                                \\
 				\midrule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{NegoziInterni} (\underline{Id})
-				\\
+				\rowcolor[rgb]{.929, .929, .929} \textbf{NegoziInterni} (\underline{Id})                                             \\
 				\midrule
-				NegoziInterni.Id $\to$ Aziende.PartitaIVA \\                                
+				NegoziInterni.Id $\to$ Aziende.PartitaIVA                                                                            \\
 				\midrule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{Ospita} (\underline{Evento, Negozio}, Data)                                  \\
+				\rowcolor[rgb]{.929, .929, .929} \textbf{Ospita} (\underline{Evento, Negozio}, Data)                                 \\
 				\midrule
-				Ospita.Evento $\to$ Eventi.Id                                                                                         \\
+				Ospita.Evento $\to$ Eventi.Id                                                                                        \\
 				\midrule
-				Ospita.Negozio $\to$ NegoziInterni.Id                                                                                 \\                                
+				Ospita.Negozio $\to$ NegoziInterni.Id                                                                                \\
 				\midrule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{TemiVino} (\underline{Vino, Evento})                                         \\
+				\rowcolor[rgb]{.929, .929, .929} \textbf{TemiVino} (\underline{Vino, Evento})                                        \\
 				\midrule
-				TemiVino.Vino $\to$ Vini.Nome                                                                                         \\
+				TemiVino.Vino $\to$ Vini.Nome                                                                                        \\
 				\midrule
-				TemiVino.Evento $\to$ Eventi.Id                                                                                       \\                                
+				TemiVino.Evento $\to$ Eventi.Id                                                                                      \\
 				\midrule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{Informazioni} (\underline{Id}, Nome, Telefono, Email, Indirizzo)                                              \\
+				\rowcolor[rgb]{.929, .929, .929} \textbf{Informazioni} (\underline{Id}, Nome, Telefono, Email, Indirizzo)            \\
 				\midrule
-				Informazioni.Indirizzo $\to$ Indirizzi.Id                                                                                                              \\        
+				Informazioni.Indirizzo $\to$ Indirizzi.Id                                                                            \\
 				\midrule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{Ordini} (\underline{Id}, PrezzoTotale *, Data, Acquirente)                                                    \\
+				\rowcolor[rgb]{.929, .929, .929} \textbf{Ordini} (\underline{Id}, PrezzoTotale *, Data, Acquirente)                  \\
 				\midrule
-				Ordini.Acquirente $\to$ Acquirenti.Id                                                                                                                  \\                                
+				Ordini.Acquirente $\to$ Acquirenti.Id                                                                                \\
 				\midrule
 			\end{tabular}
 		}
@@ -133,59 +122,53 @@
 		\rightline{
 			\begin{tabular}{P{7.5cm}}
 				\toprule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{Manutenzioni} (\underline{Id}, Macchinario, Azienda, Costo, Data)
-				\\
+				\rowcolor[rgb]{.929, .929, .929} \textbf{Manutenzioni} (\underline{Id}, Macchinario, Azienda, Costo, Data)                                         \\
 				\midrule
-				Manutenzioni.Macchinario $\to$ Macchinari.Id                                                                          \\
+				Manutenzioni.Macchinario $\to$ Macchinari.Id                                                                                                       \\
 				\midrule
-				Manutenzioni.Azienda $\to$ Aziende.PartitaIVA                                                                                 \\                                
+				Manutenzioni.Azienda $\to$ Aziende.PartitaIVA                                                                                                      \\
 				\midrule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{Macchinari} (\underline{Id}, Nome, DataProssimaManutenzione, DataAcquisto, LineaProduttiva)
-				\\
+				\rowcolor[rgb]{.929, .929, .929} \textbf{Macchinari} (\underline{Id}, Nome, DataProssimaManutenzione, DataAcquisto, LineaProduttiva)               \\
 				\midrule
-				Macchinari.LineaProduttiva $\to$ LineeProduttive.Id                                                                                                    \\                                
+				Macchinari.LineaProduttiva $\to$ LineeProduttive.Id                                                                                                \\
 				\midrule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{Dettagli} (\underline{Ordine, BottigliaDiVino}, QuantitaBottiglie)                      \\
+				\rowcolor[rgb]{.929, .929, .929} \textbf{Dettagli} (\underline{Ordine, BottigliaDiVino}, QuantitaBottiglie)                                        \\
 				\midrule
-				Dettagli.Ordine $\to$ Ordini.Id                                                                                       \\
+				Dettagli.Ordine $\to$ Ordini.Id                                                                                                                    \\
 				\midrule
-				Dettagli.BottigliaDiVino $\to$ BottiglieDiVino.Id                                                                                \\                                
+				Dettagli.BottigliaDiVino $\to$ BottiglieDiVino.Id                                                                                                  \\
 				\midrule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{LineeProduttive} (\underline{Id}, Nome, Direttore)
-				\\
+				\rowcolor[rgb]{.929, .929, .929} \textbf{LineeProduttive} (\underline{Id}, Nome, Direttore)                                                        \\
 				\midrule
-				LineeProduttive.Direttore $\to$ Dipendenti.CodiceFiscale                                                              \\                                
+				LineeProduttive.Direttore $\to$ Dipendenti.CodiceFiscale                                                                                           \\
 				\midrule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{Spedizioni} (\underline{Ordine, Corriere}, DataSpedizione, DataConsegna, Prezzo)
-				\\
+				\rowcolor[rgb]{.929, .929, .929} \textbf{Spedizioni} (\underline{Ordine, Corriere}, DataSpedizione, DataConsegna, Prezzo)                          \\
 				\midrule
-				Spedizioni.Ordine $\to$ Ordini.Id                                                                                                                      \\
+				Spedizioni.Ordine $\to$ Ordini.Id                                                                                                                  \\
 				\midrule
-				Spedizioni.Corriere $\to$ Corrieri.Id                                                                                                                  \\                                
+				Spedizioni.Corriere $\to$ Corrieri.Id                                                                                                              \\
 				\midrule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{Privati} (\underline{Id}, Cognome, InformazioniAggiuntive)
-				\\
+				\rowcolor[rgb]{.929, .929, .929} \textbf{Privati} (\underline{Id}, Cognome, InformazioniAggiuntive)                                                \\
 				\midrule
-				Privati.Id $\to$ Acquirenti.Id                                                                                                                         \\
+				Privati.Id $\to$ Acquirenti.Id                                                                                                                     \\
 				\midrule
-				Privati.InformazioniAggiuntive $\to$ Informazioni.Id                                                                                                   \\                                                        
+				Privati.InformazioniAggiuntive $\to$ Informazioni.Id                                                                                               \\
 				\midrule
 				\rowcolor[rgb]{.929, .929, .929} \textbf{Aziende} (\underline{PartitaIVA}, NumAcquirente, NomeReferente, CognomeReferente, InformazioniAggiuntive) \\
 				\midrule
-				Aziende.NumAcquirente $\to$ Acquirenti.Id                                                                                                              \\
+				Aziende.NumAcquirente $\to$ Acquirenti.Id                                                                                                          \\
 				\midrule
-				Aziende.InformazioniAggiuntive $\to$ Informazioni.Id                                                                                                   \\                                
+				Aziende.InformazioniAggiuntive $\to$ Informazioni.Id                                                                                               \\
 				\midrule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{Indirizzi} (\underline{Id}, Via, NumeroCivico, Stato, Provincia, Citta, CAP)
-				\\
+				\rowcolor[rgb]{.929, .929, .929} \textbf{Indirizzi} (\underline{Id}, Via, NumeroCivico, Stato, Provincia, Citta, CAP)                              \\
 				\midrule
 			\end{tabular}
 		}
 	\end{minipage}
-	
-	
+
+
 	\begin{verse}
-	*\emph{Per ovviare al problema del vincolo referenziale tra 	\textbf{BottiglieDiVino.Annata e Vini.Uva.Annata}, oltre che di \textbf{Ordini.PrezzoTotale} come somma di $BottiglieDiVino.Prezzo \times Dettagli.QuantitaBottiglie)+ Spedizioni.Prezzo$} sarebbe necessario aggiungere dei \textbf{TRIGGER}. Questi non sono stati implementati poiche' l'argomento non e' stato trattato durante il corso.
-\end{verse}
+		*\emph{Per ovviare al problema del vincolo referenziale tra 	\textbf{BottiglieDiVino.Annata e Vini.Uva.Annata}, oltre che di \textbf{Ordini.PrezzoTotale} come somma di $BottiglieDiVino.Prezzo \times Dettagli.QuantitaBottiglie)+ Spedizioni.Prezzo$} sarebbe necessario aggiungere dei \textbf{TRIGGER}. Questi non sono stati implementati poiche' l'argomento non e' stato trattato durante il corso.
+	\end{verse}
 
 \end{center}
