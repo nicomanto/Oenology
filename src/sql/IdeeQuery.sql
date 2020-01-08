@@ -70,8 +70,7 @@ FROM
 WHERE
     Vini.Uva = Uva.Id
     AND Uva.Fornitore = Aziende.PartitaIVA
-    AND Aziende.InformazioniAggiuntive = Informazioni.Id 
-    -- SELECT
+    AND Aziende.InformazioniAggiuntive = Informazioni.Id -- SELECT
     --     Acq1.Nome,
     --     Acq2.Nome,
     --     Acq1.Data
@@ -91,7 +90,6 @@ WHERE
     -- ORDER BY
     --     Acq1.Nome,
     --     Acq2.Nome
-    
     /*QUERY 4
      Lista dei dipendenti (ordinati in ordine alfabetico) che sono supervisori di altri dipendenti (se sono troppi limita le nuple a 10)*/
 SELECT

@@ -51,10 +51,6 @@
 				\midrule
 				FornituraTappo.Tappo $\to$ Tappi.Id                                                                                   \\                               
 				\midrule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{LineeProduttive} (\underline{Id}, Nome, Direttore)                           \\
-				\midrule
-				LineeProduttive.Direttore $\to$ Dipendenti.CodiceFiscale                                                              \\                                
-				\midrule
 			\end{tabular}
 		}
 	\end{minipage}
@@ -117,10 +113,6 @@
 				\midrule
 				Dettagli.Vino $\to$ BottiglieDiVino.Id                                                                                \\                                
 				\midrule
-				\rowcolor[rgb]{.929, .929, .929} \textbf{Ordini} (\underline{Id}, PrezzoTotale *, Data, Acquirente)                                                    \\
-				\midrule
-				Ordini.Acquirente $\to$ Acquirenti.Id                                                                                                                  \\                                
-				\midrule
 			\end{tabular}
 		}
 	\end{minipage}
@@ -131,7 +123,10 @@
 	\begin{minipage}[t]{7.5cm}
 		\rightline{
 			\begin{tabular}{P{7.5cm}}
-				\toprule
+				\toprule\rowcolor[rgb]{.929, .929, .929} \textbf{LineeProduttive} (\underline{Id}, Nome, Direttore)                           \\
+				\midrule
+				LineeProduttive.Direttore $\to$ Dipendenti.CodiceFiscale                                                              \\                                
+				\midrule
 				\rowcolor[rgb]{.929, .929, .929} \textbf{Spedizioni} (\underline{Ordine, Corriere}, DataSpedizione, DataConsegna, Prezzo)                              \\
 				\midrule
 				Spedizioni.Ordine $\to$ Ordini.Id                                                                                                                      \\
@@ -151,7 +146,10 @@
 	\begin{minipage}[t]{7.5cm}
 		\rightline{
 			\begin{tabular}{P{7.5cm}}
-				\toprule
+				\toprule\rowcolor[rgb]{.929, .929, .929} \textbf{Ordini} (\underline{Id}, PrezzoTotale *, Data, Acquirente)                                                    \\
+				\midrule
+				Ordini.Acquirente $\to$ Acquirenti.Id                                                                                                                  \\                                
+				\midrule
 				\rowcolor[rgb]{.929, .929, .929} \textbf{Aziende} (\underline{PartitaIVA}, NumAcquirente, NomeReferente, CognomeReferente, InformazioniAggiuntive) \\
 				\midrule
 				Aziende.NumAcquirente $\to$ Acquirenti.Id                                                                                                              \\
@@ -168,7 +166,7 @@
 	
 	
 	\begin{verse}
-	*\emph{Per ovviare al problema del vincolo referenziale fra 	\textbf{BottiglieDiVino.Annata e Vini.Uva.Annata}, nonche' \textbf{Ordini.PrezzoTotale} come somma di $BottiglieDiVino.Prezzo \times Dettagli.QuantitaBottiglie)+ Spedizioni.Prezzo$} si potrebbe aggiungere un \textbf{TRIGGER}, cosa comunque non richiesta ai fini del progetto.
+	*\emph{Per ovviare al problema del vincolo referenziale tra 	\textbf{BottiglieDiVino.Annata e Vini.Uva.Annata}, oltre che di \textbf{Ordini.PrezzoTotale} come somma di $BottiglieDiVino.Prezzo \times Dettagli.QuantitaBottiglie)+ Spedizioni.Prezzo$} sarebbe necessario aggiungere dei \textbf{TRIGGER}. Questi non sono stati implementati poiche' l'argomento non e' stato trattato durante il corso.
 \end{verse}
 
 \end{center}
