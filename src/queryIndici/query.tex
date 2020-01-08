@@ -11,7 +11,7 @@
 		      Ordini.Data <= CURRENT\_TIMESTAMP
 		      AND Ordini.Data >= DATE\_ADD(CURRENT\_TIMESTAMP, INTERVAL -7 DAY);
 			   &
-			   \raisebox{-\totalheight}{\includegraphics[width=0.47\textwidth]{src/queryIndici/assets/Query1.png}}
+			   \raisebox{-\totalheight}{\includegraphics[width=0.47\textwidth, keepaspectratio]{src/queryIndici/assets/Query1.png}}
 		      \\
 		      \hline
 	      \end{tabularx}
@@ -23,25 +23,16 @@
 		      SELECT
 		      Vini.Nome,
 		      SUM(Dettagli.QuantitaBottiglie) AS BottiglieVendute
-		      FROM
-		      (
-		      SELECT
-		      Dettagli.*
-		      FROM
-		      Dettagli,
-		      Ordini
-		      WHERE
-		      DATE\_FORMAT(Ordini.Data, '\%Y') = '2019'
-		      AND Ordini.Id = Dettagli.Ordine
-		      ) AS Dettagli,
+		      FROM Dettagli,
 		      BottiglieDiVino,
-		      Vini
+		      Vini, Ordini
 		      WHERE
 		      Dettagli.BottigliaDiVino = BottiglieDiVino.Id
-		      AND Vini.Nome = BottiglieDiVino.Vino
+		      AND Vini.Nome = BottiglieDiVino.Vino AND DATE\_FORMAT(Ordini.Data, '\%Y') = '2019'
+		      AND Ordini.Id = Dettagli.Ordine
 		      GROUP BY
 		      Dettagli.BottigliaDiVino;
-
+		      \newline\newline
 		      SELECT
 		      OrdineQuantita.Nome,
 		      OrdineQuantita.BottiglieVendute
@@ -55,7 +46,7 @@
 		      OrdineQuantita
 		      );
 			   &
-			   \raisebox{-\totalheight}{\includegraphics[width=0.47\textwidth]{src/queryIndici/assets/Query2.png}}
+			   \raisebox{-\totalheight}{\includegraphics[width=0.47\textwidth , keepaspectratio]{src/queryIndici/assets/Query2.png}}
 		      \\
 		      \hline
 	      \end{tabularx}
@@ -63,17 +54,15 @@
 	      \begin{tabularx}{\textwidth}{|X|X|}
 		      \hline
 			  \vspace{.01mm}
-		      SELECT
-		      Informazioni.Nome,
-		      TipiUva.Nome,
-		      Vini.Nome
+		      SELECT DISTINCT
+		      Vini.Nome AS Vino,
+		      Uva.TipoUva as TipoUva,
+		      Informazioni.Nome as Fornitore
 		      FROM
 		      Vini,
 		      Uva,
 		      Informazioni,
-		      Aziende,
-		      TipiUva,
-		      FornituraUva
+		      Aziende
 		      WHERE
 		      Vini.Uva = Uva.Id
 		      AND Uva.Fornitore = Aziende.PartitaIVA
@@ -103,7 +92,7 @@
 		      \\
 		      \hline
 	      \end{tabularx}
-	\item \textbf{Lista dei dipendenti (nome, cognome) che hanno lavorato il giorno 12 giugno 2019, con inizio e fine turno, ordinati in modo decrescente in base all'inizio del turno.}\\
+	\item \textbf{Lista dei dipendenti (nome, cognome) che hanno lavorato il giorno 22 ottobre 2019, con inizio e fine turno, ordinati in modo decrescente in base all'inizio del turno.}\\
 	      \begin{tabularx}{\textwidth}{|X|X|}
 		      \hline
 			  \vspace{.01mm}
@@ -117,7 +106,7 @@
 		      Turni as T
 		      WHERE
 		      T.Dipendente = D.CodiceFiscale
-		      AND DATE\_FORMAT(T.InizioTurno, '%Y-%m-%d') = '2019-10-22'
+		      AND DATE\_FORMAT(T.InizioTurno, '\%Y-\%m-\%d') = '2019-10-22'
 		      ORDER BY
 		      T.InizioTurno DESC;
 			   &
@@ -137,7 +126,7 @@
 		      Ordini
 		      GROUP BY
 		      Ordini.Acquirente;
-
+		      \newline\newline
 		      SELECT
 		      SpeseTotali.Acquirente,
 		      SpeseTotali.SpesaTotale
