@@ -75,12 +75,6 @@ Nello schema \emph{senza ridondanza}, invece, per ogni ordine occorrerà acceder
 	\item \emph{Dettagli} per conoscere la quantità di bottiglie acquistate di un determinato tipo.
 \end{itemize}
 Si avranno $(350\times3)\times350$, dove $(350\times3)$ sono gli accessi totali alle tre tabelle citate prima e 350 sono le letture della tabella \emph{Ordini}. In totale si avranno $367500$ letture.\\
-<<<<<<< HEAD
-=======
-\begin{verse}
-	Alla luce dei risultati emersi della precedente analisi si è deciso di mantenere l'attributo \textbf{Prezzo totale} in \emph{Ordini}. Inoltre si è deciso di mantenere l'attributo \textbf{Annata} in \emph{BottigliaDiVino} perchè il ragionamento ed il carico è analogo alla suddetta situazione.
-\end{verse} 
->>>>>>> 3c80bc4750c85057c30313b686631f981adf0aa6
 \end{flushleft}
 \emph{
 	Alla luce dei risultati emersi della precedente analisi si e' deciso di mantenere l'attributo \textbf{Prezzo totale} in \emph{Ordini}. Inoltre si e' deciso di mantenere l'attributo \textbf{Annata} in \emph{BottigliaDiVino} perche' il ragionamento ed il carico e' analogo alla suddetta situazione. Il caso di studio appena presentato rappresenta inoltre il caso migliore in presenza di 350 ordini, ovvero il caso in cui ogni ordine contiene solamente un tipo di bottiglia di vino. Normalmente il volume del concetto \emph{Dettaglio} sarebbe di gran lunga superiore, rendendo, di fatto, la scelta presa ancor piu' giustificata.
