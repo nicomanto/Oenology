@@ -10,7 +10,8 @@
 		      WHERE
 		      Ordini.Data <= CURRENT\_TIMESTAMP
 		      AND Ordini.Data >= DATE\_ADD(CURRENT\_TIMESTAMP, INTERVAL -7 DAY);
-		       &
+			   &
+			   \raisebox{-\totalheight}{\includegraphics[width=0.47\textwidth]{src/queryIndici/assets/Query1.png}}
 		      \\
 		      \hline
 	      \end{tabularx}
@@ -52,8 +53,9 @@
 		      MAX(OrdineQuantita.BottiglieVendute)
 		      FROM
 		      OrdineQuantita
-		      )
-		       &
+		      );
+			   &
+			   \raisebox{-\totalheight}{\includegraphics[width=0.47\textwidth]{src/queryIndici/assets/Query2.png}}
 		      \\
 		      \hline
 	      \end{tabularx}
@@ -75,8 +77,8 @@
 		      WHERE
 		      Vini.Uva = Uva.Id
 		      AND Uva.Fornitore = Aziende.PartitaIVA
-		      AND Aziende.InformazioniAggiuntive = Informazioni.Id
-		       &
+		      AND Aziende.InformazioniAggiuntive = Informazioni.Id;
+			   &
 		      \\
 		      \hline
 	      \end{tabularx}
@@ -95,7 +97,9 @@
 		      ORDER BY
 		      D1.Nome,
 		      D1.Cognome;
-		       &
+			   &
+			   \hspace{1.8cm}
+			   \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth]{src/queryIndici/assets/Query4Limited.png}}
 		      \\
 		      \hline
 	      \end{tabularx}
@@ -116,7 +120,8 @@
 		      AND DATE\_FORMAT(T.InizioTurno, '%Y-%m-%d') = '2019-10-22'
 		      ORDER BY
 		      T.InizioTurno DESC;
-		       &
+			   &
+			   \raisebox{-\totalheight}{\includegraphics[width=0.47\textwidth]{src/queryIndici/assets/Query5.png}}
 		      \\
 		      \hline
 	      \end{tabularx}
@@ -145,7 +150,8 @@
 		      FROM
 		      SpeseTotali
 		      );
-		       &
+			   &
+			   \raisebox{-\totalheight}{\includegraphics[width=0.47\textwidth]{src/queryIndici/assets/Query6.png}}
 		      \\
 		      \hline
 	      \end{tabularx}

@@ -39,11 +39,11 @@ WHERE
             MAX(OrdineQuantita.BottiglieVendute)
         FROM
             OrdineQuantita
-    )
+    );
     /*QUERY 2
      Numero di tipi di vino prodotti divisi per colore*/
 SELECT
-    SUM(Ordini.PrezzoTotale)
+    SUM(Ordini.PrezzoTotale) AS FatturatoSettimanale
 FROM
     Ordini
 WHERE
@@ -57,9 +57,9 @@ WHERE
 /*QUERY 3
  Coppie di aziende che hanno acquistato lo stesso giorno, con il relativo giorno, in ordine alfabetico*/
 SELECT
-    Informazioni.Nome,
-    TipiUva.Nome,
-    Vini.Nome
+    Informazioni.Nome AS Azienda,
+    TipiUva.Nome AS TipoUva,
+    Vini.Nome AS Vino
 FROM
     Vini,
     Uva,
@@ -70,7 +70,10 @@ FROM
 WHERE
     Vini.Uva = Uva.Id
     AND Uva.Fornitore = Aziende.PartitaIVA
-    AND Aziende.InformazioniAggiuntive = Informazioni.Id -- SELECT
+    AND Aziende.InformazioniAggiuntive = Informazioni.Id
+GROUP BY Azienda;
+
+    -- SELECT
     --     Acq1.Nome,
     --     Acq2.Nome,
     --     Acq1.Data
