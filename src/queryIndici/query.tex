@@ -78,16 +78,16 @@
 		      \hline
 			  \vspace{.01mm}
 		      SELECT
-		      DISTINCT D1.Nome,
-		      D1.Cognome
+		      DISTINCT D1.Cognome,
+		      D1.Nome
 		      FROM
 		      Dipendenti as D1,
 		      Dipendenti as D2
 		      WHERE
 		      D2.Referente = D1.CodiceFiscale
 		      ORDER BY
-		      D1.Nome,
-		      D1.Cognome;
+		      D1.Cognome,
+		      D1.Nome;
 			   &
 			   \hspace{1.8cm}
 			   \raisebox{-\totalheight}{\includegraphics[width=0.3\textwidth]{src/queryIndici/assets/Query4Limited.png}}

@@ -3045,16 +3045,16 @@ WHERE
 QUERY 4
      Lista dei dipendenti (ordinati in ordine alfabetico) che sono supervisori di altri dipendenti
 SELECT
-    DISTINCT D1.Nome,
-    D1.Cognome
-FROM
-    Dipendenti as D1,
-    Dipendenti as D2
-WHERE
-    D2.Referente = D1.CodiceFiscale
-ORDER BY
-    D1.Nome,
-    D1.Cognome;
+		      DISTINCT D1.Cognome,
+		      D1.Nome
+		      FROM
+		      Dipendenti as D1,
+		      Dipendenti as D2
+		      WHERE
+		      D2.Referente = D1.CodiceFiscale
+		      ORDER BY
+		      D1.Cognome,
+		      D1.Nome;
 
 
 
