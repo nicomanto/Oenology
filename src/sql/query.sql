@@ -629,21 +629,21 @@ INSERT INTO BottiglieDiVino ( Vino, Annata, Prezzo, NumBottiglieVendute, NumBott
 INSERT INTO BottiglieDiVino ( Vino, Annata, Prezzo, NumBottiglieVendute, NumBottiglieMagazzino, NumBottiglieProdotte, IdTappo, IdBottiglia, IdMagazzino ) VALUES ( 'Tarantino', 2015, 13, 781, 873, 1654, 3, 4, 2 );
 INSERT INTO BottiglieDiVino ( Vino, Annata, Prezzo, NumBottiglieVendute, NumBottiglieMagazzino, NumBottiglieProdotte, IdTappo, IdBottiglia, IdMagazzino ) VALUES ( 'Tiferno', 2015, 18, 767, 505, 1272, 4, 2, 5 );
 INSERT INTO BottiglieDiVino ( Vino, Annata, Prezzo, NumBottiglieVendute, NumBottiglieMagazzino, NumBottiglieProdotte, IdTappo, IdBottiglia, IdMagazzino ) VALUES ( 'Verici', 2015, 18, 333, 27, 360, 1, 4, 1 );
-INSERT INTO Vigneti ( Indirizzo ) VALUES ( 101 );
-INSERT INTO Vigneti ( Indirizzo ) VALUES ( 102 );
-INSERT INTO Vigneti ( Indirizzo ) VALUES ( 103 );
-INSERT INTO Vigneti ( Indirizzo ) VALUES ( 104 );
-INSERT INTO Vigneti ( Indirizzo ) VALUES ( 105 );
-INSERT INTO Vigneti ( Indirizzo ) VALUES ( 106 );
-INSERT INTO Vigneti ( Indirizzo ) VALUES ( 107 );
-INSERT INTO Vigneti ( Indirizzo ) VALUES ( 108 );
-INSERT INTO Vigneti ( Indirizzo ) VALUES ( 109 );
-INSERT INTO Vigneti ( Indirizzo ) VALUES ( 110 );
-INSERT INTO Vigneti ( Indirizzo ) VALUES ( 111 );
-INSERT INTO Vigneti ( Indirizzo ) VALUES ( 112 );
-INSERT INTO Vigneti ( Indirizzo ) VALUES ( 113 );
-INSERT INTO Vigneti ( Indirizzo ) VALUES ( 114 );
-INSERT INTO Vigneti ( Indirizzo ) VALUES ( 115 );
+INSERT INTO Vigneti ( Indirizzo, TipoUva ) VALUES ( 101, 'Cardinale' );
+INSERT INTO Vigneti ( Indirizzo, TipoUva ) VALUES ( 102, 'Charlie');
+INSERT INTO Vigneti ( Indirizzo, TipoUva ) VALUES ( 103, 'Demeter');
+INSERT INTO Vigneti ( Indirizzo, TipoUva ) VALUES ( 104, 'Favore');
+INSERT INTO Vigneti ( Indirizzo, TipoUva ) VALUES ( 105, 'Lydia');
+INSERT INTO Vigneti ( Indirizzo, TipoUva ) VALUES ( 106, 'Nina');
+INSERT INTO Vigneti ( Indirizzo, TipoUva ) VALUES ( 107, 'Perle di Saba');
+INSERT INTO Vigneti ( Indirizzo, TipoUva ) VALUES ( 108, 'Perle di Saba');
+INSERT INTO Vigneti ( Indirizzo, TipoUva ) VALUES ( 109, 'Perle di Saba');
+INSERT INTO Vigneti ( Indirizzo, TipoUva ) VALUES ( 110, 'Sofia');
+INSERT INTO Vigneti ( Indirizzo, TipoUva ) VALUES ( 111, 'Sofia');
+INSERT INTO Vigneti ( Indirizzo, TipoUva ) VALUES ( 112, 'Tason');
+INSERT INTO Vigneti ( Indirizzo, TipoUva ) VALUES ( 113, 'Tason');
+INSERT INTO Vigneti ( Indirizzo, TipoUva ) VALUES ( 114, 'Ukrainka');
+INSERT INTO Vigneti ( Indirizzo, TipoUva ) VALUES ( 115, 'Ukrainka');
 INSERT INTO Macchinari ( Nome, DataProssimaManutenzione, DataAcquisto, LineaProduttiva ) VALUES ( 'Macchinario0', '2020-10-10', '2002-10-11', 3 );
 INSERT INTO Macchinari ( Nome, DataProssimaManutenzione, DataAcquisto, LineaProduttiva ) VALUES ( 'Macchinario1', '2020-11-24', '2003-01-26', 1 );
 INSERT INTO Macchinari ( Nome, DataProssimaManutenzione, DataAcquisto, LineaProduttiva ) VALUES ( 'Macchinario2', '2021-10-13', '2010-11-27', 1 );
@@ -1956,5 +1956,3 @@ INSERT INTO FornituraBottiglie ( Bottiglia, DataAcquisto, Prezzo, Quantita ) VAL
 INSERT INTO FornituraBottiglie ( Bottiglia, DataAcquisto, Prezzo, Quantita ) VALUES ( 3, '2015-01-22', 10000, 3000 );
 INSERT INTO FornituraBottiglie ( Bottiglia, DataAcquisto, Prezzo, Quantita ) VALUES ( 4, '2015-01-22', 10000, 3000 );
 INSERT INTO FornituraBottiglie ( Bottiglia, DataAcquisto, Prezzo, Quantita ) VALUES ( 5, '2015-01-22', 10000, 3000 );
-
-

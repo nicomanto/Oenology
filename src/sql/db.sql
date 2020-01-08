@@ -1,5 +1,5 @@
+DROP INDEX IF EXISTS idx_dipendenti ON Dipendenti;
 DROP VIEW IF EXISTS OrdineQuantita,SpeseTotali;
-
 DROP TABLE IF EXISTS FornituraBottiglie, FornituraTappi, FornituraUva, TemiVino, Ospita,
                     Eventi, NegoziInterni, Spedizioni, Corrieri, Dettagli, Ordini,
                     Turni, Manutenzioni, Macchinari, Vigneti, BottiglieDiVino, Bottiglie,
@@ -156,16 +156,16 @@ CREATE TABLE BottiglieDiVino (
     FOREIGN KEY (IdBottiglia) REFERENCES Bottiglie(Id),
     FOREIGN KEY (IdMagazzino) REFERENCES LineeProduttive(Id),
     UNIQUE (Vino, Annata)
-
-    /*CHECK se Annata= Vino->Uva.Annata (non so se si può fare con un check, penso ci sia bisogno di un trigger)*/
 );
 
 CREATE TABLE Vigneti (
     Id INTEGER NOT NULL AUTO_INCREMENT,
     Indirizzo INTEGER NOT NULL,
+    TipoUva VARCHAR(190) NOT NULL,
 
     PRIMARY KEY (Id),
-    FOREIGN KEY (Indirizzo) REFERENCES Indirizzi(Id)
+    FOREIGN KEY (Indirizzo) REFERENCES Indirizzi(Id),
+    FOREIGN KEY (TipoUva) REFERENCES TipiUva(Nome)
 );
 
 CREATE TABLE Macchinari (
@@ -211,8 +211,6 @@ CREATE TABLE Ordini (
 
     PRIMARY KEY (Id),
     FOREIGN KEY (Acquirente) REFERENCES Acquirenti(Id)
-    
-    /*CHECK se PrezzoTotale= QuantitaBottiglie(Dettagli) x Prezzo(BottigliaDiVino) + Prezzo(Spedizione)  (non so se si può fare con un check, penso ci sia bisogno di un trigger)*/
 );
 
 CREATE TABLE Dettagli (
@@ -309,4 +307,4 @@ CREATE TABLE FornituraBottiglie (
     FOREIGN KEY (Bottiglia) REFERENCES Bottiglie(Id)
 );
 
-/*CREATE INDEX idx_dipendenti ON Dipendenti(CodiceFiscale)*/
+CREATE INDEX idx_dipendenti ON Dipendenti(CodiceFiscale)
