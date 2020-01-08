@@ -1,4 +1,4 @@
-E' opportuno creare un indice sulla tabella \emph{Dipendenti} perchè analizzando il carico della base di dati, tale tabella contiene dati che vengono acceduti spesso in lettura ma non in scrittura. L'unico momento in cui la tabella viene acceduta in scrittura è in concomitanza all'assunzione di nuovi dipendenti, azione svolta solamente 10 volte l'anno.
+È opportuno creare un indice sulla tabella \emph{Dipendenti} perchè analizzando il carico della base di dati, tale tabella contiene dati che vengono acceduti spesso in lettura ma non in scrittura. L'unico momento in cui la tabella viene acceduta in scrittura è in concomitanza all'assunzione di nuovi dipendenti, azione svolta solamente 10 volte l'anno.
 \begin{flushleft}
 	\textbf{{Creazione indice:}} \emph{CREATE INDEX idx\_dipendenti ON Dipendenti (CodiceFiscale)}
 \end{flushleft}
