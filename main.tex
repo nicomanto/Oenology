@@ -1,4 +1,4 @@
-\documentclass[a4paper,10pt]{report}
+\documentclass[a4paper,10pt]{article}
 \usepackage[T1]{fontenc}        % Codifica dei font
 \usepackage[utf8]{inputenc}    % Lettere accentate da tastiera
 \usepackage[english,italian]{babel}     % Lingua del documento
@@ -7,26 +7,43 @@
 \usepackage{array}
 %\usepackage[compact]{titlesec}
 \usepackage[margin=0.8in, includefoot]{geometry}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tabularx}
+
 
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{S}[1]{>{\arraybackslash}p{#1}}
 %\titleformat{\chapter}[display]{\bfseries}{}{-30pt}{\Huge}
 
-
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[scaled]{helvet}
 \begin{document}
-    \tableofcontents
+\title{%
+    Progetto per il corso di Basi di Dati \\
+    \large LT in Informatica, Università degli studi di Padova}
+\author{Niccolò Mantovani, 1187325
+    \and
+    Filippo Pinton, 1187361}
+\date{}
 
-	\chapter{Abstract}
-    \input{src/abstract/_main}
-    
-    \chapter{Analisi dei requisiti}
-        \input{src/analisiRequisiti/_main}
+\maketitle
 
-    \chapter{Progettazione concettuale}
-        \input{src/progettazioneConcettuale/_main}
+%\tableofcontents
 
-    \chapter{Progettazione logica}
-        \input{src/progettazioneLogica/_main}
+\section{Abstract}
+\input{src/abstract/_main}
 
-    \chapter{Query Funzioni e Indici}
-        \input{src/queryFunzioniIndici/_main}
+\section{Analisi dei requisiti}
+\input{src/analisiRequisiti/_main}
+
+\section{Progettazione concettuale}
+\input{src/progettazioneConcettuale/_main}
+
+\section{Progettazione logica}
+\input{src/progettazioneLogica/_main}
+
+\section{Query ed indici}
+\input{src/queryIndici/_main}
 \end{document}

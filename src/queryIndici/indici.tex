@@ -1,0 +1,5 @@
+Analizzando il traffico di informazioni da e verso la base di dati ci si e' resi conto che la tabella \emph{Dipendenti} contiene dati che sono acceduti di frequente in lettura e molto di rado (solamente 10 volte l'anno) in scrittura. Per aumentare l'efficienza della base di dati si e' quindi deciso di creare un Indice nella suddetta tabella.
+\begin{flushleft}
+	\textbf{{Creazione indice:}} \emph{CREATE INDEX idx\_dipendenti ON Dipendenti (CodiceFiscale)}
+\end{flushleft}
+
