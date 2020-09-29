@@ -1,5 +1,7 @@
 # Oenology
 
+[![PDF Build badge](https://img.shields.io/gitlab/pipeline/Butterneck/oenology/master?label=PDF%20build)](https://shields.io/)
+
 ## Descrizione
 Progetto sviluppato per l'esame di Basi di Dati.
 Il progetto consiste in una relazione riguardante la strutturizzazione di un database. Nello specifico Oenology si occupa di creare una base di dati per una **cantina vinicola**. Maggiori informazioni sul progetto si possono trovare nel file **oenology.pdf** (vedere paragrafo *Compilazione*).
