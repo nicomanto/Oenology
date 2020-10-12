@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: PDF
+name: PDF_build
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -15,8 +15,14 @@ jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v2
       - name: Compile LaTeX document
         uses: dante-ev/latex-action@master
         with:
           root_file: main.tex
-
+      - name: Upload to virtual env
+        uses: actions/upload-artifact@v1
+        with:
+          name: oenologyPDF
+          path: Oenology.pdf
