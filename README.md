@@ -11,3 +11,6 @@ Per ogni capitolo aggiungere una sottocartella con lo stesso nome in `src`. Crea
 
 ## Compilazione
 Il documento viene automaticamente compilato da github ogni volta che viene effetuato un push, il pdf frutto della compilazione e' disponibile per il download come artifact dalla conclusione della pipeline nella relativa sezione **Actions** in `PDF_build`
+
+## PDF prodotto
+Il PDF prodotto si può trovare nella sezione **release**
